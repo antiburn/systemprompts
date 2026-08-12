@@ -1,0 +1,26 @@
+version: "2.1.69"
+released: "2026-03-04T21:46:46.306Z"
+capture:
+  captured_at: "2026-08-03T10:22:33.745Z"
+  profile: "canonical empty-project-v0 historical compatibility profile"
+  measurement_method: "isolated local capture proxy; full system prompt retained in reviewed sidecar; provider request captured and not forwarded"
+  provenance: "Local prompt-retaining historical capture @anthropic-ai/claude-code@2.1.69; npm integrity sha512-H7KFlgeGQ2LM/2Cy1Aref58NxWUwaxxtC/XMdgGy7du3jD3uVP6C9MD498YZLzHECUTCSwUyTosfi87tGioD2g==; tool surface digest sha256:7b00a613081cc887b70c2a2a1b8afe0fe498cec4252c4a21d65210a90d88ebd2."
+  request_bytes: 25381
+token_measurement:
+  provider: "anthropic"
+  method: "Anthropic count_tokens with claude-sonnet-4-5-20250929; marginal full request minus component-removed request; unsupported cache_control.scope metadata omitted"
+  measured_at: "2026-08-03T14:00:00Z"
+system_prompts:
+- model: "claude-sonnet-4-5-20250929"
+  directory: "claude-sonnet-4-5-20250929"
+  representation: "serialized system JSON characters"
+  character_count: 15208
+  token_count: 3358
+  content_sha256: "d911e75e94040fc5cdeef454148e94eef5249413df7743c56c716b7492de9051"
+  capture: "original"
+tools:
+- canonical_name: "tool_search"
+  observed_raw_aliases:
+  - "ToolSearch"
+  definition_bytes: 3704
+  definition_token_count: 1561

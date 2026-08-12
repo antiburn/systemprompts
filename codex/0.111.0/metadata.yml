@@ -1,0 +1,51 @@
+version: "0.111.0"
+released: "2026-03-05T19:13:00.697Z"
+capture:
+  captured_at: "2026-08-03T10:31:34.771Z"
+  profile: "canonical empty-project-v1 compatibility profile"
+  measurement_method: "isolated local capture proxy; full system prompt retained in reviewed sidecar; provider request captured and not forwarded"
+  provenance: "Local prompt-retaining historical capture @openai/codex@0.111.0; npm integrity sha512-69Mw8//xBEHIgQ11tlYbz7HI2kndOs9GNnMVGzmTgsR48x2ZyYiZR1n4z2M+aR0A9BoarGxPIcbu2aEzVP/L0g==; tool surface digest sha256:18b4ccc576f9d722de0e2e985cc2309cfeb60f69e3319de8ce5c1d4399c52b45."
+  request_bytes: 31170
+token_measurement:
+  provider: "openai"
+  method: "OpenAI responses/input_tokens with gpt-5.4; marginal full request minus component-removed request"
+  measured_at: "2026-08-03T14:00:00Z"
+system_prompts:
+- model: "unrecorded"
+  directory: "default"
+  representation: "instructions characters"
+  character_count: 20771
+  token_count: 4375
+  content_sha256: "0fae66723e9ba38083bd5a26f83f5c6c944954daaea3436084ab75eb8fdf46c8"
+  capture: "original"
+tools:
+- canonical_name: "exec_command"
+  observed_raw_aliases:
+  - "exec_command"
+  definition_bytes: 2121
+  definition_token_count: 348
+- canonical_name: "request_user_input"
+  observed_raw_aliases:
+  - "request_user_input"
+  definition_bytes: 1355
+  definition_token_count: 186
+- canonical_name: "update_plan"
+  observed_raw_aliases:
+  - "update_plan"
+  definition_bytes: 624
+  definition_token_count: 81
+- canonical_name: "view_image"
+  observed_raw_aliases:
+  - "view_image"
+  definition_bytes: 417
+  definition_token_count: 59
+- canonical_name: "web_search"
+  observed_raw_aliases:
+  - "web_search"
+  definition_bytes: 48
+  definition_token_count: 4436
+- canonical_name: "write_stdin"
+  observed_raw_aliases:
+  - "write_stdin"
+  definition_bytes: 674
+  definition_token_count: 92

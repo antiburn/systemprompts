@@ -1,0 +1,136 @@
+version: "2.1.105"
+released: "2026-04-13T19:51:19.552Z"
+capture:
+  captured_at: "2026-08-03T10:23:01.929Z"
+  profile: "canonical empty-project-v0 historical compatibility profile"
+  measurement_method: "isolated local capture proxy; full system prompt retained in reviewed sidecar; provider request captured and not forwarded"
+  provenance: "Local prompt-retaining historical capture @anthropic-ai/claude-code@2.1.105; npm integrity sha512-7lFleszri7+1orZC/doKsWvRJypqWPYN1MEWa30YoMQDnczDFY0UJkypfzK1G8+NalpNZuSdwt2CP8UmotaZ/g==; tool surface digest sha256:3eb3128bf5b8e74add4f81a670aabe9512ecc70242c18a1aee3c4b276c262e77."
+  request_bytes: 107643
+token_measurement:
+  provider: "anthropic"
+  method: "Anthropic count_tokens with claude-sonnet-4-5-20250929; marginal full request minus component-removed request; unsupported cache_control.scope metadata omitted"
+  measured_at: "2026-08-03T14:00:00Z"
+system_prompts:
+- model: "claude-sonnet-4-5-20250929"
+  directory: "claude-sonnet-4-5-20250929"
+  representation: "serialized system JSON characters"
+  character_count: 26857
+  token_count: 6009
+  content_sha256: "af80d993cb7814247f7d79c255d67ddd84861041355b9754f218cfa9edcce77d"
+  capture: "original"
+tools:
+- canonical_name: "agent"
+  observed_raw_aliases:
+  - "Agent"
+  definition_bytes: 8009
+  definition_token_count: 1961
+- canonical_name: "ask_user_question"
+  observed_raw_aliases:
+  - "AskUserQuestion"
+  definition_bytes: 4182
+  definition_token_count: 1076
+- canonical_name: "bash"
+  observed_raw_aliases:
+  - "Bash"
+  definition_bytes: 11658
+  definition_token_count: 3007
+- canonical_name: "cron_create"
+  observed_raw_aliases:
+  - "CronCreate"
+  definition_bytes: 4053
+  definition_token_count: 1273
+- canonical_name: "cron_delete"
+  observed_raw_aliases:
+  - "CronDelete"
+  definition_bytes: 427
+  definition_token_count: 131
+- canonical_name: "cron_list"
+  observed_raw_aliases:
+  - "CronList"
+  definition_bytes: 277
+  definition_token_count: 90
+- canonical_name: "edit"
+  observed_raw_aliases:
+  - "Edit"
+  definition_bytes: 1702
+  definition_token_count: 440
+- canonical_name: "enter_plan_mode"
+  observed_raw_aliases:
+  - "EnterPlanMode"
+  definition_bytes: 4323
+  definition_token_count: 1104
+- canonical_name: "enter_worktree"
+  observed_raw_aliases:
+  - "EnterWorktree"
+  definition_bytes: 2908
+  definition_token_count: 814
+- canonical_name: "exit_plan_mode"
+  observed_raw_aliases:
+  - "ExitPlanMode"
+  definition_bytes: 2538
+  definition_token_count: 633
+- canonical_name: "exit_worktree"
+  observed_raw_aliases:
+  - "ExitWorktree"
+  definition_bytes: 2511
+  definition_token_count: 710
+- canonical_name: "glob"
+  observed_raw_aliases:
+  - "Glob"
+  definition_bytes: 966
+  definition_token_count: 251
+- canonical_name: "grep"
+  observed_raw_aliases:
+  - "Grep"
+  definition_bytes: 3395
+  definition_token_count: 990
+- canonical_name: "notebook_edit"
+  observed_raw_aliases:
+  - "NotebookEdit"
+  definition_bytes: 1509
+  definition_token_count: 403
+- canonical_name: "read"
+  observed_raw_aliases:
+  - "Read"
+  definition_bytes: 2483
+  definition_token_count: 657
+- canonical_name: "schedule_wakeup"
+  observed_raw_aliases:
+  - "ScheduleWakeup"
+  definition_bytes: 3195
+  definition_token_count: 919
+- canonical_name: "skill"
+  observed_raw_aliases:
+  - "Skill"
+  definition_bytes: 1677
+  definition_token_count: 466
+- canonical_name: "task_output"
+  observed_raw_aliases:
+  - "TaskOutput"
+  definition_bytes: 1553
+  definition_token_count: 421
+- canonical_name: "task_stop"
+  observed_raw_aliases:
+  - "TaskStop"
+  definition_bytes: 537
+  definition_token_count: 162
+- canonical_name: "todo_write"
+  observed_raw_aliases:
+  - "TodoWrite"
+  definition_bytes: 9841
+  definition_token_count: 2364
+- canonical_name: "web_fetch"
+  observed_raw_aliases:
+  - "WebFetch"
+  definition_bytes: 1865
+  definition_token_count: 492
+- canonical_name: "web_search"
+  observed_raw_aliases:
+  - "WebSearch"
+  definition_bytes: 1872
+  definition_token_count: 500
+- canonical_name: "write"
+  observed_raw_aliases:
+  - "Write"
+  definition_bytes: 1024
+  definition_token_count: 277

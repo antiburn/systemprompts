@@ -1,0 +1,26 @@
+version: "0.1.2505161800"
+released: "2025-05-17T01:12:04.495Z"
+capture:
+  captured_at: "2026-08-03T10:28:01.571Z"
+  profile: "canonical empty-project-ts-v0 historical TypeScript compatibility profile"
+  measurement_method: "isolated local capture proxy; full system prompt retained in reviewed sidecar; provider request captured and not forwarded"
+  provenance: "Local prompt-retaining historical capture @openai/codex@0.1.2505161800; npm integrity sha512-4o65rVYnAoQKnzKX3lAIzis+6p8+lk+MpFph2uRGpUepN6uV4JBND8XKS8o5A52uiSqpM5pz+2oXXIgh8njRtA==; tool surface digest sha256:24997d7b2ed5d2708b371d817f388f6abfd13ead4638b01ecf817253b59989b7. The verified TypeScript entrypoint was imported with synthetic argv."
+  request_bytes: 6042
+token_measurement:
+  provider: "openai"
+  method: "OpenAI responses/input_tokens with o4-mini; marginal full request minus component-removed request; incomplete historical strict schemas counted with token-equivalent strict=false"
+  measured_at: "2026-08-03T14:00:00Z"
+system_prompts:
+- model: "unrecorded"
+  directory: "default"
+  representation: "instructions characters"
+  character_count: 4780
+  token_count: 999
+  content_sha256: "421adf9bf2e5307e8f3f39be0035ffc4cf15f9d150531cd1454e9d8a9c3e4ba9"
+  capture: "original"
+tools:
+- canonical_name: "shell"
+  observed_raw_aliases:
+  - "shell"
+  definition_bytes: 459
+  definition_token_count: 70

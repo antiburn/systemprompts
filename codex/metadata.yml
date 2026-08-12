@@ -1,0 +1,5 @@
+harness: "codex"
+cache_ttl_measurements:
+- seconds: 1800
+  reviewed_at: "2026-07-31"
+  provenance: "Phase 3 empirical measurement: Codex cache turnover is gradual at approximately 30 minutes; Cadence models the reviewed provider boundary as 1,800 seconds independently of the Codex CLI version."

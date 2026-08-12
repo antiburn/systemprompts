@@ -1,0 +1,101 @@
+version: "0.2.114"
+released: "2025-05-14T16:30:35.917Z"
+capture:
+  captured_at: "2026-08-03T10:17:01.809Z"
+  profile: "canonical empty-project-legacy-v0 historical compatibility profile"
+  measurement_method: "isolated local capture proxy; full system prompt retained in reviewed sidecar; provider request captured and not forwarded"
+  provenance: "Local prompt-retaining historical capture @anthropic-ai/claude-code@0.2.114; npm integrity sha512-Wa+5VcY0jTWAuwBjguPzER5qNXpaT2Ye2ssaCADrWjWHv1gRp9OEtnX8mYPypywyB6rmKeMzioMDrtHAW3VD0w==; tool surface digest sha256:263610ec8e3ca6aff66349d5cc84115e40a0902311858c5f36007a0f19fad52e."
+  request_bytes: 97654
+token_measurement:
+  provider: "anthropic"
+  method: "Anthropic count_tokens with claude-sonnet-4-5-20250929; marginal full request minus component-removed request; unsupported cache_control.scope metadata omitted"
+  measured_at: "2026-08-03T14:00:00Z"
+system_prompts:
+- model: "unrecorded"
+  directory: "default"
+  representation: "serialized system JSON characters"
+  character_count: 12884
+  token_count: 2921
+  content_sha256: "5dfa3317048f4f3137bd59aa4079bbb2a4484fa55e38177357a634cd75af4261"
+  capture: "original"
+tools:
+- canonical_name: "bash"
+  observed_raw_aliases:
+  - "Bash"
+  definition_bytes: 9170
+  definition_token_count: 2419
+- canonical_name: "batch"
+  observed_raw_aliases:
+  - "Batch"
+  definition_bytes: 38224
+  definition_token_count: 9548
+- canonical_name: "edit"
+  observed_raw_aliases:
+  - "Edit"
+  definition_bytes: 4037
+  definition_token_count: 1058
+- canonical_name: "glob"
+  observed_raw_aliases:
+  - "Glob"
+  definition_bytes: 963
+  definition_token_count: 251
+- canonical_name: "grep"
+  observed_raw_aliases:
+  - "Grep"
+  definition_bytes: 1209
+  definition_token_count: 337
+- canonical_name: "ls"
+  observed_raw_aliases:
+  - "LS"
+  definition_bytes: 690
+  definition_token_count: 184
+- canonical_name: "multi_edit"
+  observed_raw_aliases:
+  - "MultiEdit"
+  definition_bytes: 3327
+  definition_token_count: 897
+- canonical_name: "notebook_edit"
+  observed_raw_aliases:
+  - "NotebookEdit"
+  definition_bytes: 1410
+  definition_token_count: 382
+- canonical_name: "notebook_read"
+  observed_raw_aliases:
+  - "NotebookRead"
+  definition_bytes: 645
+  definition_token_count: 164
+- canonical_name: "read"
+  observed_raw_aliases:
+  - "Read"
+  definition_bytes: 1895
+  definition_token_count: 506
+- canonical_name: "task"
+  observed_raw_aliases:
+  - "Task"
+  definition_bytes: 2238
+  definition_token_count: 560
+- canonical_name: "todo_read"
+  observed_raw_aliases:
+  - "TodoRead"
+  definition_bytes: 1338
+  definition_token_count: 333
+- canonical_name: "todo_write"
+  observed_raw_aliases:
+  - "TodoWrite"
+  definition_bytes: 9595
+  definition_token_count: 2299
+- canonical_name: "web_fetch"
+  observed_raw_aliases:
+  - "WebFetch"
+  definition_bytes: 1326
+  definition_token_count: 359
+- canonical_name: "web_search"
+  observed_raw_aliases:
+  - "WebSearch"
+  definition_bytes: 1008
+  definition_token_count: 267
+- canonical_name: "write"
+  observed_raw_aliases:
+  - "Write"
+  definition_bytes: 829
+  definition_token_count: 232

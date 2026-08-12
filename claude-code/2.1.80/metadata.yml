@@ -1,0 +1,131 @@
+version: "2.1.80"
+released: "2026-03-19T21:01:31.134Z"
+capture:
+  captured_at: "2026-08-03T10:22:45.124Z"
+  profile: "canonical empty-project-v0 historical compatibility profile"
+  measurement_method: "isolated local capture proxy; full system prompt retained in reviewed sidecar; provider request captured and not forwarded"
+  provenance: "Local prompt-retaining historical capture @anthropic-ai/claude-code@2.1.80; npm integrity sha512-YAgNNr3fzn3xaTNm+CYgebdEinU9D0HxGUT2C1N2Ej2HCvt5AjrSoU8vTgccxx4oPkj1R4gpuZWi1rTKvxNaPQ==; tool surface digest sha256:2e6a88b84d2882b835569d1b945c8341da95f63ce57cdac4b6a28d4a1980f15d."
+  request_bytes: 90547
+token_measurement:
+  provider: "anthropic"
+  method: "Anthropic count_tokens with claude-sonnet-4-5-20250929; marginal full request minus component-removed request; unsupported cache_control.scope metadata omitted"
+  measured_at: "2026-08-03T14:00:00Z"
+system_prompts:
+- model: "claude-sonnet-4-5-20250929"
+  directory: "claude-sonnet-4-5-20250929"
+  representation: "serialized system JSON characters"
+  character_count: 16448
+  token_count: 3629
+  content_sha256: "b50cd81d63587a639b43ebb8ddb24ed115eab368677488f9d9b276e39b7458a4"
+  capture: "original"
+tools:
+- canonical_name: "agent"
+  observed_raw_aliases:
+  - "Agent"
+  definition_bytes: 6768
+  definition_token_count: 1689
+- canonical_name: "ask_user_question"
+  observed_raw_aliases:
+  - "AskUserQuestion"
+  definition_bytes: 4182
+  definition_token_count: 1076
+- canonical_name: "bash"
+  observed_raw_aliases:
+  - "Bash"
+  definition_bytes: 12503
+  definition_token_count: 3162
+- canonical_name: "cron_create"
+  observed_raw_aliases:
+  - "CronCreate"
+  definition_bytes: 3184
+  definition_token_count: 1057
+- canonical_name: "cron_delete"
+  observed_raw_aliases:
+  - "CronDelete"
+  definition_bytes: 360
+  definition_token_count: 111
+- canonical_name: "cron_list"
+  observed_raw_aliases:
+  - "CronList"
+  definition_bytes: 231
+  definition_token_count: 76
+- canonical_name: "edit"
+  observed_raw_aliases:
+  - "Edit"
+  definition_bytes: 1716
+  definition_token_count: 444
+- canonical_name: "enter_plan_mode"
+  observed_raw_aliases:
+  - "EnterPlanMode"
+  definition_bytes: 4323
+  definition_token_count: 1104
+- canonical_name: "enter_worktree"
+  observed_raw_aliases:
+  - "EnterWorktree"
+  definition_bytes: 1670
+  definition_token_count: 489
+- canonical_name: "exit_plan_mode"
+  observed_raw_aliases:
+  - "ExitPlanMode"
+  definition_bytes: 2538
+  definition_token_count: 633
+- canonical_name: "exit_worktree"
+  observed_raw_aliases:
+  - "ExitWorktree"
+  definition_bytes: 2511
+  definition_token_count: 710
+- canonical_name: "glob"
+  observed_raw_aliases:
+  - "Glob"
+  definition_bytes: 1126
+  definition_token_count: 282
+- canonical_name: "grep"
+  observed_raw_aliases:
+  - "Grep"
+  definition_bytes: 3314
+  definition_token_count: 967
+- canonical_name: "notebook_edit"
+  observed_raw_aliases:
+  - "NotebookEdit"
+  definition_bytes: 1509
+  definition_token_count: 403
+- canonical_name: "read"
+  observed_raw_aliases:
+  - "Read"
+  definition_bytes: 2536
+  definition_token_count: 647
+- canonical_name: "skill"
+  observed_raw_aliases:
+  - "Skill"
+  definition_bytes: 1677
+  definition_token_count: 466
+- canonical_name: "task_output"
+  observed_raw_aliases:
+  - "TaskOutput"
+  definition_bytes: 938
+  definition_token_count: 268
+- canonical_name: "task_stop"
+  observed_raw_aliases:
+  - "TaskStop"
+  definition_bytes: 537
+  definition_token_count: 162
+- canonical_name: "todo_write"
+  observed_raw_aliases:
+  - "TodoWrite"
+  definition_bytes: 10401
+  definition_token_count: 2493
+- canonical_name: "web_fetch"
+  observed_raw_aliases:
+  - "WebFetch"
+  definition_bytes: 1865
+  definition_token_count: 492
+- canonical_name: "web_search"
+  observed_raw_aliases:
+  - "WebSearch"
+  definition_bytes: 1872
+  definition_token_count: 500
+- canonical_name: "write"
+  observed_raw_aliases:
+  - "Write"
+  definition_bytes: 1024
+  definition_token_count: 277

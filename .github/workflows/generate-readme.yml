@@ -1,0 +1,56 @@
+name: Generate README
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "claude-code/**"
+      - "codex/**"
+      - "tools/**"
+      - ".github/workflows/generate-readme.yml"
+      # Belt-and-braces: the generator's own outputs never need to
+      # re-trigger themselves (pushes made with GITHUB_TOKEN don't retrigger
+      # workflows anyway, but this keeps the trigger surface honest even if
+      # that ever changes, e.g. a human pushing straight to README.md).
+      - "!README.md"
+      - "!assets/**"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: generate-readme-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    # Belt-and-braces alongside the paths filter above: never run a
+    # generate-and-commit cycle triggered by the bot's own prior commit.
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install --disable-pip-version-check pyyaml
+
+      - name: Generate README and charts
+        run: python3 tools/generate_readme.py
+
+      - name: Commit changes if any
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- README.md assets; then
+            echo "No changes to README.md or assets/; nothing to commit."
+            exit 0
+          fi
+          git add README.md assets
+          git commit -m "chore: regenerate README and token-history charts"
+          git push

@@ -1,0 +1,61 @@
+version: "0.134.0"
+released: "2026-05-26T19:33:51.389Z"
+capture:
+  captured_at: "2026-08-03T10:32:09.045Z"
+  profile: "canonical empty-project-v2"
+  measurement_method: "isolated local capture proxy; full system prompt retained in reviewed sidecar; provider request captured and not forwarded"
+  provenance: "Local prompt-retaining historical capture @openai/codex@0.134.0; npm integrity sha512-N0vmdTXl/rglZjgd3PaMe9oRrqjO6zZ//uAvUhCDRnJNAUT3LrpYvCK3y9B/ev7QcChfXR43IGUh3ssqWRvMmA==; tool surface digest sha256:bab1ae1f3856084200fa7c3d8ec5a3012c6c6004426c47d9fa245dcb9ec4c356."
+  request_bytes: 28182
+token_measurement:
+  provider: "openai"
+  method: "OpenAI responses/input_tokens with gpt-5.4; marginal full request minus component-removed request"
+  measured_at: "2026-08-03T14:00:00Z"
+system_prompts:
+- model: "unrecorded"
+  directory: "default"
+  representation: "instructions characters"
+  character_count: 14732
+  token_count: 2995
+  content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
+  capture: "original"
+tools:
+- canonical_name: "apply_patch"
+  observed_raw_aliases:
+  - "apply_patch"
+  definition_bytes: 838
+  definition_token_count: 268
+- canonical_name: "exec_command"
+  observed_raw_aliases:
+  - "exec_command"
+  definition_bytes: 2121
+  definition_token_count: 348
+- canonical_name: "request_user_input"
+  observed_raw_aliases:
+  - "request_user_input"
+  definition_bytes: 1355
+  definition_token_count: 186
+- canonical_name: "tool_search"
+  observed_raw_aliases:
+  - "tool_search"
+  definition_bytes: 805
+  definition_token_count: 157
+- canonical_name: "update_plan"
+  observed_raw_aliases:
+  - "update_plan"
+  definition_bytes: 624
+  definition_token_count: 81
+- canonical_name: "view_image"
+  observed_raw_aliases:
+  - "view_image"
+  definition_bytes: 810
+  definition_token_count: 129
+- canonical_name: "web_search"
+  observed_raw_aliases:
+  - "web_search"
+  definition_bytes: 88
+  definition_token_count: 4436
+- canonical_name: "write_stdin"
+  observed_raw_aliases:
+  - "write_stdin"
+  definition_bytes: 674
+  definition_token_count: 92

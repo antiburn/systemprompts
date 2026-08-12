@@ -1,0 +1,5 @@
+harness: "claude-code"
+cache_ttl_measurements:
+- seconds: 3600
+  reviewed_at: "2026-07-31"
+  provenance: "Phase 3 empirical measurement: Claude prompt caching has an approximately one-hour hard cliff. This is a provider-level behavior and is not scoped to a Claude Code CLI version."

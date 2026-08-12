@@ -1,0 +1,67 @@
+version: "0.147.0"
+released: "2026-08-07T01:47:21.081Z"
+capture:
+  captured_at: "2026-08-07T03:00:08Z"
+  profile: "canonical empty-project-v2"
+  measurement_method: "isolated capture proxy; provider request captured and supported fields sent only to the openai token-counting endpoint"
+  provenance: "Automated Phase 5 capture pending human review."
+  request_bytes: 30115
+  automation:
+    package_name: "@openai/codex"
+    release_channel: "latest"
+    registry_integrity: "sha512-EQLEXecAG2ptxI7UpBMo2TR/ga5596/c/OsYF/0LoUDh5JANZ7IoGqlzBEWbuEVQ76JePIbtTW/ihCkp1a7Z3w=="
+    probe_profile_version: "empty-project-v2"
+    tool_surface_digest: "sha256:b28a943fe67f5a8312e88bc1223c2319db2fb8fe04d5ac5ee6bf519a857ef0a8"
+token_measurement:
+  provider: "openai"
+  method: "OpenAI responses.input_tokens with gpt-5.4; marginal full request minus component-removed request"
+  measured_at: "2026-08-07T03:00:50.426573766Z"
+system_prompts:
+- model: "unrecorded"
+  directory: null
+  representation: "instructions characters; content omitted"
+  character_count: 14732
+  token_count: 2995
+  content: "unretained"
+  capture: "original"
+tools:
+- canonical_name: "apply_patch"
+  observed_raw_aliases:
+  - "apply_patch"
+  definition_bytes: 846
+  definition_token_count: 270
+- canonical_name: "exec_command"
+  observed_raw_aliases:
+  - "exec_command"
+  definition_bytes: 1564
+  definition_token_count: 261
+- canonical_name: "request_user_input"
+  observed_raw_aliases:
+  - "request_user_input"
+  definition_bytes: 1355
+  definition_token_count: 186
+- canonical_name: "tool_search"
+  observed_raw_aliases:
+  - "tool_search"
+  definition_bytes: 804
+  definition_token_count: 157
+- canonical_name: "update_plan"
+  observed_raw_aliases:
+  - "update_plan"
+  definition_bytes: 733
+  definition_token_count: 95
+- canonical_name: "view_image"
+  observed_raw_aliases:
+  - "view_image"
+  definition_bytes: 526
+  definition_token_count: 73
+- canonical_name: "web_search"
+  observed_raw_aliases:
+  - "web_search"
+  definition_bytes: 88
+  definition_token_count: 4436
+- canonical_name: "write_stdin"
+  observed_raw_aliases:
+  - "write_stdin"
+  definition_bytes: 784
+  definition_token_count: 122

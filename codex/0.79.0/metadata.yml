@@ -1,0 +1,51 @@
+version: "0.79.0"
+released: "2026-01-07T00:57:10.229Z"
+capture:
+  captured_at: "2026-08-03T10:30:25.587Z"
+  profile: "canonical empty-project-v0 historical compatibility profile"
+  measurement_method: "isolated local capture proxy; full system prompt retained in reviewed sidecar; provider request captured and not forwarded"
+  provenance: "Local prompt-retaining historical capture @openai/codex@0.79.0; npm integrity sha512-9qL1H9+DyNwPexchcl620rJc+sf0m1BlbSFa6tnsrfoR6n6cdxl+7Vi8ZSWmFEGWqRyQJMW8PKcpyt6hbv72mg==; tool surface digest sha256:46b76ac97e8f65ed56e97e33f447a3be2cd3e329be52110353a7a938d50f8e81."
+  request_bytes: 35399
+token_measurement:
+  provider: "openai"
+  method: "OpenAI responses/input_tokens with gpt-5.4; marginal full request minus component-removed request"
+  measured_at: "2026-08-03T14:00:00Z"
+system_prompts:
+- model: "unrecorded"
+  directory: "default"
+  representation: "instructions characters"
+  character_count: 27149
+  token_count: 5819
+  content_sha256: "3b76c85a0fa3a587c029c73d8f7b8cb4e8ea92175b48194be01e271e649527aa"
+  capture: "original"
+tools:
+- canonical_name: "list_mcp_resource_templates"
+  observed_raw_aliases:
+  - "list_mcp_resource_templates"
+  definition_bytes: 734
+  definition_token_count: 104
+- canonical_name: "list_mcp_resources"
+  observed_raw_aliases:
+  - "list_mcp_resources"
+  definition_bytes: 646
+  definition_token_count: 93
+- canonical_name: "read_mcp_resource"
+  observed_raw_aliases:
+  - "read_mcp_resource"
+  definition_bytes: 526
+  definition_token_count: 77
+- canonical_name: "shell"
+  observed_raw_aliases:
+  - "shell"
+  definition_bytes: 1084
+  definition_token_count: 173
+- canonical_name: "update_plan"
+  observed_raw_aliases:
+  - "update_plan"
+  definition_bytes: 624
+  definition_token_count: 81
+- canonical_name: "view_image"
+  observed_raw_aliases:
+  - "view_image"
+  definition_bytes: 330
+  definition_token_count: 40

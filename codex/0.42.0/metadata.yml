@@ -1,0 +1,31 @@
+version: "0.42.0"
+released: "2025-09-26T18:43:27.605Z"
+capture:
+  captured_at: "2026-08-03T10:29:21.989Z"
+  profile: "canonical empty-project-v0 historical compatibility profile"
+  measurement_method: "isolated local capture proxy; full system prompt retained in reviewed sidecar; provider request captured and not forwarded"
+  provenance: "Local prompt-retaining historical capture @openai/codex@0.42.0; npm integrity sha512-jLpMrQuq1gIBzBKbKMwAzXOh+5uwE+ht3RHUb2Ov7P50fjAxPKDZa0+zpqkhHTspm8Rw6Vdrm4I4L+Z03usCkg==; tool surface digest sha256:0536d0ccb5df592a3412fcac4e0b833efc7334e7898f3add9a8adfbf5a252153."
+  request_bytes: 29772
+token_measurement:
+  provider: "openai"
+  method: "OpenAI responses/input_tokens with gpt-5.4; marginal full request minus component-removed request"
+  measured_at: "2026-08-03T14:00:00Z"
+system_prompts:
+- model: "unrecorded"
+  directory: "default"
+  representation: "instructions characters"
+  character_count: 27319
+  token_count: 5858
+  content_sha256: "eefaf14fa9d709fe650181e6af8bdc781f9646bcc7ce36ccf99980fa781bcc86"
+  capture: "original"
+tools:
+- canonical_name: "shell"
+  observed_raw_aliases:
+  - "shell"
+  definition_bytes: 814
+  definition_token_count: 114
+- canonical_name: "view_image"
+  observed_raw_aliases:
+  - "view_image"
+  definition_bytes: 330
+  definition_token_count: 40

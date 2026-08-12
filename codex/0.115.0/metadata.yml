@@ -1,0 +1,81 @@
+version: "0.115.0"
+released: "2026-03-16T19:38:16.363Z"
+capture:
+  captured_at: "2026-08-03T10:31:39.666Z"
+  profile: "canonical empty-project-v1 compatibility profile"
+  measurement_method: "isolated local capture proxy; full system prompt retained in reviewed sidecar; provider request captured and not forwarded"
+  provenance: "Local prompt-retaining historical capture @openai/codex@0.115.0; npm integrity sha512-uu689DHUzvuPcb39hJ+7fqy++TAvY32w9VggDpcz3HS0Sx0WadWoAPPcMK547P2T6AqfMsAtA8kspkR3tqErOg==; tool surface digest sha256:89df159adfd53c1ab173493fce96d6baaecb22975f32ae4d2dab90a4341d4ee0."
+  request_bytes: 37943
+token_measurement:
+  provider: "openai"
+  method: "OpenAI responses/input_tokens with gpt-5.4; marginal full request minus component-removed request"
+  measured_at: "2026-08-03T14:00:00Z"
+system_prompts:
+- model: "unrecorded"
+  directory: "default"
+  representation: "instructions characters"
+  character_count: 14101
+  token_count: 2882
+  content_sha256: "fcab1433e08b3bfa3b4d906021cba0b54da8df766a94004873d363c69f2e8925"
+  capture: "original"
+tools:
+- canonical_name: "apply_patch"
+  observed_raw_aliases:
+  - "apply_patch"
+  definition_bytes: 838
+  definition_token_count: 268
+- canonical_name: "close_agent"
+  observed_raw_aliases:
+  - "close_agent"
+  definition_bytes: 386
+  definition_token_count: 54
+- canonical_name: "exec_command"
+  observed_raw_aliases:
+  - "exec_command"
+  definition_bytes: 2121
+  definition_token_count: 348
+- canonical_name: "request_user_input"
+  observed_raw_aliases:
+  - "request_user_input"
+  definition_bytes: 1355
+  definition_token_count: 186
+- canonical_name: "resume_agent"
+  observed_raw_aliases:
+  - "resume_agent"
+  definition_bytes: 314
+  definition_token_count: 38
+- canonical_name: "send_input"
+  observed_raw_aliases:
+  - "send_input"
+  definition_bytes: 1486
+  definition_token_count: 236
+- canonical_name: "spawn_agent"
+  observed_raw_aliases:
+  - "spawn_agent"
+  definition_bytes: 10016
+  definition_token_count: 1923
+- canonical_name: "update_plan"
+  observed_raw_aliases:
+  - "update_plan"
+  definition_bytes: 624
+  definition_token_count: 81
+- canonical_name: "view_image"
+  observed_raw_aliases:
+  - "view_image"
+  definition_bytes: 417
+  definition_token_count: 59
+- canonical_name: "wait_agent"
+  observed_raw_aliases:
+  - "wait_agent"
+  definition_bytes: 737
+  definition_token_count: 116
+- canonical_name: "web_search"
+  observed_raw_aliases:
+  - "web_search"
+  definition_bytes: 48
+  definition_token_count: 4436
+- canonical_name: "write_stdin"
+  observed_raw_aliases:
+  - "write_stdin"
+  definition_bytes: 674
+  definition_token_count: 92

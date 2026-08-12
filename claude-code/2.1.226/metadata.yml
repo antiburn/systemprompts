@@ -1,0 +1,147 @@
+version: "2.1.226"
+released: "2026-08-08T01:53:22.182Z"
+capture:
+  captured_at: "2026-08-08T02:50:00Z"
+  profile: "canonical empty-project-v1"
+  measurement_method: "isolated capture proxy; provider request captured and supported fields sent only to the anthropic token-counting endpoint"
+  provenance: "Automated Phase 5 capture pending human review."
+  request_bytes: 124291
+  automation:
+    package_name: "@anthropic-ai/claude-code"
+    release_channel: "latest"
+    registry_integrity: "sha512-mUkA81SbzATHFsHNz/rPy3Itw0D0S9kQMsIUJ3qPGwpNJMqPePyDP6xnWHI0jfFlspVjs8r/GfolMUyiy8P1FQ=="
+    probe_profile_version: "empty-project-v1"
+    tool_surface_digest: "sha256:67d0390d6f12e1d032ac70ea7715c0fbe0683e397bd714bc3dcf1f82190e7c46"
+token_measurement:
+  provider: "anthropic"
+  method: "Anthropic count_tokens with claude-sonnet-4-5-20250929; marginal full request minus component-removed request; unsupported cache_control.scope metadata omitted"
+  measured_at: "2026-08-08T02:50:46.861400559Z"
+system_prompts:
+- model: "unrecorded"
+  directory: null
+  representation: "canonical serialized system JSON characters; content omitted"
+  character_count: 28121
+  token_count: 6314
+  content: "unretained"
+  capture: "original"
+tools:
+- canonical_name: "agent"
+  observed_raw_aliases:
+  - "Agent"
+  definition_bytes: 8193
+  definition_token_count: 2050
+- canonical_name: "bash"
+  observed_raw_aliases:
+  - "Bash"
+  definition_bytes: 11446
+  definition_token_count: 2967
+- canonical_name: "cron_create"
+  observed_raw_aliases:
+  - "CronCreate"
+  definition_bytes: 4053
+  definition_token_count: 1273
+- canonical_name: "cron_delete"
+  observed_raw_aliases:
+  - "CronDelete"
+  definition_bytes: 427
+  definition_token_count: 131
+- canonical_name: "cron_list"
+  observed_raw_aliases:
+  - "CronList"
+  definition_bytes: 277
+  definition_token_count: 90
+- canonical_name: "edit"
+  observed_raw_aliases:
+  - "Edit"
+  definition_bytes: 1702
+  definition_token_count: 440
+- canonical_name: "enter_worktree"
+  observed_raw_aliases:
+  - "EnterWorktree"
+  definition_bytes: 4027
+  definition_token_count: 1095
+- canonical_name: "exit_worktree"
+  observed_raw_aliases:
+  - "ExitWorktree"
+  definition_bytes: 2511
+  definition_token_count: 710
+- canonical_name: "notebook_edit"
+  observed_raw_aliases:
+  - "NotebookEdit"
+  definition_bytes: 1627
+  definition_token_count: 476
+- canonical_name: "read"
+  observed_raw_aliases:
+  - "Read"
+  definition_bytes: 2636
+  definition_token_count: 696
+- canonical_name: "report_findings"
+  observed_raw_aliases:
+  - "ReportFindings"
+  definition_bytes: 2181
+  definition_token_count: 609
+- canonical_name: "schedule_wakeup"
+  observed_raw_aliases:
+  - "ScheduleWakeup"
+  definition_bytes: 4098
+  definition_token_count: 1144
+- canonical_name: "send_message"
+  observed_raw_aliases:
+  - "SendMessage"
+  definition_bytes: 1440
+  definition_token_count: 436
+- canonical_name: "skill"
+  observed_raw_aliases:
+  - "Skill"
+  definition_bytes: 1811
+  definition_token_count: 467
+- canonical_name: "task_create"
+  observed_raw_aliases:
+  - "TaskCreate"
+  definition_bytes: 2816
+  definition_token_count: 708
+- canonical_name: "task_get"
+  observed_raw_aliases:
+  - "TaskGet"
+  definition_bytes: 1018
+  definition_token_count: 289
+- canonical_name: "task_list"
+  observed_raw_aliases:
+  - "TaskList"
+  definition_bytes: 1189
+  definition_token_count: 321
+- canonical_name: "task_output"
+  observed_raw_aliases:
+  - "TaskOutput"
+  definition_bytes: 1552
+  definition_token_count: 421
+- canonical_name: "task_stop"
+  observed_raw_aliases:
+  - "TaskStop"
+  definition_bytes: 805
+  definition_token_count: 230
+- canonical_name: "task_update"
+  observed_raw_aliases:
+  - "TaskUpdate"
+  definition_bytes: 3514
+  definition_token_count: 1051
+- canonical_name: "web_fetch"
+  observed_raw_aliases:
+  - "WebFetch"
+  definition_bytes: 1865
+  definition_token_count: 492
+- canonical_name: "web_search"
+  observed_raw_aliases:
+  - "WebSearch"
+  definition_bytes: 1872
+  definition_token_count: 500
+- canonical_name: "workflow"
+  observed_raw_aliases:
+  - "Workflow"
+  definition_bytes: 21525
+  definition_token_count: 6023
+- canonical_name: "write"
+  observed_raw_aliases:
+  - "Write"
+  definition_bytes: 1024
+  definition_token_count: 277

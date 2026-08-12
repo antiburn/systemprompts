@@ -1,0 +1,66 @@
+version: "0.96.0"
+released: "2026-02-04T18:24:44.133Z"
+capture:
+  captured_at: "2026-08-03T10:31:08.279Z"
+  profile: "canonical empty-project-v0 historical compatibility profile"
+  measurement_method: "isolated local capture proxy; full system prompt retained in reviewed sidecar; provider request captured and not forwarded"
+  provenance: "Local prompt-retaining historical capture @openai/codex@0.96.0; npm integrity sha512-rc6+UGvRPIy53j5Ta7tBd0Vv+UcbzD8+5y6aqmuTArTFNDoZJblc3Pvror3IQDpaBpRyQtJGd0NbA9Did57LyA==; tool surface digest sha256:977e2145220094c0657cfcd91ee971f25a47ca2e7f7ecd8566b1cf25607725d1."
+  request_bytes: 36342
+token_measurement:
+  provider: "openai"
+  method: "OpenAI responses/input_tokens with gpt-5.4; marginal full request minus component-removed request"
+  measured_at: "2026-08-03T14:00:00Z"
+system_prompts:
+- model: "unrecorded"
+  directory: "default"
+  representation: "instructions characters"
+  character_count: 23842
+  token_count: 5127
+  content_sha256: "a78d24ea274453453cedc397095b1a1bfe7218fe884f4e75c6e828375dd42241"
+  capture: "original"
+tools:
+- canonical_name: "exec_command"
+  observed_raw_aliases:
+  - "exec_command"
+  definition_bytes: 2118
+  definition_token_count: 348
+- canonical_name: "list_mcp_resource_templates"
+  observed_raw_aliases:
+  - "list_mcp_resource_templates"
+  definition_bytes: 734
+  definition_token_count: 104
+- canonical_name: "list_mcp_resources"
+  observed_raw_aliases:
+  - "list_mcp_resources"
+  definition_bytes: 646
+  definition_token_count: 93
+- canonical_name: "read_mcp_resource"
+  observed_raw_aliases:
+  - "read_mcp_resource"
+  definition_bytes: 526
+  definition_token_count: 77
+- canonical_name: "request_user_input"
+  observed_raw_aliases:
+  - "request_user_input"
+  definition_bytes: 1355
+  definition_token_count: 186
+- canonical_name: "update_plan"
+  observed_raw_aliases:
+  - "update_plan"
+  definition_bytes: 624
+  definition_token_count: 81
+- canonical_name: "view_image"
+  observed_raw_aliases:
+  - "view_image"
+  definition_bytes: 417
+  definition_token_count: 59
+- canonical_name: "web_search"
+  observed_raw_aliases:
+  - "web_search"
+  definition_bytes: 48
+  definition_token_count: 4436
+- canonical_name: "write_stdin"
+  observed_raw_aliases:
+  - "write_stdin"
+  definition_bytes: 674
+  definition_token_count: 92

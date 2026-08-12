@@ -1,0 +1,56 @@
+version: "0.114.0"
+released: "2026-03-11T00:29:28.692Z"
+capture:
+  captured_at: "2026-08-03T10:31:39.310Z"
+  profile: "canonical empty-project-v1 compatibility profile"
+  measurement_method: "isolated local capture proxy; full system prompt retained in reviewed sidecar; provider request captured and not forwarded"
+  provenance: "Local prompt-retaining historical capture @openai/codex@0.114.0; npm integrity sha512-HMo8LRR6CtfKkaa28xvFK6eOarmBFTDfsrS9GJtEoaspGGemFok494CpafDspiTZaHZZGHfSUe5SWTUxYq7OaA==; tool surface digest sha256:1fdb71182f462255965323989af4a8d5c4646f24c6c52b64f987fd544c42ba47."
+  request_bytes: 24580
+token_measurement:
+  provider: "openai"
+  method: "OpenAI responses/input_tokens with gpt-5.4; marginal full request minus component-removed request"
+  measured_at: "2026-08-03T14:00:00Z"
+system_prompts:
+- model: "unrecorded"
+  directory: "default"
+  representation: "instructions characters"
+  character_count: 14101
+  token_count: 2882
+  content_sha256: "fcab1433e08b3bfa3b4d906021cba0b54da8df766a94004873d363c69f2e8925"
+  capture: "original"
+tools:
+- canonical_name: "apply_patch"
+  observed_raw_aliases:
+  - "apply_patch"
+  definition_bytes: 838
+  definition_token_count: 268
+- canonical_name: "exec_command"
+  observed_raw_aliases:
+  - "exec_command"
+  definition_bytes: 2121
+  definition_token_count: 348
+- canonical_name: "request_user_input"
+  observed_raw_aliases:
+  - "request_user_input"
+  definition_bytes: 1355
+  definition_token_count: 186
+- canonical_name: "update_plan"
+  observed_raw_aliases:
+  - "update_plan"
+  definition_bytes: 624
+  definition_token_count: 81
+- canonical_name: "view_image"
+  observed_raw_aliases:
+  - "view_image"
+  definition_bytes: 417
+  definition_token_count: 59
+- canonical_name: "web_search"
+  observed_raw_aliases:
+  - "web_search"
+  definition_bytes: 48
+  definition_token_count: 4436
+- canonical_name: "write_stdin"
+  observed_raw_aliases:
+  - "write_stdin"
+  definition_bytes: 674
+  definition_token_count: 92

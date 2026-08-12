@@ -1,0 +1,111 @@
+version: "2.0.74"
+released: "2025-12-19T21:08:38.116Z"
+capture:
+  captured_at: "2026-08-03T10:21:08.022Z"
+  profile: "canonical empty-project-v0 historical compatibility profile"
+  measurement_method: "isolated local capture proxy; full system prompt retained in reviewed sidecar; provider request captured and not forwarded"
+  provenance: "Local prompt-retaining historical capture @anthropic-ai/claude-code@2.0.74; npm integrity sha512-Q6QO4z900zPJePsDFAevQ7EbEtUqG75UB83Dt97nbRI9YxGmaG6hLbLHTQu9s6CK64rhdANEihqKSf7K08e2Iw==; tool surface digest sha256:6e8978a306fc676687f074095730f66f33ac6d5d311f87c375a217f249501e3c."
+  request_bytes: 74932
+token_measurement:
+  provider: "anthropic"
+  method: "Anthropic count_tokens with claude-sonnet-4-5-20250929; marginal full request minus component-removed request; unsupported cache_control.scope metadata omitted"
+  measured_at: "2026-08-03T14:00:00Z"
+system_prompts:
+- model: "claude-sonnet-4-5-20250929"
+  directory: "claude-sonnet-4-5-20250929"
+  representation: "serialized system JSON characters"
+  character_count: 13458
+  token_count: 2917
+  content_sha256: "3562732923e41d3b56e074e6e53caab106fec00c5e2099723022db70cbc43951"
+  capture: "original"
+tools:
+- canonical_name: "ask_user_question"
+  observed_raw_aliases:
+  - "AskUserQuestion"
+  definition_bytes: 2543
+  definition_token_count: 669
+- canonical_name: "bash"
+  observed_raw_aliases:
+  - "Bash"
+  definition_bytes: 11281
+  definition_token_count: 2890
+- canonical_name: "edit"
+  observed_raw_aliases:
+  - "Edit"
+  definition_bytes: 1712
+  definition_token_count: 442
+- canonical_name: "enter_plan_mode"
+  observed_raw_aliases:
+  - "EnterPlanMode"
+  definition_bytes: 4317
+  definition_token_count: 1102
+- canonical_name: "exit_plan_mode"
+  observed_raw_aliases:
+  - "ExitPlanMode"
+  definition_bytes: 2127
+  definition_token_count: 515
+- canonical_name: "glob"
+  observed_raw_aliases:
+  - "Glob"
+  definition_bytes: 1121
+  definition_token_count: 280
+- canonical_name: "grep"
+  observed_raw_aliases:
+  - "Grep"
+  definition_bytes: 3245
+  definition_token_count: 946
+- canonical_name: "kill_shell"
+  observed_raw_aliases:
+  - "KillShell"
+  definition_bytes: 543
+  definition_token_count: 160
+- canonical_name: "lsp"
+  observed_raw_aliases:
+  - "LSP"
+  definition_bytes: 1826
+  definition_token_count: 512
+- canonical_name: "notebook_edit"
+  observed_raw_aliases:
+  - "NotebookEdit"
+  definition_bytes: 1504
+  definition_token_count: 401
+- canonical_name: "read"
+  observed_raw_aliases:
+  - "Read"
+  definition_bytes: 2299
+  definition_token_count: 569
+- canonical_name: "skill"
+  observed_raw_aliases:
+  - "Skill"
+  definition_bytes: 1834
+  definition_token_count: 522
+- canonical_name: "task"
+  observed_raw_aliases:
+  - "Task"
+  definition_bytes: 6941
+  definition_token_count: 1691
+- canonical_name: "task_output"
+  observed_raw_aliases:
+  - "TaskOutput"
+  definition_bytes: 915
+  definition_token_count: 260
+- canonical_name: "todo_write"
+  observed_raw_aliases:
+  - "TodoWrite"
+  definition_bytes: 10427
+  definition_token_count: 2497
+- canonical_name: "web_fetch"
+  observed_raw_aliases:
+  - "WebFetch"
+  definition_bytes: 1491
+  definition_token_count: 392
+- canonical_name: "web_search"
+  observed_raw_aliases:
+  - "WebSearch"
+  definition_bytes: 1887
+  definition_token_count: 516
+- canonical_name: "write"
+  observed_raw_aliases:
+  - "Write"
+  definition_bytes: 1021
+  definition_token_count: 269

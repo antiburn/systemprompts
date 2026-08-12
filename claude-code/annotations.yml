@@ -1,0 +1,4 @@
+callouts:
+  - version: "2.1.69"
+    label: "ToolSearch-only initial request"
+    detail: "1 tool schema · 1,561 tool tokens"

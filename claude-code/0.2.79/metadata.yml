@@ -1,0 +1,81 @@
+version: "0.2.79"
+released: "2025-04-23T17:24:18.815Z"
+capture:
+  captured_at: "2026-08-03T10:16:13.265Z"
+  profile: "canonical empty-project-legacy-v0 historical compatibility profile"
+  measurement_method: "isolated local capture proxy; full system prompt retained in reviewed sidecar; provider request captured and not forwarded"
+  provenance: "Local prompt-retaining historical capture @anthropic-ai/claude-code@0.2.79; npm integrity sha512-9qB8yvaSDeKhVv6ITsEjTCs35OUD7hXbrS7KpAVFtc8iDLwJx6HNiwjy12amvFXOSlmrnIku7U4kOo2aql3lrA==; tool surface digest sha256:ac63040ae3d92046c703344e999c4609859248dd2691054cf88afff62b89a367."
+  request_bytes: 60391
+token_measurement:
+  provider: "anthropic"
+  method: "Anthropic count_tokens with claude-sonnet-4-5-20250929; marginal full request minus component-removed request; unsupported cache_control.scope metadata omitted"
+  measured_at: "2026-08-03T14:00:00Z"
+system_prompts:
+- model: "unrecorded"
+  directory: "default"
+  representation: "serialized system JSON characters"
+  character_count: 10728
+  token_count: 2434
+  content_sha256: "f5c7f6802e9c854000d6aee469f13f6023de46ea5afc467dbb9fd407efe6441a"
+  capture: "original"
+tools:
+- canonical_name: "bash"
+  observed_raw_aliases:
+  - "Bash"
+  definition_bytes: 8968
+  definition_token_count: 2345
+- canonical_name: "batch_tool"
+  observed_raw_aliases:
+  - "BatchTool"
+  definition_bytes: 21578
+  definition_token_count: 5576
+- canonical_name: "dispatch_agent"
+  observed_raw_aliases:
+  - "dispatch_agent"
+  definition_bytes: 2130
+  definition_token_count: 530
+- canonical_name: "edit"
+  observed_raw_aliases:
+  - "Edit"
+  definition_bytes: 3964
+  definition_token_count: 1036
+- canonical_name: "glob_tool"
+  observed_raw_aliases:
+  - "GlobTool"
+  definition_bytes: 967
+  definition_token_count: 253
+- canonical_name: "grep_tool"
+  observed_raw_aliases:
+  - "GrepTool"
+  definition_bytes: 1062
+  definition_token_count: 295
+- canonical_name: "ls"
+  observed_raw_aliases:
+  - "LS"
+  definition_bytes: 690
+  definition_token_count: 184
+- canonical_name: "notebook_edit_cell"
+  observed_raw_aliases:
+  - "NotebookEditCell"
+  definition_bytes: 1377
+  definition_token_count: 371
+- canonical_name: "read_notebook"
+  observed_raw_aliases:
+  - "ReadNotebook"
+  definition_bytes: 645
+  definition_token_count: 163
+- canonical_name: "replace"
+  observed_raw_aliases:
+  - "Replace"
+  definition_bytes: 738
+  definition_token_count: 205
+- canonical_name: "view"
+  observed_raw_aliases:
+  - "View"
+  definition_bytes: 1899
+  definition_token_count: 506
+- canonical_name: "web_fetch_tool"
+  observed_raw_aliases:
+  - "WebFetchTool"
+  definition_bytes: 1533
+  definition_token_count: 407
