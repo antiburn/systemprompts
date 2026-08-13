@@ -18,6 +18,60 @@ system_prompts:
   token_count: 1000
   content_sha256: "3ac1ec0db5ea7163faf78d391c61070128b7e6f69b2047105dea9fa0d40a207c"
   capture: "original"
+- model: "codex-mini-latest"
+  directory: "codex-mini-latest"
+  representation: "instructions characters"
+  character_count: 4779
+  token_count: null
+  content_sha256: "107e051bf193ec374b65c640d0230dd296de59c23f3c67fd8858e1def37adf30"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-ts-v0"
+  recaptured_at: "2026-08-12T15:24:37.497Z"
+- model: "gpt-4.1"
+  directory: "gpt-4.1"
+  representation: "instructions characters"
+  character_count: 7664
+  token_count: 1684
+  content_sha256: "4d6ba1235419bc5f32c3ed350797918325a88cb86b9f9841fed4b3898779d065"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-ts-v0"
+  recaptured_at: "2026-08-12T15:24:46.887Z"
+- model: "gpt-4.1-mini"
+  directory: "gpt-4.1-mini"
+  representation: "instructions characters"
+  character_count: 7664
+  token_count: 1685
+  content_sha256: "4711b857692460c453dda1b91bffecccde1a2c2c387a0d68b6838e40613c4537"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-ts-v0"
+  recaptured_at: "2026-08-12T15:24:55.378Z"
+- model: "gpt-4.1-nano"
+  directory: "gpt-4.1-nano"
+  representation: "instructions characters"
+  character_count: 7664
+  token_count: 1685
+  content_sha256: "7b5355a9c22891359fd5f64a8537cd0c71b9d260fa9a9ae1660a556df2c56558"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-ts-v0"
+  recaptured_at: "2026-08-12T15:25:04.138Z"
+- model: "o3-2025-04-16"
+  directory: "o3-2025-04-16"
+  representation: "instructions characters"
+  character_count: 4779
+  token_count: 999
+  content_sha256: "1e156a5b10d658ae9ec96eb1c13f4c944d389fff3050fc76b1591b013a0afb18"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-ts-v0"
+  recaptured_at: "2026-08-12T15:25:12.402Z"
+- model: "o4-mini-2025-04-16"
+  directory: "o4-mini-2025-04-16"
+  representation: "instructions characters"
+  character_count: 4779
+  token_count: 1000
+  content_sha256: "bd6d59edcdbf2ad6065ce130789b0d063612d9ba3a3e415c42e7c37eaf648f80"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-ts-v0"
+  recaptured_at: "2026-08-12T15:25:20.479Z"
 tools:
 - canonical_name: "shell"
   observed_raw_aliases:

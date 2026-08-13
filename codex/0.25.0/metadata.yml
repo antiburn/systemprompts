@@ -18,6 +18,96 @@ system_prompts:
   token_count: 5417
   content_sha256: "9273e16a45578214bfe07a375467b02f43434cac403a7d2e484c2d46fbffa1ff"
   capture: "original"
+- model: "codex-mini-latest"
+  directory: "codex-mini-latest"
+  representation: "instructions characters"
+  character_count: 25440
+  token_count: null
+  content_sha256: "9273e16a45578214bfe07a375467b02f43434cac403a7d2e484c2d46fbffa1ff"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-v0"
+  recaptured_at: "2026-08-12T15:48:58.617Z"
+- model: "gpt-4.1"
+  directory: "gpt-4.1"
+  representation: "instructions characters"
+  character_count: 25440
+  token_count: 5417
+  content_sha256: "9273e16a45578214bfe07a375467b02f43434cac403a7d2e484c2d46fbffa1ff"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-v0"
+  recaptured_at: "2026-08-12T15:49:02.307Z"
+- model: "gpt-4.1-mini"
+  directory: "gpt-4.1-mini"
+  representation: "instructions characters"
+  character_count: 25440
+  token_count: 5417
+  content_sha256: "9273e16a45578214bfe07a375467b02f43434cac403a7d2e484c2d46fbffa1ff"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-v0"
+  recaptured_at: "2026-08-12T15:49:05.539Z"
+- model: "gpt-4.1-nano"
+  directory: "gpt-4.1-nano"
+  representation: "instructions characters"
+  character_count: 25440
+  token_count: 5417
+  content_sha256: "9273e16a45578214bfe07a375467b02f43434cac403a7d2e484c2d46fbffa1ff"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-v0"
+  recaptured_at: "2026-08-12T15:49:08.524Z"
+- model: "gpt-5-2025-08-07"
+  directory: "gpt-5-2025-08-07"
+  representation: "instructions characters"
+  character_count: 25440
+  token_count: 5417
+  content_sha256: "9273e16a45578214bfe07a375467b02f43434cac403a7d2e484c2d46fbffa1ff"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-v0"
+  recaptured_at: "2026-08-12T15:49:11.887Z"
+- model: "gpt-5-mini-2025-08-07"
+  directory: "gpt-5-mini-2025-08-07"
+  representation: "instructions characters"
+  character_count: 25440
+  token_count: 5417
+  content_sha256: "9273e16a45578214bfe07a375467b02f43434cac403a7d2e484c2d46fbffa1ff"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-v0"
+  recaptured_at: "2026-08-12T15:49:14.868Z"
+- model: "gpt-5-nano-2025-08-07"
+  directory: "gpt-5-nano-2025-08-07"
+  representation: "instructions characters"
+  character_count: 25440
+  token_count: 5417
+  content_sha256: "9273e16a45578214bfe07a375467b02f43434cac403a7d2e484c2d46fbffa1ff"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-v0"
+  recaptured_at: "2026-08-12T15:49:18.072Z"
+- model: "o3-2025-04-16"
+  directory: "o3-2025-04-16"
+  representation: "instructions characters"
+  character_count: 25440
+  token_count: 5417
+  content_sha256: "9273e16a45578214bfe07a375467b02f43434cac403a7d2e484c2d46fbffa1ff"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-v0"
+  recaptured_at: "2026-08-12T15:49:21.250Z"
+- model: "o3-pro"
+  directory: "o3-pro"
+  representation: "instructions characters"
+  character_count: 25440
+  token_count: 5417
+  content_sha256: "9273e16a45578214bfe07a375467b02f43434cac403a7d2e484c2d46fbffa1ff"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-v0"
+  recaptured_at: "2026-08-12T15:49:24.407Z"
+- model: "o4-mini-2025-04-16"
+  directory: "o4-mini-2025-04-16"
+  representation: "instructions characters"
+  character_count: 25440
+  token_count: 5417
+  content_sha256: "9273e16a45578214bfe07a375467b02f43434cac403a7d2e484c2d46fbffa1ff"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-v0"
+  recaptured_at: "2026-08-12T15:49:27.691Z"
 tools:
 - canonical_name: "shell"
   observed_raw_aliases:

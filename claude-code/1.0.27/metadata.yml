@@ -18,6 +18,24 @@ system_prompts:
   token_count: 3021
   content_sha256: "121dae803d8ab1d8b6b379d158778279ad2d0109916e07ecf13351e29028bb32"
   capture: "original"
+- model: "claude-3-7-sonnet-20250219"
+  directory: "claude-3-7-sonnet-20250219"
+  representation: "canonical serialized system JSON characters"
+  character_count: 13397
+  token_count: 3027
+  content_sha256: "5184fe14aced25d55dc414e4af5a217f5a569229d42ecd26799ee0d7e98551a3"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-model-flag-v1"
+  recaptured_at: "2026-08-12T12:31:44.906Z"
+- model: "claude-opus-4-20250514"
+  directory: "claude-opus-4-20250514"
+  representation: "canonical serialized system JSON characters"
+  character_count: 13382
+  token_count: 3019
+  content_sha256: "c300e950fb47d122e99b4ac49ae696dca5063854de79010f3a0e92b549aba1ff"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-model-flag-v1"
+  recaptured_at: "2026-08-12T12:31:49.365Z"
 tools:
 - canonical_name: "bash"
   observed_raw_aliases:

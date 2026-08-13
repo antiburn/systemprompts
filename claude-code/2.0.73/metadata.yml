@@ -18,6 +18,60 @@ system_prompts:
   token_count: 2917
   content_sha256: "9592a11ade8386e6d93b088aaee4a86a4483581387756669879d1bf3c9b04447"
   capture: "original"
+- model: "claude-3-7-sonnet-20250219"
+  directory: "claude-3-7-sonnet-20250219"
+  representation: "canonical serialized system JSON characters"
+  character_count: 13418
+  token_count: 2908
+  content_sha256: "3cdd4d475aa934b951401ecaa180d5b06954d0afead3b5aa3a1958f9ce76bca4"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-v1"
+  recaptured_at: "2026-08-12T13:14:21.883Z"
+- model: "claude-haiku-4-5-20251001"
+  directory: "claude-haiku-4-5-20251001"
+  representation: "canonical serialized system JSON characters"
+  character_count: 13409
+  token_count: 2905
+  content_sha256: "56f3358492a1038e7cdf0d60083ecf47194047a23d031ca771888fb54f08709c"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-v1"
+  recaptured_at: "2026-08-12T13:14:26.365Z"
+- model: "claude-opus-4-1-20250805"
+  directory: "claude-opus-4-1-20250805"
+  representation: "canonical serialized system JSON characters"
+  character_count: 13454
+  token_count: 2915
+  content_sha256: "7cf4dc599b78ab98df2aa07efc234f4f70f7e57099709baaa9e16ab252a37e92"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-v1"
+  recaptured_at: "2026-08-12T13:14:31.314Z"
+- model: "claude-opus-4-20250514"
+  directory: "claude-opus-4-20250514"
+  representation: "canonical serialized system JSON characters"
+  character_count: 13450
+  token_count: 2911
+  content_sha256: "b55278acf939b13d3a9b1bbd0cab043b24a1613f3cc1765a720f7fe517ad253d"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-v1"
+  recaptured_at: "2026-08-12T13:14:36.334Z"
+- model: "claude-opus-4-5-20251101"
+  directory: "claude-opus-4-5-20251101"
+  representation: "canonical serialized system JSON characters"
+  character_count: 13454
+  token_count: 2914
+  content_sha256: "4e7c20b7d6f3b43732c55afb7a6820014d86792242bc4cc946c00b39f40cceda"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-v1"
+  recaptured_at: "2026-08-12T13:14:41.244Z"
+- model: "claude-sonnet-4-20250514"
+  directory: "claude-sonnet-4-20250514"
+  representation: "canonical serialized system JSON characters"
+  character_count: 13454
+  token_count: 2913
+  content_sha256: "751d7d5e55caa8676899bad064c0690f2f624f7b95601240ecaa690913228699"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-v1"
+  recaptured_at: "2026-08-12T13:14:46.100Z"
 tools:
 - canonical_name: "ask_user_question"
   observed_raw_aliases:

@@ -18,6 +18,33 @@ system_prompts:
   token_count: 2987
   content_sha256: "170c0e79add787f0658530a74b2dc7cbd4987cb8a390eacebbc77a379154a9a6"
   capture: "original"
+- model: "claude-3-7-sonnet-20250219"
+  directory: "claude-3-7-sonnet-20250219"
+  representation: "canonical serialized system JSON characters"
+  character_count: 13545
+  token_count: 2983
+  content_sha256: "ffc91e4ca9a2a5120a6f9d309114ae64ca84405108156f9abe4d380dc587a075"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-model-flag-v1"
+  recaptured_at: "2026-08-12T12:47:02.072Z"
+- model: "claude-opus-4-1-20250805"
+  directory: "claude-opus-4-1-20250805"
+  representation: "canonical serialized system JSON characters"
+  character_count: 13581
+  token_count: 2991
+  content_sha256: "b767e4f7e74629d21b322e6b0400a27159421a188b65fa40f4ada11906fbc07e"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-model-flag-v1"
+  recaptured_at: "2026-08-12T12:47:05.898Z"
+- model: "claude-opus-4-20250514"
+  directory: "claude-opus-4-20250514"
+  representation: "canonical serialized system JSON characters"
+  character_count: 13577
+  token_count: 2986
+  content_sha256: "787a2515ba89b41a2b6d710f15dc1ed956c2c63fe5e27cd2efae507856f9eb86"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-model-flag-v1"
+  recaptured_at: "2026-08-12T12:47:10.154Z"
 tools:
 - canonical_name: "bash"
   observed_raw_aliases:

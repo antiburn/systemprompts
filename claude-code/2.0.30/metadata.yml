@@ -18,6 +18,51 @@ system_prompts:
   token_count: 2297
   content_sha256: "22f8ab04eeefdc266c07353179e215c29e1c780c90d35b2118c918ba1b1af504"
   capture: "original"
+- model: "claude-3-7-sonnet-20250219"
+  directory: "claude-3-7-sonnet-20250219"
+  representation: "canonical serialized system JSON characters"
+  character_count: 10615
+  token_count: 2289
+  content_sha256: "a174535dc7bbaaf479a6689108f73bd6e1ad7c6499d0be159674357f3432f844"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-model-flag-v1"
+  recaptured_at: "2026-08-12T12:59:55.975Z"
+- model: "claude-haiku-4-5-20251001"
+  directory: "claude-haiku-4-5-20251001"
+  representation: "canonical serialized system JSON characters"
+  character_count: 10606
+  token_count: 2286
+  content_sha256: "59f40d48f29f1416c156bd29456383cd8fda63de4641f35e26c3cd7fbb075071"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-model-flag-v1"
+  recaptured_at: "2026-08-12T13:00:01.140Z"
+- model: "claude-opus-4-1-20250805"
+  directory: "claude-opus-4-1-20250805"
+  representation: "canonical serialized system JSON characters"
+  character_count: 10651
+  token_count: 2295
+  content_sha256: "6e9c2d7206a9e0fb24b6cd93001862697b3c8bcdd69dae4280b4e62861e538f2"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-model-flag-v1"
+  recaptured_at: "2026-08-12T13:00:05.601Z"
+- model: "claude-opus-4-20250514"
+  directory: "claude-opus-4-20250514"
+  representation: "canonical serialized system JSON characters"
+  character_count: 10647
+  token_count: 2292
+  content_sha256: "6b4d468d684865bae89f43d0d642dd5a5aadcd6b18539370e6e258608d411745"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-model-flag-v1"
+  recaptured_at: "2026-08-12T13:00:10.093Z"
+- model: "claude-sonnet-4-20250514"
+  directory: "claude-sonnet-4-20250514"
+  representation: "canonical serialized system JSON characters"
+  character_count: 10651
+  token_count: 2294
+  content_sha256: "3a504688a8ac369385c3fbbf2d177569b78d5f8ad59c2a20859d91d6da771faa"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-model-flag-v1"
+  recaptured_at: "2026-08-12T13:00:14.510Z"
 tools:
 - canonical_name: "bash"
   observed_raw_aliases:

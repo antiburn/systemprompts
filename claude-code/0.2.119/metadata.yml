@@ -18,6 +18,15 @@ system_prompts:
   token_count: 2986
   content_sha256: "f9ea145707a6e78d8314b7e8f0057e401fa82d3421b87d3abbb1850576299bf3"
   capture: "original"
+- model: "claude-3-7-sonnet-20250219"
+  directory: "claude-3-7-sonnet-20250219"
+  representation: "canonical serialized system JSON characters"
+  character_count: 13126
+  token_count: 2982
+  content_sha256: "cbca03ff4ca2d2db37d1a4bf9f401cd600e3e4d0b3839e9af1c1f60b598911af"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-model-env-v1"
+  recaptured_at: "2026-08-12T12:26:46.612Z"
 tools:
 - canonical_name: "bash"
   observed_raw_aliases:
