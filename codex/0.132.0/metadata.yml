@@ -6,153 +6,260 @@ capture:
   measurement_method: "isolated local capture proxy; full system prompt retained in reviewed sidecar; provider request captured and not forwarded"
   provenance: "Local prompt-retaining historical capture @openai/codex@0.132.0; npm integrity sha512-OaTUz3oTbUP23I1yprQyaqO5LvlfWbTFIAI/JT2Hm0kgIsD+nKK14vauTzAt3zaeik6D7+meekCTuNdpU1dU2Q==; tool surface digest sha256:4f2cc65cd59a7608021a61cbb581355cce20beb904daf74727403d8c6f21f79d."
   request_bytes: 39340
-token_measurement:
-  provider: "openai"
-  method: "OpenAI responses/input_tokens with gpt-5.4; marginal full request minus component-removed request"
-  measured_at: "2026-08-03T14:00:00Z"
 system_prompts:
 - model: "unrecorded"
   directory: "default"
   representation: "instructions characters"
   character_count: 14732
-  token_count: 2995
   content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
   capture: "original"
+  token_count: null
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "unrecorded"
+    method: "captured model was not recorded; native tokenizer cannot be identified"
+    failure_code: "captured_model_unrecorded"
 - model: "gpt-4.1"
   directory: "gpt-4.1"
   representation: "instructions characters"
   character_count: 14732
-  token_count: null
   content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
   recaptured_at: "2026-08-12T17:58:54.365Z"
+  token_count: null
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "gpt-4.1"
+    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
+    attempted_at: "2026-08-15T10:37:22.767Z"
+    failure_code: "captured_model_mismatch"
 - model: "gpt-4.1-mini"
   directory: "gpt-4.1-mini"
   representation: "instructions characters"
   character_count: 14732
-  token_count: null
   content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
   recaptured_at: "2026-08-12T17:58:57.718Z"
+  token_count: null
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "gpt-4.1-mini"
+    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
+    attempted_at: "2026-08-15T10:37:32.386Z"
+    failure_code: "captured_model_mismatch"
 - model: "gpt-4.1-nano"
   directory: "gpt-4.1-nano"
   representation: "instructions characters"
   character_count: 14732
-  token_count: null
   content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
   recaptured_at: "2026-08-12T17:59:01.157Z"
+  token_count: null
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "gpt-4.1-nano"
+    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
+    attempted_at: "2026-08-15T10:37:35.775Z"
+    failure_code: "captured_model_mismatch"
 - model: "gpt-5-2025-08-07"
   directory: "gpt-5-2025-08-07"
   representation: "instructions characters"
   character_count: 14732
-  token_count: null
   content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
   recaptured_at: "2026-08-12T17:59:04.504Z"
+  token_count: null
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "gpt-5-2025-08-07"
+    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
+    attempted_at: "2026-08-15T10:37:39.941Z"
+    failure_code: "captured_model_mismatch"
 - model: "gpt-5-codex"
   directory: "gpt-5-codex"
   representation: "instructions characters"
   character_count: 14732
-  token_count: null
   content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
   recaptured_at: "2026-08-12T17:59:07.919Z"
+  token_count: null
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "gpt-5-codex"
+    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
+    attempted_at: "2026-08-15T10:37:43.425Z"
+    failure_code: "captured_model_mismatch"
 - model: "gpt-5-mini-2025-08-07"
   directory: "gpt-5-mini-2025-08-07"
   representation: "instructions characters"
   character_count: 14732
-  token_count: null
   content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
   recaptured_at: "2026-08-12T17:59:11.351Z"
+  token_count: null
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "gpt-5-mini-2025-08-07"
+    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
+    attempted_at: "2026-08-15T10:37:46.899Z"
+    failure_code: "captured_model_mismatch"
 - model: "gpt-5-nano-2025-08-07"
   directory: "gpt-5-nano-2025-08-07"
   representation: "instructions characters"
   character_count: 14732
-  token_count: null
   content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
   recaptured_at: "2026-08-12T17:59:14.707Z"
+  token_count: null
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "gpt-5-nano-2025-08-07"
+    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
+    attempted_at: "2026-08-15T10:37:50.315Z"
+    failure_code: "captured_model_mismatch"
 - model: "gpt-5-pro-2025-10-06"
   directory: "gpt-5-pro-2025-10-06"
   representation: "instructions characters"
   character_count: 14732
-  token_count: null
   content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
   recaptured_at: "2026-08-12T17:59:18.127Z"
+  token_count: null
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "gpt-5-pro-2025-10-06"
+    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
+    attempted_at: "2026-08-15T10:37:53.722Z"
+    failure_code: "captured_model_mismatch"
 - model: "gpt-5.1"
   directory: "gpt-5.1"
   representation: "instructions characters"
   character_count: 14732
-  token_count: null
   content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
   recaptured_at: "2026-08-12T17:59:21.497Z"
+  token_count: null
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "gpt-5.1"
+    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
+    attempted_at: "2026-08-15T10:37:57.187Z"
+    failure_code: "captured_model_mismatch"
 - model: "gpt-5.1-codex"
   directory: "gpt-5.1-codex"
   representation: "instructions characters"
   character_count: 14732
-  token_count: null
   content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
   recaptured_at: "2026-08-12T17:59:24.900Z"
+  token_count: null
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "gpt-5.1-codex"
+    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
+    attempted_at: "2026-08-15T10:38:00.666Z"
+    failure_code: "captured_model_mismatch"
 - model: "gpt-5.1-codex-max"
   directory: "gpt-5.1-codex-max"
   representation: "instructions characters"
   character_count: 14732
-  token_count: null
   content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
   recaptured_at: "2026-08-12T17:59:28.549Z"
+  token_count: null
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "gpt-5.1-codex-max"
+    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
+    attempted_at: "2026-08-15T10:38:04.104Z"
+    failure_code: "captured_model_mismatch"
 - model: "gpt-5.1-codex-mini"
   directory: "gpt-5.1-codex-mini"
   representation: "instructions characters"
   character_count: 14732
-  token_count: null
   content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
   recaptured_at: "2026-08-12T17:59:31.923Z"
+  token_count: null
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "gpt-5.1-codex-mini"
+    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
+    attempted_at: "2026-08-15T10:38:07.504Z"
+    failure_code: "captured_model_mismatch"
 - model: "gpt-5.2"
   directory: "gpt-5.2"
   representation: "instructions characters"
   character_count: 14732
-  token_count: null
   content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
   recaptured_at: "2026-08-12T17:59:35.278Z"
+  token_count: null
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "gpt-5.2"
+    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
+    attempted_at: "2026-08-15T10:38:10.902Z"
+    failure_code: "captured_model_mismatch"
 - model: "gpt-5.2-codex"
   directory: "gpt-5.2-codex"
   representation: "instructions characters"
   character_count: 14732
-  token_count: null
   content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
   recaptured_at: "2026-08-12T17:59:38.741Z"
+  token_count: null
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "gpt-5.2-codex"
+    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
+    attempted_at: "2026-08-15T10:38:14.322Z"
+    failure_code: "captured_model_mismatch"
 - model: "gpt-5.3-codex"
   directory: "gpt-5.3-codex"
   representation: "instructions characters"
   character_count: 14732
-  token_count: null
   content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
   recaptured_at: "2026-08-12T17:59:42.136Z"
+  token_count: null
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "gpt-5.3-codex"
+    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
+    attempted_at: "2026-08-15T10:38:17.697Z"
+    failure_code: "captured_model_mismatch"
 - model: "gpt-5.4"
   directory: "gpt-5.4"
   representation: "instructions characters"
@@ -161,137 +268,199 @@ system_prompts:
   content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
-  recaptured_at: "2026-08-12T17:59:47.431Z"
+  recaptured_at: "2026-08-15T10:38:23.505Z"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "gpt-5.4"
+    method: "OpenAI responses.input_tokens with native model gpt-5.4; marginal full request minus component-removed request"
+    measured_at: "2026-08-15T10:38:23.373135661Z"
+  tools:
+  - canonical_name: "apply_patch"
+    observed_raw_aliases:
+    - "apply_patch"
+    definition_bytes: 838
+    definition_token_count: 268
+  - canonical_name: "close_agent"
+    observed_raw_aliases:
+    - "close_agent"
+    definition_bytes: 466
+    definition_token_count: 65
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2121
+    definition_token_count: 348
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "resume_agent"
+    observed_raw_aliases:
+    - "resume_agent"
+    definition_bytes: 314
+    definition_token_count: 38
+  - canonical_name: "send_input"
+    observed_raw_aliases:
+    - "send_input"
+    definition_bytes: 1494
+    definition_token_count: 236
+  - canonical_name: "spawn_agent"
+    observed_raw_aliases:
+    - "spawn_agent"
+    definition_bytes: 9043
+    definition_token_count: 1730
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 810
+    definition_token_count: 129
+  - canonical_name: "wait_agent"
+    observed_raw_aliases:
+    - "wait_agent"
+    definition_bytes: 745
+    definition_token_count: 116
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 88
+    definition_token_count: 4436
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92
 - model: "gpt-5.4-mini"
   directory: "gpt-5.4-mini"
   representation: "instructions characters"
   character_count: 14732
-  token_count: null
   content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
   recaptured_at: "2026-08-12T17:59:50.845Z"
+  token_count: null
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "gpt-5.4-mini"
+    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
+    attempted_at: "2026-08-15T10:38:27.043Z"
+    failure_code: "captured_model_mismatch"
 - model: "gpt-5.4-nano"
   directory: "gpt-5.4-nano"
   representation: "instructions characters"
   character_count: 14732
-  token_count: null
   content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
   recaptured_at: "2026-08-12T17:59:54.252Z"
+  token_count: null
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "gpt-5.4-nano"
+    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
+    attempted_at: "2026-08-15T10:38:30.455Z"
+    failure_code: "captured_model_mismatch"
 - model: "gpt-5.4-pro"
   directory: "gpt-5.4-pro"
   representation: "instructions characters"
   character_count: 14732
-  token_count: null
   content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
   recaptured_at: "2026-08-12T17:59:57.704Z"
+  token_count: null
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "gpt-5.4-pro"
+    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
+    attempted_at: "2026-08-15T10:38:33.945Z"
+    failure_code: "captured_model_mismatch"
 - model: "gpt-5.5"
   directory: "gpt-5.5"
   representation: "instructions characters"
   character_count: 14732
-  token_count: null
   content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
   recaptured_at: "2026-08-12T18:00:01.254Z"
+  token_count: null
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "gpt-5.5"
+    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
+    attempted_at: "2026-08-15T10:38:37.348Z"
+    failure_code: "captured_model_mismatch"
 - model: "gpt-5.5-pro"
   directory: "gpt-5.5-pro"
   representation: "instructions characters"
   character_count: 14732
-  token_count: null
   content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
   recaptured_at: "2026-08-12T18:00:04.700Z"
+  token_count: null
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "gpt-5.5-pro"
+    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
+    attempted_at: "2026-08-15T10:38:41.220Z"
+    failure_code: "captured_model_mismatch"
 - model: "o3-2025-04-16"
   directory: "o3-2025-04-16"
   representation: "instructions characters"
   character_count: 14732
-  token_count: null
   content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
   recaptured_at: "2026-08-12T18:00:08.163Z"
+  token_count: null
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "o3-2025-04-16"
+    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
+    attempted_at: "2026-08-15T10:38:44.726Z"
+    failure_code: "captured_model_mismatch"
 - model: "o3-pro"
   directory: "o3-pro"
   representation: "instructions characters"
   character_count: 14732
-  token_count: null
   content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
   recaptured_at: "2026-08-12T18:00:11.595Z"
+  token_count: null
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "o3-pro"
+    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
+    attempted_at: "2026-08-15T10:38:48.248Z"
+    failure_code: "captured_model_mismatch"
 - model: "o4-mini-2025-04-16"
   directory: "o4-mini-2025-04-16"
   representation: "instructions characters"
   character_count: 14732
-  token_count: null
   content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
   recaptured_at: "2026-08-12T18:00:15.083Z"
-tools:
-- canonical_name: "apply_patch"
-  observed_raw_aliases:
-  - "apply_patch"
-  definition_bytes: 838
-  definition_token_count: 268
-- canonical_name: "close_agent"
-  observed_raw_aliases:
-  - "close_agent"
-  definition_bytes: 466
-  definition_token_count: 65
-- canonical_name: "exec_command"
-  observed_raw_aliases:
-  - "exec_command"
-  definition_bytes: 2121
-  definition_token_count: 348
-- canonical_name: "request_user_input"
-  observed_raw_aliases:
-  - "request_user_input"
-  definition_bytes: 1355
-  definition_token_count: 186
-- canonical_name: "resume_agent"
-  observed_raw_aliases:
-  - "resume_agent"
-  definition_bytes: 314
-  definition_token_count: 38
-- canonical_name: "send_input"
-  observed_raw_aliases:
-  - "send_input"
-  definition_bytes: 1494
-  definition_token_count: 236
-- canonical_name: "spawn_agent"
-  observed_raw_aliases:
-  - "spawn_agent"
-  definition_bytes: 9043
-  definition_token_count: 1730
-- canonical_name: "update_plan"
-  observed_raw_aliases:
-  - "update_plan"
-  definition_bytes: 624
-  definition_token_count: 81
-- canonical_name: "view_image"
-  observed_raw_aliases:
-  - "view_image"
-  definition_bytes: 810
-  definition_token_count: 129
-- canonical_name: "wait_agent"
-  observed_raw_aliases:
-  - "wait_agent"
-  definition_bytes: 745
-  definition_token_count: 116
-- canonical_name: "web_search"
-  observed_raw_aliases:
-  - "web_search"
-  definition_bytes: 88
-  definition_token_count: 4436
-- canonical_name: "write_stdin"
-  observed_raw_aliases:
-  - "write_stdin"
-  definition_bytes: 674
-  definition_token_count: 92
+  token_count: null
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "o4-mini-2025-04-16"
+    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
+    attempted_at: "2026-08-15T10:38:51.757Z"
+    failure_code: "captured_model_mismatch"

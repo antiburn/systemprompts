@@ -1,6 +1,6 @@
 # Codex 0.12.0 — model unrecorded
 
-Captured 2026-08-03T10:28:40.366Z · 6810 characters · 1591 tokens
+Captured 2026-08-03T10:28:40.366Z · 6810 characters · token count unavailable
 
 Please resolve the user's task by editing and testing the code files in your current code execution session.
 You are a deployed coding agent.

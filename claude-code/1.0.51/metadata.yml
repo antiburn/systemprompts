@@ -6,109 +6,50 @@ capture:
   measurement_method: "isolated local capture proxy; full system prompt retained in reviewed sidecar; provider request captured and not forwarded"
   provenance: "Local prompt-retaining historical capture @anthropic-ai/claude-code@1.0.51; npm integrity sha512-annBc4ez7nDPbp+di6bjIQGiAdmdVln4k3gAYioym2MxOEl3py5s7SsoR+dNSmfgfIHUdKBTbtXnXD5rkmO5aA==; tool surface digest sha256:5725c670fccd1a22319adadbda43238fc21739ff9c177659791f34707b11d0da."
   request_bytes: 54107
-token_measurement:
-  provider: "anthropic"
-  method: "Anthropic count_tokens with claude-sonnet-4-5-20250929; marginal full request minus component-removed request; unsupported cache_control.scope metadata omitted"
-  measured_at: "2026-08-03T14:00:00Z"
 system_prompts:
 - model: "claude-sonnet-4-20250514"
   directory: "claude-sonnet-4-20250514"
   representation: "serialized system JSON characters"
   character_count: 13006
-  token_count: 2939
+  token_count: null
   content_sha256: "6029d75f16c2b38193db13639bc11c92130b649f33cece3156a211bb20cf6c92"
   capture: "original"
+  token_measurement:
+    provider: "anthropic"
+    status: "unavailable"
+    model: "claude-sonnet-4-20250514"
+    method: "native provider token-count endpoint reported this model unavailable"
+    attempted_at: "2026-08-15T02:17:46.119Z"
+    failure_code: "provider_model_unavailable"
 - model: "claude-3-7-sonnet-20250219"
   directory: "claude-3-7-sonnet-20250219"
   representation: "canonical serialized system JSON characters"
   character_count: 13017
-  token_count: 2944
+  token_count: null
   content_sha256: "9993be983056cfe03abed039d8f3cc7caf34da4761cba700028fc6ba6e8a0a04"
   capture: "matrix-recapture"
   profile: "canonical empty-project-model-flag-v1"
   recaptured_at: "2026-08-12T12:35:34.026Z"
+  token_measurement:
+    provider: "anthropic"
+    status: "unavailable"
+    model: "claude-3-7-sonnet-20250219"
+    method: "native provider token-count endpoint reported this model unavailable"
+    attempted_at: "2026-08-15T02:17:39.257Z"
+    failure_code: "provider_model_unavailable"
 - model: "claude-opus-4-20250514"
   directory: "claude-opus-4-20250514"
   representation: "canonical serialized system JSON characters"
   character_count: 13002
-  token_count: 2938
+  token_count: null
   content_sha256: "0eb35b30b7b1f93d07e58511e152f2c72ce0fe08980a355646219a58b89dfde5"
   capture: "matrix-recapture"
   profile: "canonical empty-project-model-flag-v1"
   recaptured_at: "2026-08-12T12:35:39.017Z"
-tools:
-- canonical_name: "bash"
-  observed_raw_aliases:
-  - "Bash"
-  definition_bytes: 8285
-  definition_token_count: 2148
-- canonical_name: "edit"
-  observed_raw_aliases:
-  - "Edit"
-  definition_bytes: 1712
-  definition_token_count: 442
-- canonical_name: "exit_plan_mode"
-  observed_raw_aliases:
-  - "exit_plan_mode"
-  definition_bytes: 1157
-  definition_token_count: 289
-- canonical_name: "glob"
-  observed_raw_aliases:
-  - "Glob"
-  definition_bytes: 1136
-  definition_token_count: 283
-- canonical_name: "grep"
-  observed_raw_aliases:
-  - "Grep"
-  definition_bytes: 3064
-  definition_token_count: 891
-- canonical_name: "ls"
-  observed_raw_aliases:
-  - "LS"
-  definition_bytes: 690
-  definition_token_count: 184
-- canonical_name: "multi_edit"
-  observed_raw_aliases:
-  - "MultiEdit"
-  definition_bytes: 3295
-  definition_token_count: 883
-- canonical_name: "notebook_edit"
-  observed_raw_aliases:
-  - "NotebookEdit"
-  definition_bytes: 1504
-  definition_token_count: 401
-- canonical_name: "notebook_read"
-  observed_raw_aliases:
-  - "NotebookRead"
-  definition_bytes: 765
-  definition_token_count: 199
-- canonical_name: "read"
-  observed_raw_aliases:
-  - "Read"
-  definition_bytes: 2107
-  definition_token_count: 545
-- canonical_name: "task"
-  observed_raw_aliases:
-  - "Task"
-  definition_bytes: 2547
-  definition_token_count: 634
-- canonical_name: "todo_write"
-  observed_raw_aliases:
-  - "TodoWrite"
-  definition_bytes: 9989
-  definition_token_count: 2394
-- canonical_name: "web_fetch"
-  observed_raw_aliases:
-  - "WebFetch"
-  definition_bytes: 1536
-  definition_token_count: 406
-- canonical_name: "web_search"
-  observed_raw_aliases:
-  - "WebSearch"
-  definition_bytes: 1192
-  definition_token_count: 329
-- canonical_name: "write"
-  observed_raw_aliases:
-  - "Write"
-  definition_bytes: 1021
-  definition_token_count: 269
+  token_measurement:
+    provider: "anthropic"
+    status: "unavailable"
+    model: "claude-opus-4-20250514"
+    method: "native provider token-count endpoint reported this model unavailable"
+    attempted_at: "2026-08-15T02:17:42.665Z"
+    failure_code: "provider_model_unavailable"

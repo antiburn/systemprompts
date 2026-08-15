@@ -6,27 +6,36 @@ capture:
   measurement_method: "isolated local capture proxy; full system prompt retained in reviewed sidecar; provider request captured and not forwarded"
   provenance: "Local prompt-retaining historical capture @openai/codex@0.96.0; npm integrity sha512-rc6+UGvRPIy53j5Ta7tBd0Vv+UcbzD8+5y6aqmuTArTFNDoZJblc3Pvror3IQDpaBpRyQtJGd0NbA9Did57LyA==; tool surface digest sha256:977e2145220094c0657cfcd91ee971f25a47ca2e7f7ecd8566b1cf25607725d1."
   request_bytes: 36342
-token_measurement:
-  provider: "openai"
-  method: "OpenAI responses/input_tokens with gpt-5.4; marginal full request minus component-removed request"
-  measured_at: "2026-08-03T14:00:00Z"
 system_prompts:
 - model: "unrecorded"
   directory: "default"
   representation: "instructions characters"
   character_count: 23842
-  token_count: 5127
   content_sha256: "a78d24ea274453453cedc397095b1a1bfe7218fe884f4e75c6e828375dd42241"
   capture: "original"
+  token_count: null
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "unrecorded"
+    method: "captured model was not recorded; native tokenizer cannot be identified"
+    failure_code: "captured_model_unrecorded"
 - model: "codex-mini-latest"
   directory: "codex-mini-latest"
   representation: "instructions characters"
   character_count: 23842
-  token_count: 5127
+  token_count: null
   content_sha256: "a78d24ea274453453cedc397095b1a1bfe7218fe884f4e75c6e828375dd42241"
   capture: "matrix-recapture"
   profile: "canonical empty-project-packaged-remote-models-v0"
   recaptured_at: "2026-08-12T23:19:44.346Z"
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "codex-mini-latest"
+    method: "native provider token-count endpoint reported this model unavailable"
+    attempted_at: "2026-08-15T09:29:33.335Z"
+    failure_code: "provider_model_unavailable"
 - model: "gpt-4.1"
   directory: "gpt-4.1"
   representation: "instructions characters"
@@ -35,7 +44,59 @@ system_prompts:
   content_sha256: "a78d24ea274453453cedc397095b1a1bfe7218fe884f4e75c6e828375dd42241"
   capture: "matrix-recapture"
   profile: "canonical empty-project-packaged-remote-models-v0"
-  recaptured_at: "2026-08-12T23:19:51.711Z"
+  recaptured_at: "2026-08-15T09:29:41.100Z"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "gpt-4.1"
+    method: "OpenAI responses.input_tokens with native model gpt-4.1; marginal full request minus component-removed request"
+    measured_at: "2026-08-15T09:29:40.966424627Z"
+  tools:
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2118
+    definition_token_count: 348
+  - canonical_name: "list_mcp_resource_templates"
+    observed_raw_aliases:
+    - "list_mcp_resource_templates"
+    definition_bytes: 734
+    definition_token_count: 104
+  - canonical_name: "list_mcp_resources"
+    observed_raw_aliases:
+    - "list_mcp_resources"
+    definition_bytes: 646
+    definition_token_count: 93
+  - canonical_name: "read_mcp_resource"
+    observed_raw_aliases:
+    - "read_mcp_resource"
+    definition_bytes: 526
+    definition_token_count: 77
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 417
+    definition_token_count: 59
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 48
+    definition_token_count: 292
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92
 - model: "gpt-4.1-mini"
   directory: "gpt-4.1-mini"
   representation: "instructions characters"
@@ -44,7 +105,59 @@ system_prompts:
   content_sha256: "a78d24ea274453453cedc397095b1a1bfe7218fe884f4e75c6e828375dd42241"
   capture: "matrix-recapture"
   profile: "canonical empty-project-packaged-remote-models-v0"
-  recaptured_at: "2026-08-12T23:20:00.240Z"
+  recaptured_at: "2026-08-15T09:29:47.672Z"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "gpt-4.1-mini"
+    method: "OpenAI responses.input_tokens with native model gpt-4.1-mini; marginal full request minus component-removed request"
+    measured_at: "2026-08-15T09:29:47.525061604Z"
+  tools:
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2118
+    definition_token_count: 348
+  - canonical_name: "list_mcp_resource_templates"
+    observed_raw_aliases:
+    - "list_mcp_resource_templates"
+    definition_bytes: 734
+    definition_token_count: 104
+  - canonical_name: "list_mcp_resources"
+    observed_raw_aliases:
+    - "list_mcp_resources"
+    definition_bytes: 646
+    definition_token_count: 93
+  - canonical_name: "read_mcp_resource"
+    observed_raw_aliases:
+    - "read_mcp_resource"
+    definition_bytes: 526
+    definition_token_count: 77
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 417
+    definition_token_count: 59
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 48
+    definition_token_count: 292
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92
 - model: "gpt-4.1-nano"
   directory: "gpt-4.1-nano"
   representation: "instructions characters"
@@ -53,7 +166,60 @@ system_prompts:
   content_sha256: "a78d24ea274453453cedc397095b1a1bfe7218fe884f4e75c6e828375dd42241"
   capture: "matrix-recapture"
   profile: "canonical empty-project-packaged-remote-models-v0"
-  recaptured_at: "2026-08-12T23:20:06.960Z"
+  recaptured_at: "2026-08-15T09:29:56.117Z"
+  token_measurement:
+    provider: "openai"
+    status: "partial"
+    model: "gpt-4.1-nano"
+    method: "OpenAI responses.input_tokens with native model gpt-4.1-nano; marginal full request minus component-removed request; provider-rejected native tools recorded unavailable; supported tools measured as isolated request minus no-tools request"
+    measured_at: "2026-08-15T09:29:56.032817048Z"
+  tools:
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2118
+    definition_token_count: 361
+  - canonical_name: "list_mcp_resource_templates"
+    observed_raw_aliases:
+    - "list_mcp_resource_templates"
+    definition_bytes: 734
+    definition_token_count: 117
+  - canonical_name: "list_mcp_resources"
+    observed_raw_aliases:
+    - "list_mcp_resources"
+    definition_bytes: 646
+    definition_token_count: 106
+  - canonical_name: "read_mcp_resource"
+    observed_raw_aliases:
+    - "read_mcp_resource"
+    definition_bytes: 526
+    definition_token_count: 90
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 199
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 94
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 417
+    definition_token_count: 72
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 48
+    definition_token_count: null
+    definition_token_count_unavailable_reason: "provider_tool_surface_unsupported"
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 105
 - model: "gpt-5-2025-08-07"
   directory: "gpt-5-2025-08-07"
   representation: "instructions characters"
@@ -62,16 +228,75 @@ system_prompts:
   content_sha256: "a78d24ea274453453cedc397095b1a1bfe7218fe884f4e75c6e828375dd42241"
   capture: "matrix-recapture"
   profile: "canonical empty-project-packaged-remote-models-v0"
-  recaptured_at: "2026-08-12T23:20:13.682Z"
+  recaptured_at: "2026-08-15T09:30:02.690Z"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "gpt-5-2025-08-07"
+    method: "OpenAI responses.input_tokens with native model gpt-5-2025-08-07; marginal full request minus component-removed request"
+    measured_at: "2026-08-15T09:30:02.516939899Z"
+  tools:
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2118
+    definition_token_count: 348
+  - canonical_name: "list_mcp_resource_templates"
+    observed_raw_aliases:
+    - "list_mcp_resource_templates"
+    definition_bytes: 734
+    definition_token_count: 104
+  - canonical_name: "list_mcp_resources"
+    observed_raw_aliases:
+    - "list_mcp_resources"
+    definition_bytes: 646
+    definition_token_count: 93
+  - canonical_name: "read_mcp_resource"
+    observed_raw_aliases:
+    - "read_mcp_resource"
+    definition_bytes: 526
+    definition_token_count: 77
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 417
+    definition_token_count: 59
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 48
+    definition_token_count: 4436
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92
 - model: "gpt-5-codex"
   directory: "gpt-5-codex"
   representation: "instructions characters"
   character_count: 6621
-  token_count: 1440
+  token_count: null
   content_sha256: "42842be69650ae563d212695e8d3f3591534908fd8ca33b63f742daf41f88b65"
   capture: "matrix-recapture"
   profile: "canonical empty-project-packaged-remote-models-v0"
   recaptured_at: "2026-08-12T23:20:20.686Z"
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "gpt-5-codex"
+    method: "native provider returned a model-specific not-found response and a same-version fixed-model control succeeded; native tokenizer could not be measured"
+    attempted_at: "2026-08-15T09:30:07.650Z"
+    failure_code: "provider_model_unavailable_candidate"
 - model: "gpt-5-mini-2025-08-07"
   directory: "gpt-5-mini-2025-08-07"
   representation: "instructions characters"
@@ -80,7 +305,59 @@ system_prompts:
   content_sha256: "a78d24ea274453453cedc397095b1a1bfe7218fe884f4e75c6e828375dd42241"
   capture: "matrix-recapture"
   profile: "canonical empty-project-packaged-remote-models-v0"
-  recaptured_at: "2026-08-12T23:20:27.342Z"
+  recaptured_at: "2026-08-15T09:30:20.948Z"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "gpt-5-mini-2025-08-07"
+    method: "OpenAI responses.input_tokens with native model gpt-5-mini-2025-08-07; marginal full request minus component-removed request"
+    measured_at: "2026-08-15T09:30:20.785849468Z"
+  tools:
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2118
+    definition_token_count: 348
+  - canonical_name: "list_mcp_resource_templates"
+    observed_raw_aliases:
+    - "list_mcp_resource_templates"
+    definition_bytes: 734
+    definition_token_count: 104
+  - canonical_name: "list_mcp_resources"
+    observed_raw_aliases:
+    - "list_mcp_resources"
+    definition_bytes: 646
+    definition_token_count: 93
+  - canonical_name: "read_mcp_resource"
+    observed_raw_aliases:
+    - "read_mcp_resource"
+    definition_bytes: 526
+    definition_token_count: 77
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 417
+    definition_token_count: 59
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 48
+    definition_token_count: 4436
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92
 - model: "gpt-5-nano-2025-08-07"
   directory: "gpt-5-nano-2025-08-07"
   representation: "instructions characters"
@@ -89,7 +366,59 @@ system_prompts:
   content_sha256: "a78d24ea274453453cedc397095b1a1bfe7218fe884f4e75c6e828375dd42241"
   capture: "matrix-recapture"
   profile: "canonical empty-project-packaged-remote-models-v0"
-  recaptured_at: "2026-08-12T23:20:34.210Z"
+  recaptured_at: "2026-08-15T09:30:28.173Z"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "gpt-5-nano-2025-08-07"
+    method: "OpenAI responses.input_tokens with native model gpt-5-nano-2025-08-07; marginal full request minus component-removed request"
+    measured_at: "2026-08-15T09:30:28.021700344Z"
+  tools:
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2118
+    definition_token_count: 348
+  - canonical_name: "list_mcp_resource_templates"
+    observed_raw_aliases:
+    - "list_mcp_resource_templates"
+    definition_bytes: 734
+    definition_token_count: 104
+  - canonical_name: "list_mcp_resources"
+    observed_raw_aliases:
+    - "list_mcp_resources"
+    definition_bytes: 646
+    definition_token_count: 93
+  - canonical_name: "read_mcp_resource"
+    observed_raw_aliases:
+    - "read_mcp_resource"
+    definition_bytes: 526
+    definition_token_count: 77
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 417
+    definition_token_count: 59
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 48
+    definition_token_count: 4436
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92
 - model: "gpt-5-pro-2025-10-06"
   directory: "gpt-5-pro-2025-10-06"
   representation: "instructions characters"
@@ -98,7 +427,59 @@ system_prompts:
   content_sha256: "a78d24ea274453453cedc397095b1a1bfe7218fe884f4e75c6e828375dd42241"
   capture: "matrix-recapture"
   profile: "canonical empty-project-packaged-remote-models-v0"
-  recaptured_at: "2026-08-12T23:20:41.019Z"
+  recaptured_at: "2026-08-15T09:30:34.943Z"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "gpt-5-pro-2025-10-06"
+    method: "OpenAI responses.input_tokens with native model gpt-5-pro-2025-10-06; marginal full request minus component-removed request"
+    measured_at: "2026-08-15T09:30:34.772731569Z"
+  tools:
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2118
+    definition_token_count: 348
+  - canonical_name: "list_mcp_resource_templates"
+    observed_raw_aliases:
+    - "list_mcp_resource_templates"
+    definition_bytes: 734
+    definition_token_count: 104
+  - canonical_name: "list_mcp_resources"
+    observed_raw_aliases:
+    - "list_mcp_resources"
+    definition_bytes: 646
+    definition_token_count: 93
+  - canonical_name: "read_mcp_resource"
+    observed_raw_aliases:
+    - "read_mcp_resource"
+    definition_bytes: 526
+    definition_token_count: 77
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 417
+    definition_token_count: 59
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 48
+    definition_token_count: 4436
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92
 - model: "gpt-5.1"
   directory: "gpt-5.1"
   representation: "instructions characters"
@@ -107,34 +488,112 @@ system_prompts:
   content_sha256: "a2e9567a159ee2c777c540caae2e6e697942dbc89f5fb45e77dce36c73d7455d"
   capture: "matrix-recapture"
   profile: "canonical empty-project-packaged-remote-models-v0"
-  recaptured_at: "2026-08-12T23:20:50.148Z"
+  recaptured_at: "2026-08-15T09:30:41.613Z"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "gpt-5.1"
+    method: "OpenAI responses.input_tokens with native model gpt-5.1; marginal full request minus component-removed request"
+    measured_at: "2026-08-15T09:30:41.456324313Z"
+  tools:
+  - canonical_name: "apply_patch"
+    observed_raw_aliases:
+    - "apply_patch"
+    definition_bytes: 838
+    definition_token_count: 268
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2118
+    definition_token_count: 348
+  - canonical_name: "list_mcp_resource_templates"
+    observed_raw_aliases:
+    - "list_mcp_resource_templates"
+    definition_bytes: 734
+    definition_token_count: 104
+  - canonical_name: "list_mcp_resources"
+    observed_raw_aliases:
+    - "list_mcp_resources"
+    definition_bytes: 646
+    definition_token_count: 93
+  - canonical_name: "read_mcp_resource"
+    observed_raw_aliases:
+    - "read_mcp_resource"
+    definition_bytes: 526
+    definition_token_count: 77
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 417
+    definition_token_count: 59
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 48
+    definition_token_count: 4436
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92
 - model: "gpt-5.1-codex"
   directory: "gpt-5.1-codex"
   representation: "instructions characters"
   character_count: 6621
-  token_count: 1440
+  token_count: null
   content_sha256: "42842be69650ae563d212695e8d3f3591534908fd8ca33b63f742daf41f88b65"
   capture: "matrix-recapture"
   profile: "canonical empty-project-packaged-remote-models-v0"
   recaptured_at: "2026-08-12T23:20:57.452Z"
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "gpt-5.1-codex"
+    method: "native provider returned a model-specific not-found response and a same-version fixed-model control succeeded; native tokenizer could not be measured"
+    attempted_at: "2026-08-15T09:30:46.601Z"
+    failure_code: "provider_model_unavailable_candidate"
 - model: "gpt-5.1-codex-max"
   directory: "gpt-5.1-codex-max"
   representation: "instructions characters"
   character_count: 7563
-  token_count: 1628
+  token_count: null
   content_sha256: "1b3dd697043a7f613c691a3721a450251626685b3e97ac3ad3d35ea62758a31e"
   capture: "matrix-recapture"
   profile: "canonical empty-project-packaged-remote-models-v0"
   recaptured_at: "2026-08-12T23:21:04.173Z"
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "gpt-5.1-codex-max"
+    method: "native provider returned a model-specific not-found response and a same-version fixed-model control succeeded; native tokenizer could not be measured"
+    attempted_at: "2026-08-15T09:30:51.602Z"
+    failure_code: "provider_model_unavailable_candidate"
 - model: "gpt-5.1-codex-mini"
   directory: "gpt-5.1-codex-mini"
   representation: "instructions characters"
   character_count: 6621
-  token_count: 1440
+  token_count: null
   content_sha256: "42842be69650ae563d212695e8d3f3591534908fd8ca33b63f742daf41f88b65"
   capture: "matrix-recapture"
   profile: "canonical empty-project-packaged-remote-models-v0"
   recaptured_at: "2026-08-12T23:21:12.085Z"
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "gpt-5.1-codex-mini"
+    method: "native provider returned a model-specific not-found response and a same-version fixed-model control succeeded; native tokenizer could not be measured"
+    attempted_at: "2026-08-15T09:30:56.640Z"
+    failure_code: "provider_model_unavailable_candidate"
 - model: "gpt-5.2"
   directory: "gpt-5.2"
   representation: "instructions characters"
@@ -143,16 +602,80 @@ system_prompts:
   content_sha256: "c9b2fa097ac69cae82c3d2ae12271083890a96521c55ad8dc14cae5168ad3f39"
   capture: "matrix-recapture"
   profile: "canonical empty-project-packaged-remote-models-v0"
-  recaptured_at: "2026-08-12T23:21:19.163Z"
+  recaptured_at: "2026-08-15T09:31:03.599Z"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "gpt-5.2"
+    method: "OpenAI responses.input_tokens with native model gpt-5.2; marginal full request minus component-removed request"
+    measured_at: "2026-08-15T09:31:03.479597119Z"
+  tools:
+  - canonical_name: "apply_patch"
+    observed_raw_aliases:
+    - "apply_patch"
+    definition_bytes: 838
+    definition_token_count: 268
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2118
+    definition_token_count: 348
+  - canonical_name: "list_mcp_resource_templates"
+    observed_raw_aliases:
+    - "list_mcp_resource_templates"
+    definition_bytes: 734
+    definition_token_count: 104
+  - canonical_name: "list_mcp_resources"
+    observed_raw_aliases:
+    - "list_mcp_resources"
+    definition_bytes: 646
+    definition_token_count: 93
+  - canonical_name: "read_mcp_resource"
+    observed_raw_aliases:
+    - "read_mcp_resource"
+    definition_bytes: 526
+    definition_token_count: 77
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 417
+    definition_token_count: 59
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 48
+    definition_token_count: 4436
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92
 - model: "gpt-5.2-codex"
   directory: "gpt-5.2-codex"
   representation: "instructions characters"
   character_count: 9352
-  token_count: 1952
+  token_count: null
   content_sha256: "90b93c704b96b9bb69f7cc1fded8b2dca3d34f544f2b07aa35185c663a543dd2"
   capture: "matrix-recapture"
   profile: "canonical empty-project-packaged-remote-models-v0"
   recaptured_at: "2026-08-12T23:21:26.571Z"
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "gpt-5.2-codex"
+    method: "native provider returned a model-specific not-found response and a same-version fixed-model control succeeded; native tokenizer could not be measured"
+    attempted_at: "2026-08-15T09:31:09.278Z"
+    failure_code: "provider_model_unavailable_candidate"
 - model: "o3-2025-04-16"
   directory: "o3-2025-04-16"
   representation: "instructions characters"
@@ -161,7 +684,59 @@ system_prompts:
   content_sha256: "a78d24ea274453453cedc397095b1a1bfe7218fe884f4e75c6e828375dd42241"
   capture: "matrix-recapture"
   profile: "canonical empty-project-packaged-remote-models-v0"
-  recaptured_at: "2026-08-12T23:21:35.318Z"
+  recaptured_at: "2026-08-15T09:31:15.842Z"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "o3-2025-04-16"
+    method: "OpenAI responses.input_tokens with native model o3-2025-04-16; marginal full request minus component-removed request"
+    measured_at: "2026-08-15T09:31:15.716771397Z"
+  tools:
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2118
+    definition_token_count: 348
+  - canonical_name: "list_mcp_resource_templates"
+    observed_raw_aliases:
+    - "list_mcp_resource_templates"
+    definition_bytes: 734
+    definition_token_count: 104
+  - canonical_name: "list_mcp_resources"
+    observed_raw_aliases:
+    - "list_mcp_resources"
+    definition_bytes: 646
+    definition_token_count: 93
+  - canonical_name: "read_mcp_resource"
+    observed_raw_aliases:
+    - "read_mcp_resource"
+    definition_bytes: 526
+    definition_token_count: 77
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 417
+    definition_token_count: 59
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 48
+    definition_token_count: 1398
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92
 - model: "o3-pro"
   directory: "o3-pro"
   representation: "instructions characters"
@@ -170,7 +745,59 @@ system_prompts:
   content_sha256: "a78d24ea274453453cedc397095b1a1bfe7218fe884f4e75c6e828375dd42241"
   capture: "matrix-recapture"
   profile: "canonical empty-project-packaged-remote-models-v0"
-  recaptured_at: "2026-08-12T23:21:44.917Z"
+  recaptured_at: "2026-08-15T09:31:22.802Z"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "o3-pro"
+    method: "OpenAI responses.input_tokens with native model o3-pro; marginal full request minus component-removed request"
+    measured_at: "2026-08-15T09:31:22.625542147Z"
+  tools:
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2118
+    definition_token_count: 348
+  - canonical_name: "list_mcp_resource_templates"
+    observed_raw_aliases:
+    - "list_mcp_resource_templates"
+    definition_bytes: 734
+    definition_token_count: 104
+  - canonical_name: "list_mcp_resources"
+    observed_raw_aliases:
+    - "list_mcp_resources"
+    definition_bytes: 646
+    definition_token_count: 93
+  - canonical_name: "read_mcp_resource"
+    observed_raw_aliases:
+    - "read_mcp_resource"
+    definition_bytes: 526
+    definition_token_count: 77
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 417
+    definition_token_count: 59
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 48
+    definition_token_count: 1398
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92
 - model: "o4-mini-2025-04-16"
   directory: "o4-mini-2025-04-16"
   representation: "instructions characters"
@@ -179,50 +806,56 @@ system_prompts:
   content_sha256: "a78d24ea274453453cedc397095b1a1bfe7218fe884f4e75c6e828375dd42241"
   capture: "matrix-recapture"
   profile: "canonical empty-project-packaged-remote-models-v0"
-  recaptured_at: "2026-08-12T23:21:51.735Z"
-tools:
-- canonical_name: "exec_command"
-  observed_raw_aliases:
-  - "exec_command"
-  definition_bytes: 2118
-  definition_token_count: 348
-- canonical_name: "list_mcp_resource_templates"
-  observed_raw_aliases:
-  - "list_mcp_resource_templates"
-  definition_bytes: 734
-  definition_token_count: 104
-- canonical_name: "list_mcp_resources"
-  observed_raw_aliases:
-  - "list_mcp_resources"
-  definition_bytes: 646
-  definition_token_count: 93
-- canonical_name: "read_mcp_resource"
-  observed_raw_aliases:
-  - "read_mcp_resource"
-  definition_bytes: 526
-  definition_token_count: 77
-- canonical_name: "request_user_input"
-  observed_raw_aliases:
-  - "request_user_input"
-  definition_bytes: 1355
-  definition_token_count: 186
-- canonical_name: "update_plan"
-  observed_raw_aliases:
-  - "update_plan"
-  definition_bytes: 624
-  definition_token_count: 81
-- canonical_name: "view_image"
-  observed_raw_aliases:
-  - "view_image"
-  definition_bytes: 417
-  definition_token_count: 59
-- canonical_name: "web_search"
-  observed_raw_aliases:
-  - "web_search"
-  definition_bytes: 48
-  definition_token_count: 4436
-- canonical_name: "write_stdin"
-  observed_raw_aliases:
-  - "write_stdin"
-  definition_bytes: 674
-  definition_token_count: 92
+  recaptured_at: "2026-08-15T09:31:29.433Z"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "o4-mini-2025-04-16"
+    method: "OpenAI responses.input_tokens with native model o4-mini-2025-04-16; marginal full request minus component-removed request"
+    measured_at: "2026-08-15T09:31:29.248189845Z"
+  tools:
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2118
+    definition_token_count: 348
+  - canonical_name: "list_mcp_resource_templates"
+    observed_raw_aliases:
+    - "list_mcp_resource_templates"
+    definition_bytes: 734
+    definition_token_count: 104
+  - canonical_name: "list_mcp_resources"
+    observed_raw_aliases:
+    - "list_mcp_resources"
+    definition_bytes: 646
+    definition_token_count: 93
+  - canonical_name: "read_mcp_resource"
+    observed_raw_aliases:
+    - "read_mcp_resource"
+    definition_bytes: 526
+    definition_token_count: 77
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 417
+    definition_token_count: 59
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 48
+    definition_token_count: 1398
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92

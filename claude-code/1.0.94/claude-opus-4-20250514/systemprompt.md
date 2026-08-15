@@ -1,6 +1,6 @@
 # Claude Code 1.0.94 — claude-opus-4-20250514
 
-Captured 2026-08-12T12:45:04.149Z · 12661 characters · 2809 tokens
+Captured 2026-08-12T12:45:04.149Z · 12661 characters · token count unavailable
 
 2 blocks, 2 with cache_control: ephemeral
 

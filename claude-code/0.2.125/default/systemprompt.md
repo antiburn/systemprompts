@@ -1,6 +1,6 @@
 # Claude Code 0.2.125 — model unrecorded
 
-Captured 2026-08-03T10:17:14.409Z · 13124 characters · 2984 tokens
+Captured 2026-08-03T10:17:14.409Z · 13124 characters · token count unavailable
 
 2 blocks, 2 with cache_control: ephemeral
 

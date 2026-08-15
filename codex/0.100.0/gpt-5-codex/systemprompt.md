@@ -1,6 +1,6 @@
 # Codex 0.100.0 — gpt-5-codex
 
-Captured 2026-08-12T23:28:36.689Z · 20771 characters · 4375 tokens
+Captured 2026-08-12T23:28:36.689Z · 20771 characters · token count unavailable
 
 You are a coding agent running in the Codex CLI, a terminal-based coding assistant. Codex CLI is an open source project led by OpenAI. You are expected to be precise, safe, and helpful.
 

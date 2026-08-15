@@ -6,27 +6,36 @@ capture:
   measurement_method: "isolated local capture proxy; full system prompt retained in reviewed sidecar; provider request captured and not forwarded"
   provenance: "Local prompt-retaining historical capture @openai/codex@0.1.2505171619; npm integrity sha512-jyo3noqWqOE7MTqYRHdLL1tKhnbBjHLuh6HRny3NSnShVRr8rQkSKO4NnpJQKXCTwbQqi1OOJOjxBt13ZcvbQA==; tool surface digest sha256:24997d7b2ed5d2708b371d817f388f6abfd13ead4638b01ecf817253b59989b7. The verified TypeScript entrypoint was imported with synthetic argv."
   request_bytes: 6042
-token_measurement:
-  provider: "openai"
-  method: "OpenAI responses/input_tokens with o4-mini; marginal full request minus component-removed request; incomplete historical strict schemas counted with token-equivalent strict=false"
-  measured_at: "2026-08-03T14:00:00Z"
 system_prompts:
 - model: "unrecorded"
   directory: "default"
   representation: "instructions characters"
   character_count: 4780
-  token_count: 1001
   content_sha256: "657a01680b55e200c9468753ccb39090e85be1610238496f232fc9b004912f13"
   capture: "original"
+  token_count: null
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "unrecorded"
+    method: "captured model was not recorded; native tokenizer cannot be identified"
+    failure_code: "captured_model_unrecorded"
 - model: "codex-mini-latest"
   directory: "codex-mini-latest"
   representation: "instructions characters"
   character_count: 4779
-  token_count: null
   content_sha256: "d99197ff595a1cfb4409c0b7d31f04834393904eeab7324c4955da6b785382b2"
   capture: "matrix-recapture"
   profile: "canonical empty-project-ts-v0"
   recaptured_at: "2026-08-12T15:27:58.654Z"
+  token_count: null
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "codex-mini-latest"
+    method: "native provider token-count endpoint reported this model unavailable"
+    attempted_at: "2026-08-15T07:02:54.870Z"
+    failure_code: "provider_model_unavailable"
 - model: "gpt-4.1"
   directory: "gpt-4.1"
   representation: "instructions characters"
@@ -35,7 +44,19 @@ system_prompts:
   content_sha256: "4ef8e6c68a55addb4a84aaaa9a9ca33715e0e89f73d72469f1c7da5c958d6152"
   capture: "matrix-recapture"
   profile: "canonical empty-project-ts-v0"
-  recaptured_at: "2026-08-12T15:28:07.216Z"
+  recaptured_at: "2026-08-15T07:03:04.541Z"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "gpt-4.1"
+    method: "OpenAI responses.input_tokens with native model gpt-4.1; marginal full request minus component-removed request"
+    measured_at: "2026-08-15T07:03:04.333542906Z"
+  tools:
+  - canonical_name: "shell"
+    observed_raw_aliases:
+    - "shell"
+    definition_bytes: 459
+    definition_token_count: 67
 - model: "gpt-4.1-mini"
   directory: "gpt-4.1-mini"
   representation: "instructions characters"
@@ -44,7 +65,19 @@ system_prompts:
   content_sha256: "3d2763e6953786b79118bd97f7ad4896ec6d3d874cdc31ec348aa88415c7407c"
   capture: "matrix-recapture"
   profile: "canonical empty-project-ts-v0"
-  recaptured_at: "2026-08-12T15:28:16.749Z"
+  recaptured_at: "2026-08-15T07:03:13.545Z"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "gpt-4.1-mini"
+    method: "OpenAI responses.input_tokens with native model gpt-4.1-mini; marginal full request minus component-removed request"
+    measured_at: "2026-08-15T07:03:13.362908851Z"
+  tools:
+  - canonical_name: "shell"
+    observed_raw_aliases:
+    - "shell"
+    definition_bytes: 459
+    definition_token_count: 67
 - model: "gpt-4.1-nano"
   directory: "gpt-4.1-nano"
   representation: "instructions characters"
@@ -53,7 +86,19 @@ system_prompts:
   content_sha256: "548bde3418dc1006c294c9abdce75c3a80dd6905f9c8a6775158905b0f0e7065"
   capture: "matrix-recapture"
   profile: "canonical empty-project-ts-v0"
-  recaptured_at: "2026-08-12T15:28:24.795Z"
+  recaptured_at: "2026-08-15T07:03:23.900Z"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "gpt-4.1-nano"
+    method: "OpenAI responses.input_tokens with native model gpt-4.1-nano; marginal full request minus component-removed request"
+    measured_at: "2026-08-15T07:03:23.645131377Z"
+  tools:
+  - canonical_name: "shell"
+    observed_raw_aliases:
+    - "shell"
+    definition_bytes: 459
+    definition_token_count: 67
 - model: "o3-2025-04-16"
   directory: "o3-2025-04-16"
   representation: "instructions characters"
@@ -62,7 +107,19 @@ system_prompts:
   content_sha256: "0b4e4a26160807c6027cbd1e72bfc62469cf355b225f44438d997d63e16f79d4"
   capture: "matrix-recapture"
   profile: "canonical empty-project-ts-v0"
-  recaptured_at: "2026-08-12T15:28:33.290Z"
+  recaptured_at: "2026-08-15T07:03:32.780Z"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "o3-2025-04-16"
+    method: "OpenAI responses.input_tokens with native model o3-2025-04-16; marginal full request minus component-removed request"
+    measured_at: "2026-08-15T07:03:32.559066444Z"
+  tools:
+  - canonical_name: "shell"
+    observed_raw_aliases:
+    - "shell"
+    definition_bytes: 459
+    definition_token_count: 67
 - model: "o4-mini-2025-04-16"
   directory: "o4-mini-2025-04-16"
   representation: "instructions characters"
@@ -71,10 +128,16 @@ system_prompts:
   content_sha256: "0ae261d5931b375a05afbeb0851acb50057cd29bf8e3a35b2299aed471479c02"
   capture: "matrix-recapture"
   profile: "canonical empty-project-ts-v0"
-  recaptured_at: "2026-08-12T15:28:41.299Z"
-tools:
-- canonical_name: "shell"
-  observed_raw_aliases:
-  - "shell"
-  definition_bytes: 459
-  definition_token_count: 70
+  recaptured_at: "2026-08-15T07:03:41.326Z"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "o4-mini-2025-04-16"
+    method: "OpenAI responses.input_tokens with native model o4-mini-2025-04-16; marginal full request minus component-removed request"
+    measured_at: "2026-08-15T07:03:41.095622410Z"
+  tools:
+  - canonical_name: "shell"
+    observed_raw_aliases:
+    - "shell"
+    definition_bytes: 459
+    definition_token_count: 67

@@ -6,85 +6,33 @@ capture:
   measurement_method: "isolated local capture proxy; full system prompt retained in reviewed sidecar; provider request captured and not forwarded"
   provenance: "Local prompt-retaining historical capture @anthropic-ai/claude-code@0.2.65; npm integrity sha512-LCxFb/WeHoHfVhQfEQGbGlFURYCm5Brcff4GHD+lVX2N3GtexLTcf0iXElAYz3S2vlWX9km8nGVfB/Yd/ieVUw==; tool surface digest sha256:86b4be08c78ec6a7040833640d70f76b46b3096fbbac2a2976bdc32fbf7cf8c0."
   request_bytes: 62834
-token_measurement:
-  provider: "anthropic"
-  method: "Anthropic count_tokens with claude-sonnet-4-5-20250929; marginal full request minus component-removed request; unsupported cache_control.scope metadata omitted"
-  measured_at: "2026-08-03T14:00:00Z"
 system_prompts:
 - model: "unrecorded"
   directory: "default"
   representation: "serialized system JSON characters"
   character_count: 10680
-  token_count: 2419
+  token_count: null
   content_sha256: "c4062bccba8c4d7c30609a59f9d52ef3374d5b43c8fc02fc7754fd3da97b9aa4"
   capture: "original"
+  token_measurement:
+    provider: "anthropic"
+    status: "unavailable"
+    model: "unrecorded"
+    method: "captured model was not recorded; native tokenizer cannot be identified"
+    failure_code: "captured_model_unrecorded"
 - model: "claude-3-7-sonnet-20250219"
   directory: "claude-3-7-sonnet-20250219"
   representation: "canonical serialized system JSON characters"
   character_count: 10681
-  token_count: 2415
+  token_count: null
   content_sha256: "e3bcd3b50f67a4202a2774b99c4d8bd581a9fe88bb5c0a1a144a14bfd695b512"
   capture: "matrix-recapture"
   profile: "canonical empty-project-model-env-v1"
   recaptured_at: "2026-08-12T12:22:51.576Z"
-tools:
-- canonical_name: "bash"
-  observed_raw_aliases:
-  - "Bash"
-  definition_bytes: 9411
-  definition_token_count: 2458
-- canonical_name: "batch_tool"
-  observed_raw_aliases:
-  - "BatchTool"
-  definition_bytes: 23773
-  definition_token_count: 6099
-- canonical_name: "dispatch_agent"
-  observed_raw_aliases:
-  - "dispatch_agent"
-  definition_bytes: 2267
-  definition_token_count: 561
-- canonical_name: "edit"
-  observed_raw_aliases:
-  - "Edit"
-  definition_bytes: 3964
-  definition_token_count: 1036
-- canonical_name: "glob_tool"
-  observed_raw_aliases:
-  - "GlobTool"
-  definition_bytes: 967
-  definition_token_count: 253
-- canonical_name: "grep_tool"
-  observed_raw_aliases:
-  - "GrepTool"
-  definition_bytes: 1062
-  definition_token_count: 295
-- canonical_name: "ls"
-  observed_raw_aliases:
-  - "LS"
-  definition_bytes: 690
-  definition_token_count: 184
-- canonical_name: "notebook_edit_cell"
-  observed_raw_aliases:
-  - "NotebookEditCell"
-  definition_bytes: 1377
-  definition_token_count: 371
-- canonical_name: "read_notebook"
-  observed_raw_aliases:
-  - "ReadNotebook"
-  definition_bytes: 645
-  definition_token_count: 163
-- canonical_name: "replace"
-  observed_raw_aliases:
-  - "Replace"
-  definition_bytes: 738
-  definition_token_count: 205
-- canonical_name: "view"
-  observed_raw_aliases:
-  - "View"
-  definition_bytes: 1615
-  definition_token_count: 425
-- canonical_name: "web_fetch_tool"
-  observed_raw_aliases:
-  - "WebFetchTool"
-  definition_bytes: 1533
-  definition_token_count: 407
+  token_measurement:
+    provider: "anthropic"
+    status: "unavailable"
+    model: "claude-3-7-sonnet-20250219"
+    method: "native provider token-count endpoint reported this model unavailable"
+    attempted_at: "2026-08-15T02:04:57.546Z"
+    failure_code: "provider_model_unavailable"

@@ -1,6 +1,6 @@
 # Codex 0.24.0 — codex-mini-latest
 
-Captured 2026-08-12T15:48:27.763Z · 24700 characters · 0 tokens
+Captured 2026-08-12T15:48:27.763Z · 24700 characters · token count unavailable
 
 You are a coding agent running in the Codex CLI, a terminal-based coding assistant. Codex CLI is an open source project led by OpenAI. You are expected to be precise, safe, and helpful.
 

@@ -1,6 +1,6 @@
 # Codex 0.122.0 — gpt-5-pro-2025-10-06
 
-Captured 2026-08-12T17:48:37.385Z · 14101 characters · 0 tokens
+Captured 2026-08-12T17:48:37.385Z · 14101 characters · token count unavailable
 
 You are Codex, a coding agent based on GPT-5. You and the user share the same workspace and collaborate to achieve the user's goals.
 

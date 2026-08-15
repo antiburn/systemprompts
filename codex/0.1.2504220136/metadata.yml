@@ -6,66 +6,132 @@ capture:
   measurement_method: "isolated local capture proxy; full system prompt retained in reviewed sidecar; provider request captured and not forwarded"
   provenance: "Local prompt-retaining historical capture @openai/codex@0.1.2504220136; npm integrity sha512-ifE2VH1ZY8Tz6B39fbDfMxbbXdg3twRf+vOmR5cgL+TvTtbhXc1+ngY/KBmDs/SVlk422DYAhQUzDS/tHgxLHA==; tool surface digest sha256:d81581d9a24f189433759febadf69f451b670f3fc5a32f2685d9dd8f01a8ed7f. The verified TypeScript bundle's single hardcoded OpenAI base URL literal was redirected to the loopback capture proxy."
   request_bytes: 6058
-token_measurement:
-  provider: "openai"
-  method: "OpenAI responses/input_tokens with o4-mini; marginal full request minus component-removed request; incomplete historical strict schemas counted with token-equivalent strict=false"
-  measured_at: "2026-08-03T14:00:00Z"
 system_prompts:
 - model: "unrecorded"
   directory: "default"
   representation: "instructions characters"
   character_count: 4824
-  token_count: 1000
   content_sha256: "8784cafcd702af86784b73dd16e0e0efa89a4131f5e0c30a14008bac059876f5"
   capture: "original"
+  token_count: null
+  token_measurement:
+    provider: "openai"
+    status: "unavailable"
+    model: "unrecorded"
+    method: "captured model was not recorded; native tokenizer cannot be identified"
+    failure_code: "captured_model_unrecorded"
 - model: "gpt-4.1"
   directory: "gpt-4.1"
   representation: "instructions characters"
   character_count: 4824
-  token_count: null
+  token_count: 1000
   content_sha256: "8784cafcd702af86784b73dd16e0e0efa89a4131f5e0c30a14008bac059876f5"
   capture: "matrix-recapture"
   profile: "canonical empty-project-ts-redirect-v0"
-  recaptured_at: "2026-08-12T15:16:49.823Z"
+  recaptured_at: "2026-08-15T06:46:35.290Z"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "gpt-4.1"
+    method: "OpenAI responses.input_tokens with native model gpt-4.1; marginal full request minus component-removed request; strict optional-property function schemas sent with a provider-validated token-neutral strict=false adjustment"
+    measured_at: "2026-08-15T06:46:35.121519008Z"
+    request_adjustments:
+    - "open_ai_strict_optional_properties_relaxed"
+  tools:
+  - canonical_name: "shell"
+    observed_raw_aliases:
+    - "shell"
+    definition_bytes: 458
+    definition_token_count: 67
 - model: "gpt-4.1-mini"
   directory: "gpt-4.1-mini"
   representation: "instructions characters"
   character_count: 4824
-  token_count: null
+  token_count: 1000
   content_sha256: "8784cafcd702af86784b73dd16e0e0efa89a4131f5e0c30a14008bac059876f5"
   capture: "matrix-recapture"
   profile: "canonical empty-project-ts-redirect-v0"
-  recaptured_at: "2026-08-12T15:16:56.434Z"
+  recaptured_at: "2026-08-15T06:46:43.115Z"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "gpt-4.1-mini"
+    method: "OpenAI responses.input_tokens with native model gpt-4.1-mini; marginal full request minus component-removed request; strict optional-property function schemas sent with a provider-validated token-neutral strict=false adjustment"
+    measured_at: "2026-08-15T06:46:42.947465938Z"
+    request_adjustments:
+    - "open_ai_strict_optional_properties_relaxed"
+  tools:
+  - canonical_name: "shell"
+    observed_raw_aliases:
+    - "shell"
+    definition_bytes: 458
+    definition_token_count: 67
 - model: "gpt-4.1-nano"
   directory: "gpt-4.1-nano"
   representation: "instructions characters"
   character_count: 4824
-  token_count: null
+  token_count: 1000
   content_sha256: "8784cafcd702af86784b73dd16e0e0efa89a4131f5e0c30a14008bac059876f5"
   capture: "matrix-recapture"
   profile: "canonical empty-project-ts-redirect-v0"
-  recaptured_at: "2026-08-12T15:17:03.193Z"
+  recaptured_at: "2026-08-15T06:47:28.892Z"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "gpt-4.1-nano"
+    method: "OpenAI responses.input_tokens with native model gpt-4.1-nano; marginal full request minus component-removed request; strict optional-property function schemas sent with a provider-validated token-neutral strict=false adjustment"
+    measured_at: "2026-08-15T06:47:28.690658256Z"
+    request_adjustments:
+    - "open_ai_strict_optional_properties_relaxed"
+  tools:
+  - canonical_name: "shell"
+    observed_raw_aliases:
+    - "shell"
+    definition_bytes: 458
+    definition_token_count: 67
 - model: "o3-2025-04-16"
   directory: "o3-2025-04-16"
   representation: "instructions characters"
   character_count: 4824
-  token_count: null
+  token_count: 1000
   content_sha256: "8784cafcd702af86784b73dd16e0e0efa89a4131f5e0c30a14008bac059876f5"
   capture: "matrix-recapture"
   profile: "canonical empty-project-ts-redirect-v0"
-  recaptured_at: "2026-08-12T15:17:09.648Z"
+  recaptured_at: "2026-08-15T06:47:36.515Z"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "o3-2025-04-16"
+    method: "OpenAI responses.input_tokens with native model o3-2025-04-16; marginal full request minus component-removed request; strict optional-property function schemas sent with a provider-validated token-neutral strict=false adjustment"
+    measured_at: "2026-08-15T06:47:36.307040771Z"
+    request_adjustments:
+    - "open_ai_strict_optional_properties_relaxed"
+  tools:
+  - canonical_name: "shell"
+    observed_raw_aliases:
+    - "shell"
+    definition_bytes: 458
+    definition_token_count: 67
 - model: "o4-mini-2025-04-16"
   directory: "o4-mini-2025-04-16"
   representation: "instructions characters"
   character_count: 4824
-  token_count: null
+  token_count: 1000
   content_sha256: "8784cafcd702af86784b73dd16e0e0efa89a4131f5e0c30a14008bac059876f5"
   capture: "matrix-recapture"
   profile: "canonical empty-project-ts-redirect-v0"
-  recaptured_at: "2026-08-12T15:17:16.584Z"
-tools:
-- canonical_name: "shell"
-  observed_raw_aliases:
-  - "shell"
-  definition_bytes: 458
-  definition_token_count: 67
+  recaptured_at: "2026-08-15T06:47:44.654Z"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "o4-mini-2025-04-16"
+    method: "OpenAI responses.input_tokens with native model o4-mini-2025-04-16; marginal full request minus component-removed request; strict optional-property function schemas sent with a provider-validated token-neutral strict=false adjustment"
+    measured_at: "2026-08-15T06:47:44.501241362Z"
+    request_adjustments:
+    - "open_ai_strict_optional_properties_relaxed"
+  tools:
+  - canonical_name: "shell"
+    observed_raw_aliases:
+    - "shell"
+    definition_bytes: 458
+    definition_token_count: 67

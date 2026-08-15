@@ -6,12 +6,14 @@ Layout this reads (see the repo's design doc / AGENTS notes):
 
     <harness>/annotations.yml               {"callouts": [{version, label, detail}, ...]}
     <harness>/<version>/metadata.yml        {version, capture: {captured_at, ...},
-                                              token_measurement: {...},
-                                              tools: [{canonical_name, definition_bytes,
-                                                       definition_token_count}, ...],
                                               system_prompts: [{model, directory,
                                                        character_count, token_count,
-                                                       content_sha256?, capture}, ...]}
+                                                       content_sha256?, capture,
+                                                       token_measurement: {...},
+                                                       tools: [{canonical_name,
+                                                                definition_bytes,
+                                                                definition_token_count}, ...]},
+                                                       ...]}
 
 A harness directory is any top-level directory containing its own
 annotations.yml. Known harnesses get a friendly display name; unknown ones
@@ -137,20 +139,41 @@ def load_versions(harness_dir: str):
                     "falling back to captured_at"
                 )
 
-        tools = meta.get("tools") or []
+        system_prompts = meta.get("system_prompts") or []
+        primary = None
+        for sp in system_prompts:
+            measurement = sp.get("token_measurement") or {}
+            if (
+                measurement.get("status") == "measured"
+                and measurement.get("model") == sp.get("model")
+                and isinstance(sp.get("token_count"), (int, float))
+            ):
+                primary = sp
+                break
+
+        has_native_schema = any(sp.get("token_measurement") for sp in system_prompts)
+
+        # Compatibility only for metadata that has not yet migrated from the
+        # old version-level fixed-tokenizer layout. A native `partial` entry
+        # deliberately is not charted: its system count is valid, but stacking
+        # only the supported tools would understate the combined total.
+        if primary is None and not has_native_schema:
+            for sp in system_prompts:
+                if isinstance(sp.get("token_count"), (int, float)):
+                    primary = sp
+                    break
+            tools = meta.get("tools") or []
+        elif primary is not None:
+            tools = primary.get("tools") or []
+        else:
+            tools = []
+
         tools_token_sum = 0
         for t in tools:
             v = t.get("definition_token_count")
             if isinstance(v, (int, float)):
                 tools_token_sum += v
             # else: missing/None definition_token_count contributes 0 (documented assumption)
-
-        system_prompts = meta.get("system_prompts") or []
-        primary = None
-        for sp in system_prompts:
-            if isinstance(sp.get("token_count"), (int, float)):
-                primary = sp
-                break
 
         has_chart_data = primary is not None
         system_tokens = primary["token_count"] if has_chart_data else None
