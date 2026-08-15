@@ -1,6 +1,6 @@
 # Codex 0.95.0 — gpt-5-codex
 
-Captured 2026-08-12T23:18:13.489Z · 6621 characters · 1440 tokens
+Captured 2026-08-12T23:18:13.489Z · 6621 characters · token count unavailable
 
 You are Codex, based on GPT-5. You are running as a coding agent in the Codex CLI on a user's computer.
 

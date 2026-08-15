@@ -1,6 +1,6 @@
 # Codex 0.1.2505111730 — model unrecorded
 
-Captured 2026-08-03T10:27:42.942Z · 4880 characters · 1020 tokens
+Captured 2026-08-03T10:27:42.942Z · 4880 characters · token count unavailable
 
 User: probe
 Workdir: /tmp/cadence-probe-fRCcJh/project

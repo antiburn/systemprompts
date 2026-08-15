@@ -1,6 +1,6 @@
 # Codex 0.23.0 — model unrecorded
 
-Captured 2026-08-03T10:29:01.067Z · 23706 characters · 5068 tokens
+Captured 2026-08-03T10:29:01.067Z · 23706 characters · token count unavailable
 
 You are a coding agent running in the Codex CLI, a terminal-based coding assistant. Codex CLI is an open source project led by OpenAI. You are expected to be precise, safe, and helpful.
 

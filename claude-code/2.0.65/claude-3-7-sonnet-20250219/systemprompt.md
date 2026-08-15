@@ -1,6 +1,6 @@
 # Claude Code 2.0.65 — claude-3-7-sonnet-20250219
 
-Captured 2026-08-12T13:10:35.377Z · 13069 characters · 2826 tokens
+Captured 2026-08-12T13:10:35.377Z · 13069 characters · token count unavailable
 
 2 blocks, 2 with cache_control: ephemeral
 
