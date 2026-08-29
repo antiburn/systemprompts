@@ -1,0 +1,323 @@
+version: "0.151.0"
+capture:
+  captured_at: "2026-08-29T11:10:00Z"
+  profile: "canonical empty-project-v2"
+  measurement_method: "isolated capture proxy; provider request captured and supported fields sent only to the openai token-counting endpoint"
+  provenance: "Automated Phase 5 capture pending human review."
+  request_bytes: 29281
+  automation:
+    package_name: "@openai/codex"
+    release_channel: "latest"
+    registry_integrity: "sha512-mhtWmOZRdmWD1jPbLDnQb59BsaVP/V+lXe/OFNR9ZcLZU0UCiBwn98Fcav1ss7sDIlHkuqj6nWd44IPeXoOhJA=="
+    probe_profile_version: "empty-project-v2"
+    tool_surface_digest: "sha256:b28a943fe67f5a8312e88bc1223c2319db2fb8fe04d5ac5ee6bf519a857ef0a8"
+system_prompts:
+- model: "gpt-5.4"
+  directory: "gpt-5.4"
+  representation: "provider-native instructions payload characters"
+  character_count: 14732
+  token_count: 2995
+  content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
+  capture: "original"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "gpt-5.4"
+    method: "OpenAI responses.input_tokens with native model gpt-5.4; marginal full request minus component-removed request"
+    measured_at: "2026-08-29T11:10:45.581565493Z"
+  tools:
+  - canonical_name: "apply_patch"
+    observed_raw_aliases:
+    - "apply_patch"
+    definition_bytes: 846
+    definition_token_count: 270
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 1564
+    definition_token_count: 261
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "tool_search"
+    observed_raw_aliases:
+    - "tool_search"
+    definition_bytes: 804
+    definition_token_count: 157
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 733
+    definition_token_count: 95
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 526
+    definition_token_count: 73
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 88
+    definition_token_count: 4436
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 784
+    definition_token_count: 122
+- model: "gpt-5.4-mini"
+  directory: "gpt-5.4-mini"
+  representation: "provider-native instructions payload characters"
+  character_count: 12950
+  token_count: 2643
+  content_sha256: "a2e1143d471279aeb422045486fce7cb502fc05bc105ce31790c39a70ab97491"
+  capture: "original"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "gpt-5.4-mini"
+    method: "OpenAI responses.input_tokens with native model gpt-5.4-mini; marginal full request minus component-removed request"
+    measured_at: "2026-08-29T11:17:21.184754487Z"
+  tools:
+  - canonical_name: "apply_patch"
+    observed_raw_aliases:
+    - "apply_patch"
+    definition_bytes: 846
+    definition_token_count: 270
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 1564
+    definition_token_count: 261
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "tool_search"
+    observed_raw_aliases:
+    - "tool_search"
+    definition_bytes: 804
+    definition_token_count: 157
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 733
+    definition_token_count: 95
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 526
+    definition_token_count: 73
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 88
+    definition_token_count: 4436
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 784
+    definition_token_count: 122
+- model: "gpt-5.5"
+  directory: "gpt-5.5"
+  representation: "provider-native instructions payload characters"
+  character_count: 21335
+  token_count: 4380
+  content_sha256: "c2a980bc28af132eb89e0b4c68ae884043faae83a1afd3fd4889f7e8a1ada7b0"
+  capture: "original"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "gpt-5.5"
+    method: "OpenAI responses.input_tokens with native model gpt-5.5; marginal full request minus component-removed request"
+    measured_at: "2026-08-29T11:15:52.297843324Z"
+  tools:
+  - canonical_name: "apply_patch"
+    observed_raw_aliases:
+    - "apply_patch"
+    definition_bytes: 846
+    definition_token_count: 270
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 1564
+    definition_token_count: 261
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "tool_search"
+    observed_raw_aliases:
+    - "tool_search"
+    definition_bytes: 804
+    definition_token_count: 157
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 733
+    definition_token_count: 95
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 526
+    definition_token_count: 73
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 88
+    definition_token_count: 4436
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 784
+    definition_token_count: 122
+- model: "gpt-5.6-luna"
+  directory: "gpt-5.6-luna"
+  representation: "provider-native instructions payload characters"
+  character_count: 21078
+  token_count: 4193
+  content_sha256: "0542a089fcbbcb542383a63afff5caec401139d3c842b877143cf98c2f860924"
+  capture: "original"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "gpt-5.6-luna"
+    method: "OpenAI responses.input_tokens with native model gpt-5.6-luna; marginal full request minus component-removed request"
+    measured_at: "2026-08-29T11:14:40.049354314Z"
+  tools:
+  - canonical_name: "functions_exec"
+    observed_raw_aliases:
+    - "functions.exec"
+    definition_bytes: 8443
+    definition_token_count: 1946
+  - canonical_name: "functions_request_user_input"
+    observed_raw_aliases:
+    - "functions.request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "functions_wait"
+    observed_raw_aliases:
+    - "functions.wait"
+    definition_bytes: 1356
+    definition_token_count: 262
+- model: "gpt-5.6-sol"
+  directory: "gpt-5.6-sol"
+  representation: "provider-native instructions payload characters"
+  character_count: 23908
+  token_count: 4752
+  content_sha256: "110821bcf01baa7df7f939cfcccb52e44251c8f8ceca1000c44081ef0daab0a7"
+  capture: "original"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "gpt-5.6-sol"
+    method: "OpenAI responses.input_tokens with native model gpt-5.6-sol; marginal full request minus component-removed request"
+    measured_at: "2026-08-29T11:12:00.017289991Z"
+  tools:
+  - canonical_name: "collaboration_followup_task"
+    observed_raw_aliases:
+    - "collaboration.followup_task"
+    definition_bytes: 639
+    definition_token_count: 93
+  - canonical_name: "collaboration_interrupt_agent"
+    observed_raw_aliases:
+    - "collaboration.interrupt_agent"
+    definition_bytes: 417
+    definition_token_count: 55
+  - canonical_name: "collaboration_list_agents"
+    observed_raw_aliases:
+    - "collaboration.list_agents"
+    definition_bytes: 363
+    definition_token_count: 51
+  - canonical_name: "collaboration_send_message"
+    observed_raw_aliases:
+    - "collaboration.send_message"
+    definition_bytes: 495
+    definition_token_count: 62
+  - canonical_name: "collaboration_spawn_agent"
+    observed_raw_aliases:
+    - "collaboration.spawn_agent"
+    definition_bytes: 2837
+    definition_token_count: 603
+  - canonical_name: "collaboration_wait_agent"
+    observed_raw_aliases:
+    - "collaboration.wait_agent"
+    definition_bytes: 644
+    definition_token_count: 111
+  - canonical_name: "functions_exec"
+    observed_raw_aliases:
+    - "functions.exec"
+    definition_bytes: 8232
+    definition_token_count: 1896
+  - canonical_name: "functions_request_user_input"
+    observed_raw_aliases:
+    - "functions.request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "functions_wait"
+    observed_raw_aliases:
+    - "functions.wait"
+    definition_bytes: 1356
+    definition_token_count: 262
+- model: "gpt-5.6-terra"
+  directory: "gpt-5.6-terra"
+  representation: "provider-native instructions payload characters"
+  character_count: 23908
+  token_count: 4751
+  content_sha256: "0cb97217a0042107c88bfa5b3709a99af98bb7935796606bfe92ef639036c98b"
+  capture: "original"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "gpt-5.6-terra"
+    method: "OpenAI responses.input_tokens with native model gpt-5.6-terra; marginal full request minus component-removed request"
+    measured_at: "2026-08-29T11:13:22.337459583Z"
+  tools:
+  - canonical_name: "collaboration_followup_task"
+    observed_raw_aliases:
+    - "collaboration.followup_task"
+    definition_bytes: 639
+    definition_token_count: 93
+  - canonical_name: "collaboration_interrupt_agent"
+    observed_raw_aliases:
+    - "collaboration.interrupt_agent"
+    definition_bytes: 417
+    definition_token_count: 55
+  - canonical_name: "collaboration_list_agents"
+    observed_raw_aliases:
+    - "collaboration.list_agents"
+    definition_bytes: 363
+    definition_token_count: 51
+  - canonical_name: "collaboration_send_message"
+    observed_raw_aliases:
+    - "collaboration.send_message"
+    definition_bytes: 495
+    definition_token_count: 62
+  - canonical_name: "collaboration_spawn_agent"
+    observed_raw_aliases:
+    - "collaboration.spawn_agent"
+    definition_bytes: 2837
+    definition_token_count: 603
+  - canonical_name: "collaboration_wait_agent"
+    observed_raw_aliases:
+    - "collaboration.wait_agent"
+    definition_bytes: 644
+    definition_token_count: 111
+  - canonical_name: "functions_exec"
+    observed_raw_aliases:
+    - "functions.exec"
+    definition_bytes: 8232
+    definition_token_count: 1896
+  - canonical_name: "functions_request_user_input"
+    observed_raw_aliases:
+    - "functions.request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "functions_wait"
+    observed_raw_aliases:
+    - "functions.wait"
+    definition_bytes: 1356
+    definition_token_count: 262
