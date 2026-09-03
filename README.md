@@ -17,7 +17,7 @@ Each `claude-code/<version>/` directory holds `metadata.yml` (capture provenance
 
 ## Codex
 
-181 versions · Apr 2025 – Sep 2026 · 8,500 combined tokens (latest)
+182 versions · Apr 2025 – Sep 2026 · 8,500 combined tokens (latest)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/codex-tokens-dark.svg">
