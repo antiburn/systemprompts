@@ -306,3 +306,50 @@ system_prompts:
     - "functions.wait"
     definition_bytes: 1356
     definition_token_count: 262
+
+- model: "gpt-6-astra"
+  directory: "gpt-6-astra"
+  representation: "instructions characters"
+  character_count: 16979
+  token_count: 3527
+  content_sha256: "3b08633fa672906666659d764864dfda1d7af5b5111ea5817c8f46e5de4e1a8d"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-v2"
+  recaptured_at: "2026-09-06T10:27:31.020Z"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "gpt-6-astra"
+    method: "OpenAI responses.input_tokens with native model gpt-6-astra; marginal full request minus component-removed request"
+    measured_at: "2026-09-06T10:27:30.823060027Z"
+  tools:
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 1564
+    definition_token_count: 261
+  - canonical_name: "multi_agent_v1"
+    observed_raw_aliases:
+    - "multi_agent_v1"
+    definition_bytes: 9918
+    definition_token_count: 1778
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 371
+    definition_token_count: 46
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 48
+    definition_token_count: 4436
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 784
+    definition_token_count: 122

@@ -306,3 +306,75 @@ system_prompts:
     - "functions.wait"
     definition_bytes: 1356
     definition_token_count: 262
+
+- model: "gpt-6-astra"
+  directory: "gpt-6-astra"
+  representation: "instructions characters"
+  character_count: 29015
+  token_count: 5592
+  content_sha256: "23c8c6f3d0345cd84ce4217841618f448f4f487d52500935b8bdfbc130184ac5"
+  capture: "matrix-recapture"
+  profile: "canonical empty-project-v2"
+  recaptured_at: "2026-09-06T10:27:46.151Z"
+  token_measurement:
+    provider: "openai"
+    status: "measured"
+    model: "gpt-6-astra"
+    method: "OpenAI responses.input_tokens with native model gpt-6-astra; marginal full request minus component-removed request"
+    measured_at: "2026-09-06T10:27:46.074998969Z"
+  tools:
+  - canonical_name: "clock_sleep"
+    observed_raw_aliases:
+    - "clock.sleep"
+    definition_bytes: 426
+    definition_token_count: 87
+  - canonical_name: "collaboration_followup_task"
+    observed_raw_aliases:
+    - "collaboration.followup_task"
+    definition_bytes: 639
+    definition_token_count: 93
+  - canonical_name: "collaboration_interrupt_agent"
+    observed_raw_aliases:
+    - "collaboration.interrupt_agent"
+    definition_bytes: 417
+    definition_token_count: 55
+  - canonical_name: "collaboration_list_agents"
+    observed_raw_aliases:
+    - "collaboration.list_agents"
+    definition_bytes: 363
+    definition_token_count: 51
+  - canonical_name: "collaboration_send_message"
+    observed_raw_aliases:
+    - "collaboration.send_message"
+    definition_bytes: 495
+    definition_token_count: 62
+  - canonical_name: "collaboration_spawn_agent"
+    observed_raw_aliases:
+    - "collaboration.spawn_agent"
+    definition_bytes: 2837
+    definition_token_count: 603
+  - canonical_name: "collaboration_wait_agent"
+    observed_raw_aliases:
+    - "collaboration.wait_agent"
+    definition_bytes: 644
+    definition_token_count: 111
+  - canonical_name: "functions_exec"
+    observed_raw_aliases:
+    - "functions.exec"
+    definition_bytes: 8010
+    definition_token_count: 1852
+  - canonical_name: "functions_request_user_input"
+    observed_raw_aliases:
+    - "functions.request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "functions_request_user_input_async"
+    observed_raw_aliases:
+    - "functions.request_user_input_async"
+    definition_bytes: 1499
+    definition_token_count: 239
+  - canonical_name: "functions_wait"
+    observed_raw_aliases:
+    - "functions.wait"
+    definition_bytes: 1356
+    definition_token_count: 262

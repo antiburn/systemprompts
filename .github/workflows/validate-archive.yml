@@ -1,0 +1,30 @@
+name: Validate archive
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-archive-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install validation dependencies
+        run: pip install --disable-pip-version-check -r tools/requirements.txt
+      - name: Test archive validation
+        run: python3 -m unittest discover -s tools -p 'test_*.py'
+      - name: Validate archived prompts and measurements
+        run: python3 tools/validate_archive.py
+      - name: Render README and charts
+        run: python3 tools/generate_readme.py
