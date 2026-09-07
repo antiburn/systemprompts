@@ -23,67 +23,288 @@ system_prompts:
 - model: "gpt-4.1"
   directory: "gpt-4.1"
   representation: "instructions characters"
-  character_count: 14732
-  content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
+  character_count: 20771
+  token_count: 4375
+  content_sha256: "0fae66723e9ba38083bd5a26f83f5c6c944954daaea3436084ab75eb8fdf46c8"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
-  recaptured_at: "2026-08-12T17:51:56.488Z"
-  token_count: null
+  recaptured_at: "2026-09-07T05:20:30.811Z"
   token_measurement:
     provider: "openai"
-    status: "unavailable"
+    status: "measured"
     model: "gpt-4.1"
-    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
-    attempted_at: "2026-08-15T10:28:43.693Z"
-    failure_code: "captured_model_mismatch"
+    method: "OpenAI responses.input_tokens with native model gpt-4.1; marginal full request minus component-removed request"
+    measured_at: "2026-09-07T05:20:30.654153421Z"
+  tools:
+  - canonical_name: "close_agent"
+    observed_raw_aliases:
+    - "close_agent"
+    definition_bytes: 466
+    definition_token_count: 65
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2121
+    definition_token_count: 348
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "resume_agent"
+    observed_raw_aliases:
+    - "resume_agent"
+    definition_bytes: 314
+    definition_token_count: 38
+  - canonical_name: "send_input"
+    observed_raw_aliases:
+    - "send_input"
+    definition_bytes: 1494
+    definition_token_count: 236
+  - canonical_name: "spawn_agent"
+    observed_raw_aliases:
+    - "spawn_agent"
+    definition_bytes: 10129
+    definition_token_count: 1925
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 417
+    definition_token_count: 59
+  - canonical_name: "wait_agent"
+    observed_raw_aliases:
+    - "wait_agent"
+    definition_bytes: 745
+    definition_token_count: 116
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 48
+    definition_token_count: 292
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92
 - model: "gpt-4.1-mini"
   directory: "gpt-4.1-mini"
   representation: "instructions characters"
-  character_count: 14732
-  content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
+  character_count: 20771
+  token_count: 4375
+  content_sha256: "0fae66723e9ba38083bd5a26f83f5c6c944954daaea3436084ab75eb8fdf46c8"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
-  recaptured_at: "2026-08-12T17:51:59.691Z"
-  token_count: null
+  recaptured_at: "2026-09-07T05:20:37.781Z"
   token_measurement:
     provider: "openai"
-    status: "unavailable"
+    status: "measured"
     model: "gpt-4.1-mini"
-    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
-    attempted_at: "2026-08-15T10:28:53.322Z"
-    failure_code: "captured_model_mismatch"
+    method: "OpenAI responses.input_tokens with native model gpt-4.1-mini; marginal full request minus component-removed request"
+    measured_at: "2026-09-07T05:20:37.600577223Z"
+  tools:
+  - canonical_name: "close_agent"
+    observed_raw_aliases:
+    - "close_agent"
+    definition_bytes: 466
+    definition_token_count: 65
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2121
+    definition_token_count: 348
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "resume_agent"
+    observed_raw_aliases:
+    - "resume_agent"
+    definition_bytes: 314
+    definition_token_count: 38
+  - canonical_name: "send_input"
+    observed_raw_aliases:
+    - "send_input"
+    definition_bytes: 1494
+    definition_token_count: 236
+  - canonical_name: "spawn_agent"
+    observed_raw_aliases:
+    - "spawn_agent"
+    definition_bytes: 10129
+    definition_token_count: 1925
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 417
+    definition_token_count: 59
+  - canonical_name: "wait_agent"
+    observed_raw_aliases:
+    - "wait_agent"
+    definition_bytes: 745
+    definition_token_count: 116
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 48
+    definition_token_count: 292
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92
 - model: "gpt-4.1-nano"
   directory: "gpt-4.1-nano"
   representation: "instructions characters"
-  character_count: 14732
-  content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
+  character_count: 20771
+  token_count: 4375
+  content_sha256: "0fae66723e9ba38083bd5a26f83f5c6c944954daaea3436084ab75eb8fdf46c8"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
-  recaptured_at: "2026-08-12T17:52:02.872Z"
-  token_count: null
+  recaptured_at: "2026-09-07T05:20:47.627Z"
   token_measurement:
     provider: "openai"
-    status: "unavailable"
+    status: "partial"
     model: "gpt-4.1-nano"
-    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
-    attempted_at: "2026-08-15T10:28:56.790Z"
-    failure_code: "captured_model_mismatch"
+    method: "OpenAI responses.input_tokens with native model gpt-4.1-nano; marginal full request minus component-removed request; provider-rejected native tools recorded unavailable; supported tools measured as isolated request minus no-tools request"
+    measured_at: "2026-09-07T05:20:47.476527631Z"
+  tools:
+  - canonical_name: "close_agent"
+    observed_raw_aliases:
+    - "close_agent"
+    definition_bytes: 466
+    definition_token_count: 78
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2121
+    definition_token_count: 361
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 199
+  - canonical_name: "resume_agent"
+    observed_raw_aliases:
+    - "resume_agent"
+    definition_bytes: 314
+    definition_token_count: 51
+  - canonical_name: "send_input"
+    observed_raw_aliases:
+    - "send_input"
+    definition_bytes: 1494
+    definition_token_count: 249
+  - canonical_name: "spawn_agent"
+    observed_raw_aliases:
+    - "spawn_agent"
+    definition_bytes: 10129
+    definition_token_count: 1938
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 94
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 417
+    definition_token_count: 72
+  - canonical_name: "wait_agent"
+    observed_raw_aliases:
+    - "wait_agent"
+    definition_bytes: 745
+    definition_token_count: 129
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 48
+    definition_token_count: null
+    definition_token_count_unavailable_reason: "provider_tool_surface_unsupported"
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 105
 - model: "gpt-5-2025-08-07"
   directory: "gpt-5-2025-08-07"
   representation: "instructions characters"
-  character_count: 14732
-  content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
+  character_count: 20771
+  token_count: 4375
+  content_sha256: "0fae66723e9ba38083bd5a26f83f5c6c944954daaea3436084ab75eb8fdf46c8"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
-  recaptured_at: "2026-08-12T17:52:06.097Z"
-  token_count: null
+  recaptured_at: "2026-09-07T05:20:53.266Z"
   token_measurement:
     provider: "openai"
-    status: "unavailable"
+    status: "measured"
     model: "gpt-5-2025-08-07"
-    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
-    attempted_at: "2026-08-15T10:29:00.171Z"
-    failure_code: "captured_model_mismatch"
+    method: "OpenAI responses.input_tokens with native model gpt-5-2025-08-07; marginal full request minus component-removed request"
+    measured_at: "2026-09-07T05:20:53.095292940Z"
+  tools:
+  - canonical_name: "close_agent"
+    observed_raw_aliases:
+    - "close_agent"
+    definition_bytes: 466
+    definition_token_count: 65
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2121
+    definition_token_count: 348
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "resume_agent"
+    observed_raw_aliases:
+    - "resume_agent"
+    definition_bytes: 314
+    definition_token_count: 38
+  - canonical_name: "send_input"
+    observed_raw_aliases:
+    - "send_input"
+    definition_bytes: 1494
+    definition_token_count: 236
+  - canonical_name: "spawn_agent"
+    observed_raw_aliases:
+    - "spawn_agent"
+    definition_bytes: 10129
+    definition_token_count: 1925
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 417
+    definition_token_count: 59
+  - canonical_name: "wait_agent"
+    observed_raw_aliases:
+    - "wait_agent"
+    definition_bytes: 745
+    definition_token_count: 116
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 48
+    definition_token_count: 4436
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92
 - model: "gpt-5-codex"
   directory: "gpt-5-codex"
   representation: "instructions characters"
@@ -103,67 +324,287 @@ system_prompts:
 - model: "gpt-5-mini-2025-08-07"
   directory: "gpt-5-mini-2025-08-07"
   representation: "instructions characters"
-  character_count: 14732
-  content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
+  character_count: 20771
+  token_count: 4375
+  content_sha256: "0fae66723e9ba38083bd5a26f83f5c6c944954daaea3436084ab75eb8fdf46c8"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
-  recaptured_at: "2026-08-12T17:52:12.554Z"
-  token_count: null
+  recaptured_at: "2026-09-07T05:21:00.628Z"
   token_measurement:
     provider: "openai"
-    status: "unavailable"
+    status: "measured"
     model: "gpt-5-mini-2025-08-07"
-    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
-    attempted_at: "2026-08-15T10:29:06.850Z"
-    failure_code: "captured_model_mismatch"
+    method: "OpenAI responses.input_tokens with native model gpt-5-mini-2025-08-07; marginal full request minus component-removed request"
+    measured_at: "2026-09-07T05:21:00.454035841Z"
+  tools:
+  - canonical_name: "close_agent"
+    observed_raw_aliases:
+    - "close_agent"
+    definition_bytes: 466
+    definition_token_count: 65
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2121
+    definition_token_count: 348
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "resume_agent"
+    observed_raw_aliases:
+    - "resume_agent"
+    definition_bytes: 314
+    definition_token_count: 38
+  - canonical_name: "send_input"
+    observed_raw_aliases:
+    - "send_input"
+    definition_bytes: 1494
+    definition_token_count: 236
+  - canonical_name: "spawn_agent"
+    observed_raw_aliases:
+    - "spawn_agent"
+    definition_bytes: 10129
+    definition_token_count: 1925
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 417
+    definition_token_count: 59
+  - canonical_name: "wait_agent"
+    observed_raw_aliases:
+    - "wait_agent"
+    definition_bytes: 745
+    definition_token_count: 116
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 48
+    definition_token_count: 4436
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92
 - model: "gpt-5-nano-2025-08-07"
   directory: "gpt-5-nano-2025-08-07"
   representation: "instructions characters"
-  character_count: 14732
-  content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
+  character_count: 20771
+  token_count: 4375
+  content_sha256: "0fae66723e9ba38083bd5a26f83f5c6c944954daaea3436084ab75eb8fdf46c8"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
-  recaptured_at: "2026-08-12T17:52:15.759Z"
-  token_count: null
+  recaptured_at: "2026-09-07T05:21:07.145Z"
   token_measurement:
     provider: "openai"
-    status: "unavailable"
+    status: "measured"
     model: "gpt-5-nano-2025-08-07"
-    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
-    attempted_at: "2026-08-15T10:29:10.161Z"
-    failure_code: "captured_model_mismatch"
+    method: "OpenAI responses.input_tokens with native model gpt-5-nano-2025-08-07; marginal full request minus component-removed request"
+    measured_at: "2026-09-07T05:21:06.973207043Z"
+  tools:
+  - canonical_name: "close_agent"
+    observed_raw_aliases:
+    - "close_agent"
+    definition_bytes: 466
+    definition_token_count: 65
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2121
+    definition_token_count: 348
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "resume_agent"
+    observed_raw_aliases:
+    - "resume_agent"
+    definition_bytes: 314
+    definition_token_count: 38
+  - canonical_name: "send_input"
+    observed_raw_aliases:
+    - "send_input"
+    definition_bytes: 1494
+    definition_token_count: 236
+  - canonical_name: "spawn_agent"
+    observed_raw_aliases:
+    - "spawn_agent"
+    definition_bytes: 10129
+    definition_token_count: 1925
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 417
+    definition_token_count: 59
+  - canonical_name: "wait_agent"
+    observed_raw_aliases:
+    - "wait_agent"
+    definition_bytes: 745
+    definition_token_count: 116
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 48
+    definition_token_count: 4436
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92
 - model: "gpt-5-pro-2025-10-06"
   directory: "gpt-5-pro-2025-10-06"
   representation: "instructions characters"
-  character_count: 14732
-  content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
+  character_count: 20771
+  token_count: 4375
+  content_sha256: "0fae66723e9ba38083bd5a26f83f5c6c944954daaea3436084ab75eb8fdf46c8"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
-  recaptured_at: "2026-08-12T17:52:18.954Z"
-  token_count: null
+  recaptured_at: "2026-09-07T05:21:13.986Z"
   token_measurement:
     provider: "openai"
-    status: "unavailable"
+    status: "measured"
     model: "gpt-5-pro-2025-10-06"
-    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
-    attempted_at: "2026-08-15T10:29:13.489Z"
-    failure_code: "captured_model_mismatch"
+    method: "OpenAI responses.input_tokens with native model gpt-5-pro-2025-10-06; marginal full request minus component-removed request"
+    measured_at: "2026-09-07T05:21:13.817731790Z"
+  tools:
+  - canonical_name: "close_agent"
+    observed_raw_aliases:
+    - "close_agent"
+    definition_bytes: 466
+    definition_token_count: 65
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2121
+    definition_token_count: 348
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "resume_agent"
+    observed_raw_aliases:
+    - "resume_agent"
+    definition_bytes: 314
+    definition_token_count: 38
+  - canonical_name: "send_input"
+    observed_raw_aliases:
+    - "send_input"
+    definition_bytes: 1494
+    definition_token_count: 236
+  - canonical_name: "spawn_agent"
+    observed_raw_aliases:
+    - "spawn_agent"
+    definition_bytes: 10129
+    definition_token_count: 1925
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 417
+    definition_token_count: 59
+  - canonical_name: "wait_agent"
+    observed_raw_aliases:
+    - "wait_agent"
+    definition_bytes: 745
+    definition_token_count: 116
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 48
+    definition_token_count: 4436
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92
 - model: "gpt-5.1"
   directory: "gpt-5.1"
   representation: "instructions characters"
-  character_count: 14732
-  content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
+  character_count: 20771
+  token_count: 4375
+  content_sha256: "0fae66723e9ba38083bd5a26f83f5c6c944954daaea3436084ab75eb8fdf46c8"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
-  recaptured_at: "2026-08-12T17:52:22.217Z"
-  token_count: null
+  recaptured_at: "2026-09-07T05:21:20.650Z"
   token_measurement:
     provider: "openai"
-    status: "unavailable"
+    status: "measured"
     model: "gpt-5.1"
-    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
-    attempted_at: "2026-08-15T10:29:16.988Z"
-    failure_code: "captured_model_mismatch"
+    method: "OpenAI responses.input_tokens with native model gpt-5.1; marginal full request minus component-removed request"
+    measured_at: "2026-09-07T05:21:20.470470993Z"
+  tools:
+  - canonical_name: "close_agent"
+    observed_raw_aliases:
+    - "close_agent"
+    definition_bytes: 466
+    definition_token_count: 65
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2121
+    definition_token_count: 348
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "resume_agent"
+    observed_raw_aliases:
+    - "resume_agent"
+    definition_bytes: 314
+    definition_token_count: 38
+  - canonical_name: "send_input"
+    observed_raw_aliases:
+    - "send_input"
+    definition_bytes: 1494
+    definition_token_count: 236
+  - canonical_name: "spawn_agent"
+    observed_raw_aliases:
+    - "spawn_agent"
+    definition_bytes: 10129
+    definition_token_count: 1925
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 417
+    definition_token_count: 59
+  - canonical_name: "wait_agent"
+    observed_raw_aliases:
+    - "wait_agent"
+    definition_bytes: 745
+    definition_token_count: 116
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 48
+    definition_token_count: 4436
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92
 - model: "gpt-5.1-codex"
   directory: "gpt-5.1-codex"
   representation: "instructions characters"
@@ -215,19 +656,79 @@ system_prompts:
 - model: "gpt-5.2"
   directory: "gpt-5.2"
   representation: "instructions characters"
-  character_count: 14732
-  content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
+  character_count: 21544
+  token_count: 4574
+  content_sha256: "c9b2fa097ac69cae82c3d2ae12271083890a96521c55ad8dc14cae5168ad3f39"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
-  recaptured_at: "2026-08-12T17:52:35.157Z"
-  token_count: null
+  recaptured_at: "2026-09-07T05:21:26.843Z"
   token_measurement:
     provider: "openai"
-    status: "unavailable"
+    status: "measured"
     model: "gpt-5.2"
-    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
-    attempted_at: "2026-08-15T10:29:31.490Z"
-    failure_code: "captured_model_mismatch"
+    method: "OpenAI responses.input_tokens with native model gpt-5.2; marginal full request minus component-removed request"
+    measured_at: "2026-09-07T05:21:26.647707860Z"
+  tools:
+  - canonical_name: "apply_patch"
+    observed_raw_aliases:
+    - "apply_patch"
+    definition_bytes: 838
+    definition_token_count: 268
+  - canonical_name: "close_agent"
+    observed_raw_aliases:
+    - "close_agent"
+    definition_bytes: 466
+    definition_token_count: 65
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2121
+    definition_token_count: 348
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "resume_agent"
+    observed_raw_aliases:
+    - "resume_agent"
+    definition_bytes: 314
+    definition_token_count: 38
+  - canonical_name: "send_input"
+    observed_raw_aliases:
+    - "send_input"
+    definition_bytes: 1494
+    definition_token_count: 236
+  - canonical_name: "spawn_agent"
+    observed_raw_aliases:
+    - "spawn_agent"
+    definition_bytes: 10129
+    definition_token_count: 1925
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 417
+    definition_token_count: 59
+  - canonical_name: "wait_agent"
+    observed_raw_aliases:
+    - "wait_agent"
+    definition_bytes: 745
+    definition_token_count: 116
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 48
+    definition_token_count: 4436
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92
 - model: "gpt-5.2-codex"
   directory: "gpt-5.2-codex"
   representation: "instructions characters"
@@ -247,19 +748,79 @@ system_prompts:
 - model: "gpt-5.3-codex"
   directory: "gpt-5.3-codex"
   representation: "instructions characters"
-  character_count: 14732
-  content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
+  character_count: 12343
+  token_count: 2555
+  content_sha256: "6fdc9b734797bf69f7982c747cd869a834615baab4244bd1bb7676625717f598"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
-  recaptured_at: "2026-08-12T17:52:41.573Z"
-  token_count: null
+  recaptured_at: "2026-09-07T05:21:33.297Z"
   token_measurement:
     provider: "openai"
-    status: "unavailable"
+    status: "measured"
     model: "gpt-5.3-codex"
-    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
-    attempted_at: "2026-08-15T10:29:39.233Z"
-    failure_code: "captured_model_mismatch"
+    method: "OpenAI responses.input_tokens with native model gpt-5.3-codex; marginal full request minus component-removed request"
+    measured_at: "2026-09-07T05:21:33.131782303Z"
+  tools:
+  - canonical_name: "apply_patch"
+    observed_raw_aliases:
+    - "apply_patch"
+    definition_bytes: 838
+    definition_token_count: 268
+  - canonical_name: "close_agent"
+    observed_raw_aliases:
+    - "close_agent"
+    definition_bytes: 466
+    definition_token_count: 65
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2121
+    definition_token_count: 348
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "resume_agent"
+    observed_raw_aliases:
+    - "resume_agent"
+    definition_bytes: 314
+    definition_token_count: 38
+  - canonical_name: "send_input"
+    observed_raw_aliases:
+    - "send_input"
+    definition_bytes: 1494
+    definition_token_count: 236
+  - canonical_name: "spawn_agent"
+    observed_raw_aliases:
+    - "spawn_agent"
+    definition_bytes: 10129
+    definition_token_count: 1925
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 774
+    definition_token_count: 121
+  - canonical_name: "wait_agent"
+    observed_raw_aliases:
+    - "wait_agent"
+    definition_bytes: 745
+    definition_token_count: 116
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 48
+    definition_token_count: 2768
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92
 - model: "gpt-5.4"
   directory: "gpt-5.4"
   representation: "instructions characters"
@@ -339,128 +900,593 @@ system_prompts:
 - model: "gpt-5.4-mini"
   directory: "gpt-5.4-mini"
   representation: "instructions characters"
-  character_count: 14732
-  content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
+  character_count: 12950
+  token_count: 2643
+  content_sha256: "a2e1143d471279aeb422045486fce7cb502fc05bc105ce31790c39a70ab97491"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
-  recaptured_at: "2026-08-12T17:52:49.961Z"
-  token_count: null
+  recaptured_at: "2026-09-07T05:21:39.406Z"
   token_measurement:
     provider: "openai"
-    status: "unavailable"
+    status: "measured"
     model: "gpt-5.4-mini"
-    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
-    attempted_at: "2026-08-15T10:29:48.738Z"
-    failure_code: "captured_model_mismatch"
+    method: "OpenAI responses.input_tokens with native model gpt-5.4-mini; marginal full request minus component-removed request"
+    measured_at: "2026-09-07T05:21:39.250188291Z"
+  tools:
+  - canonical_name: "apply_patch"
+    observed_raw_aliases:
+    - "apply_patch"
+    definition_bytes: 838
+    definition_token_count: 268
+  - canonical_name: "close_agent"
+    observed_raw_aliases:
+    - "close_agent"
+    definition_bytes: 466
+    definition_token_count: 65
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2121
+    definition_token_count: 348
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "resume_agent"
+    observed_raw_aliases:
+    - "resume_agent"
+    definition_bytes: 314
+    definition_token_count: 38
+  - canonical_name: "send_input"
+    observed_raw_aliases:
+    - "send_input"
+    definition_bytes: 1494
+    definition_token_count: 236
+  - canonical_name: "spawn_agent"
+    observed_raw_aliases:
+    - "spawn_agent"
+    definition_bytes: 10129
+    definition_token_count: 1925
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 774
+    definition_token_count: 121
+  - canonical_name: "wait_agent"
+    observed_raw_aliases:
+    - "wait_agent"
+    definition_bytes: 745
+    definition_token_count: 116
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 88
+    definition_token_count: 4436
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92
 - model: "gpt-5.4-nano"
   directory: "gpt-5.4-nano"
   representation: "instructions characters"
   character_count: 14732
+  token_count: 2995
   content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
-  recaptured_at: "2026-08-12T17:52:53.207Z"
-  token_count: null
+  recaptured_at: "2026-09-07T05:21:45.396Z"
   token_measurement:
     provider: "openai"
-    status: "unavailable"
+    status: "measured"
     model: "gpt-5.4-nano"
-    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
-    attempted_at: "2026-08-15T10:29:52.169Z"
-    failure_code: "captured_model_mismatch"
+    method: "OpenAI responses.input_tokens with native model gpt-5.4-nano; marginal full request minus component-removed request"
+    measured_at: "2026-09-07T05:21:45.226273317Z"
+  tools:
+  - canonical_name: "apply_patch"
+    observed_raw_aliases:
+    - "apply_patch"
+    definition_bytes: 838
+    definition_token_count: 268
+  - canonical_name: "close_agent"
+    observed_raw_aliases:
+    - "close_agent"
+    definition_bytes: 466
+    definition_token_count: 65
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2121
+    definition_token_count: 348
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "resume_agent"
+    observed_raw_aliases:
+    - "resume_agent"
+    definition_bytes: 314
+    definition_token_count: 38
+  - canonical_name: "send_input"
+    observed_raw_aliases:
+    - "send_input"
+    definition_bytes: 1494
+    definition_token_count: 236
+  - canonical_name: "spawn_agent"
+    observed_raw_aliases:
+    - "spawn_agent"
+    definition_bytes: 10129
+    definition_token_count: 1925
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 774
+    definition_token_count: 121
+  - canonical_name: "wait_agent"
+    observed_raw_aliases:
+    - "wait_agent"
+    definition_bytes: 745
+    definition_token_count: 116
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 88
+    definition_token_count: 4514
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92
 - model: "gpt-5.4-pro"
   directory: "gpt-5.4-pro"
   representation: "instructions characters"
   character_count: 14732
+  token_count: 2995
   content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
-  recaptured_at: "2026-08-12T17:52:56.449Z"
-  token_count: null
+  recaptured_at: "2026-09-07T05:21:51.494Z"
   token_measurement:
     provider: "openai"
-    status: "unavailable"
+    status: "measured"
     model: "gpt-5.4-pro"
-    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
-    attempted_at: "2026-08-15T10:29:55.805Z"
-    failure_code: "captured_model_mismatch"
+    method: "OpenAI responses.input_tokens with native model gpt-5.4-pro; marginal full request minus component-removed request"
+    measured_at: "2026-09-07T05:21:51.317398294Z"
+  tools:
+  - canonical_name: "apply_patch"
+    observed_raw_aliases:
+    - "apply_patch"
+    definition_bytes: 838
+    definition_token_count: 268
+  - canonical_name: "close_agent"
+    observed_raw_aliases:
+    - "close_agent"
+    definition_bytes: 466
+    definition_token_count: 65
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2121
+    definition_token_count: 348
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "resume_agent"
+    observed_raw_aliases:
+    - "resume_agent"
+    definition_bytes: 314
+    definition_token_count: 38
+  - canonical_name: "send_input"
+    observed_raw_aliases:
+    - "send_input"
+    definition_bytes: 1494
+    definition_token_count: 236
+  - canonical_name: "spawn_agent"
+    observed_raw_aliases:
+    - "spawn_agent"
+    definition_bytes: 10129
+    definition_token_count: 1925
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 774
+    definition_token_count: 121
+  - canonical_name: "wait_agent"
+    observed_raw_aliases:
+    - "wait_agent"
+    definition_bytes: 745
+    definition_token_count: 116
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 88
+    definition_token_count: 4436
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92
 - model: "gpt-5.5"
   directory: "gpt-5.5"
   representation: "instructions characters"
-  character_count: 14732
-  content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
+  character_count: 21335
+  token_count: 4380
+  content_sha256: "c2a980bc28af132eb89e0b4c68ae884043faae83a1afd3fd4889f7e8a1ada7b0"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
-  recaptured_at: "2026-08-12T17:52:59.669Z"
-  token_count: null
+  recaptured_at: "2026-09-07T05:21:57.626Z"
   token_measurement:
     provider: "openai"
-    status: "unavailable"
+    status: "measured"
     model: "gpt-5.5"
-    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
-    attempted_at: "2026-08-15T10:29:59.237Z"
-    failure_code: "captured_model_mismatch"
+    method: "OpenAI responses.input_tokens with native model gpt-5.5; marginal full request minus component-removed request"
+    measured_at: "2026-09-07T05:21:57.474434684Z"
+  tools:
+  - canonical_name: "apply_patch"
+    observed_raw_aliases:
+    - "apply_patch"
+    definition_bytes: 838
+    definition_token_count: 268
+  - canonical_name: "close_agent"
+    observed_raw_aliases:
+    - "close_agent"
+    definition_bytes: 466
+    definition_token_count: 65
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2121
+    definition_token_count: 348
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "resume_agent"
+    observed_raw_aliases:
+    - "resume_agent"
+    definition_bytes: 314
+    definition_token_count: 38
+  - canonical_name: "send_input"
+    observed_raw_aliases:
+    - "send_input"
+    definition_bytes: 1494
+    definition_token_count: 236
+  - canonical_name: "spawn_agent"
+    observed_raw_aliases:
+    - "spawn_agent"
+    definition_bytes: 10129
+    definition_token_count: 1925
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 774
+    definition_token_count: 121
+  - canonical_name: "wait_agent"
+    observed_raw_aliases:
+    - "wait_agent"
+    definition_bytes: 745
+    definition_token_count: 116
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 88
+    definition_token_count: 4436
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92
 - model: "gpt-5.5-pro"
   directory: "gpt-5.5-pro"
   representation: "instructions characters"
-  character_count: 14732
-  content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
+  character_count: 21335
+  token_count: 4380
+  content_sha256: "c2a980bc28af132eb89e0b4c68ae884043faae83a1afd3fd4889f7e8a1ada7b0"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
-  recaptured_at: "2026-08-12T17:53:02.875Z"
-  token_count: null
+  recaptured_at: "2026-09-07T05:22:04.697Z"
   token_measurement:
     provider: "openai"
-    status: "unavailable"
+    status: "measured"
     model: "gpt-5.5-pro"
-    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
-    attempted_at: "2026-08-15T10:30:02.623Z"
-    failure_code: "captured_model_mismatch"
+    method: "OpenAI responses.input_tokens with native model gpt-5.5-pro; marginal full request minus component-removed request"
+    measured_at: "2026-09-07T05:22:04.526767887Z"
+  tools:
+  - canonical_name: "apply_patch"
+    observed_raw_aliases:
+    - "apply_patch"
+    definition_bytes: 838
+    definition_token_count: 268
+  - canonical_name: "close_agent"
+    observed_raw_aliases:
+    - "close_agent"
+    definition_bytes: 466
+    definition_token_count: 65
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2121
+    definition_token_count: 348
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "resume_agent"
+    observed_raw_aliases:
+    - "resume_agent"
+    definition_bytes: 314
+    definition_token_count: 38
+  - canonical_name: "send_input"
+    observed_raw_aliases:
+    - "send_input"
+    definition_bytes: 1494
+    definition_token_count: 236
+  - canonical_name: "spawn_agent"
+    observed_raw_aliases:
+    - "spawn_agent"
+    definition_bytes: 10129
+    definition_token_count: 1925
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 774
+    definition_token_count: 121
+  - canonical_name: "wait_agent"
+    observed_raw_aliases:
+    - "wait_agent"
+    definition_bytes: 745
+    definition_token_count: 116
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 88
+    definition_token_count: 4436
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92
 - model: "o3-2025-04-16"
   directory: "o3-2025-04-16"
   representation: "instructions characters"
-  character_count: 14732
-  content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
+  character_count: 20771
+  token_count: 4375
+  content_sha256: "0fae66723e9ba38083bd5a26f83f5c6c944954daaea3436084ab75eb8fdf46c8"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
-  recaptured_at: "2026-08-12T17:53:06.097Z"
-  token_count: null
+  recaptured_at: "2026-09-07T05:22:11.246Z"
   token_measurement:
     provider: "openai"
-    status: "unavailable"
+    status: "measured"
     model: "o3-2025-04-16"
-    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
-    attempted_at: "2026-08-15T10:30:05.978Z"
-    failure_code: "captured_model_mismatch"
+    method: "OpenAI responses.input_tokens with native model o3-2025-04-16; marginal full request minus component-removed request"
+    measured_at: "2026-09-07T05:22:11.088779387Z"
+  tools:
+  - canonical_name: "close_agent"
+    observed_raw_aliases:
+    - "close_agent"
+    definition_bytes: 466
+    definition_token_count: 65
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2121
+    definition_token_count: 348
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "resume_agent"
+    observed_raw_aliases:
+    - "resume_agent"
+    definition_bytes: 314
+    definition_token_count: 38
+  - canonical_name: "send_input"
+    observed_raw_aliases:
+    - "send_input"
+    definition_bytes: 1494
+    definition_token_count: 236
+  - canonical_name: "spawn_agent"
+    observed_raw_aliases:
+    - "spawn_agent"
+    definition_bytes: 10129
+    definition_token_count: 1925
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 417
+    definition_token_count: 59
+  - canonical_name: "wait_agent"
+    observed_raw_aliases:
+    - "wait_agent"
+    definition_bytes: 745
+    definition_token_count: 116
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 48
+    definition_token_count: 1398
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92
 - model: "o3-pro"
   directory: "o3-pro"
   representation: "instructions characters"
-  character_count: 14732
-  content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
+  character_count: 20771
+  token_count: 4375
+  content_sha256: "0fae66723e9ba38083bd5a26f83f5c6c944954daaea3436084ab75eb8fdf46c8"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
-  recaptured_at: "2026-08-12T17:53:09.287Z"
-  token_count: null
+  recaptured_at: "2026-09-07T05:22:17.506Z"
   token_measurement:
     provider: "openai"
-    status: "unavailable"
+    status: "measured"
     model: "o3-pro"
-    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
-    attempted_at: "2026-08-15T10:30:09.330Z"
-    failure_code: "captured_model_mismatch"
+    method: "OpenAI responses.input_tokens with native model o3-pro; marginal full request minus component-removed request"
+    measured_at: "2026-09-07T05:22:17.355603659Z"
+  tools:
+  - canonical_name: "close_agent"
+    observed_raw_aliases:
+    - "close_agent"
+    definition_bytes: 466
+    definition_token_count: 65
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2121
+    definition_token_count: 348
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "resume_agent"
+    observed_raw_aliases:
+    - "resume_agent"
+    definition_bytes: 314
+    definition_token_count: 38
+  - canonical_name: "send_input"
+    observed_raw_aliases:
+    - "send_input"
+    definition_bytes: 1494
+    definition_token_count: 236
+  - canonical_name: "spawn_agent"
+    observed_raw_aliases:
+    - "spawn_agent"
+    definition_bytes: 10129
+    definition_token_count: 1925
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 417
+    definition_token_count: 59
+  - canonical_name: "wait_agent"
+    observed_raw_aliases:
+    - "wait_agent"
+    definition_bytes: 745
+    definition_token_count: 116
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 48
+    definition_token_count: 1398
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92
 - model: "o4-mini-2025-04-16"
   directory: "o4-mini-2025-04-16"
   representation: "instructions characters"
-  character_count: 14732
-  content_sha256: "478e8a11b180adb2659f21aba51744711f79f665039bb0bc4a13d3c051fcb76c"
+  character_count: 20771
+  token_count: 4375
+  content_sha256: "0fae66723e9ba38083bd5a26f83f5c6c944954daaea3436084ab75eb8fdf46c8"
   capture: "matrix-recapture"
   profile: "canonical empty-project-v2"
-  recaptured_at: "2026-08-12T17:53:12.514Z"
-  token_count: null
+  recaptured_at: "2026-09-07T05:22:23.020Z"
   token_measurement:
     provider: "openai"
-    status: "unavailable"
+    status: "measured"
     model: "o4-mini-2025-04-16"
-    method: "exact harness version used a different provider model than requested; native tokenizer could not be measured"
-    attempted_at: "2026-08-15T10:30:12.704Z"
-    failure_code: "captured_model_mismatch"
+    method: "OpenAI responses.input_tokens with native model o4-mini-2025-04-16; marginal full request minus component-removed request"
+    measured_at: "2026-09-07T05:22:22.843954620Z"
+  tools:
+  - canonical_name: "close_agent"
+    observed_raw_aliases:
+    - "close_agent"
+    definition_bytes: 466
+    definition_token_count: 65
+  - canonical_name: "exec_command"
+    observed_raw_aliases:
+    - "exec_command"
+    definition_bytes: 2121
+    definition_token_count: 348
+  - canonical_name: "request_user_input"
+    observed_raw_aliases:
+    - "request_user_input"
+    definition_bytes: 1355
+    definition_token_count: 186
+  - canonical_name: "resume_agent"
+    observed_raw_aliases:
+    - "resume_agent"
+    definition_bytes: 314
+    definition_token_count: 38
+  - canonical_name: "send_input"
+    observed_raw_aliases:
+    - "send_input"
+    definition_bytes: 1494
+    definition_token_count: 236
+  - canonical_name: "spawn_agent"
+    observed_raw_aliases:
+    - "spawn_agent"
+    definition_bytes: 10129
+    definition_token_count: 1925
+  - canonical_name: "update_plan"
+    observed_raw_aliases:
+    - "update_plan"
+    definition_bytes: 624
+    definition_token_count: 81
+  - canonical_name: "view_image"
+    observed_raw_aliases:
+    - "view_image"
+    definition_bytes: 417
+    definition_token_count: 59
+  - canonical_name: "wait_agent"
+    observed_raw_aliases:
+    - "wait_agent"
+    definition_bytes: 745
+    definition_token_count: 116
+  - canonical_name: "web_search"
+    observed_raw_aliases:
+    - "web_search"
+    definition_bytes: 48
+    definition_token_count: 1398
+  - canonical_name: "write_stdin"
+    observed_raw_aliases:
+    - "write_stdin"
+    definition_bytes: 674
+    definition_token_count: 92
