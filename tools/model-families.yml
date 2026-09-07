@@ -1,12 +1,81 @@
 # Model-family and lifecycle catalog used by the README chart generator.
 #
 # `released` is the model's recorded API availability date, never a model-ID
-# snapshot date or a prompt capture timestamp. Update a model here when adding
-# it to the archive, and cite reviewed availability evidence in `sources`.
-# Unknown archive models still appear in an inferred family chart,
-# but do not receive a guessed release marker.
+# snapshot date or a prompt capture timestamp. `lineage` and
+# `lineage_position` explicitly define successor order; parallel tiers such as
+# mini, nano, and Pro belong to separate lineages. Update this catalog when
+# adding a model to the archive, and cite reviewed availability evidence in
+# `sources`. Unknown archive models receive their own chart with no guessed
+# release marker.
 #
-# Copied from Cadence's reviewed scripts/systemprompts/model-era-map.yml.
+# Lifecycle/source fields were copied from Cadence's reviewed
+# scripts/systemprompts/model-era-map.yml. Chart lineage fields are maintained
+# here because they describe this archive's presentation.
+lineages:
+- harness: claude-code
+  id: opus
+  display_name: Opus
+  order: 1
+- harness: claude-code
+  id: sonnet
+  display_name: Sonnet
+  order: 2
+- harness: claude-code
+  id: haiku
+  display_name: Haiku
+  order: 3
+- harness: claude-code
+  id: fable
+  display_name: Fable
+  order: 4
+- harness: codex
+  id: gpt-standard
+  display_name: GPT standard
+  order: 1
+- harness: codex
+  id: gpt-mini
+  display_name: GPT mini
+  order: 2
+- harness: codex
+  id: gpt-nano
+  display_name: GPT nano
+  order: 3
+- harness: codex
+  id: gpt-pro
+  display_name: GPT Pro
+  order: 4
+- harness: codex
+  id: gpt-luna
+  display_name: GPT-5.6 Luna
+  order: 5
+- harness: codex
+  id: gpt-terra
+  display_name: GPT-5.6 Terra
+  order: 6
+- harness: codex
+  id: codex-standard
+  display_name: Codex standard
+  order: 7
+- harness: codex
+  id: codex-mini
+  display_name: Codex mini
+  order: 8
+- harness: codex
+  id: codex-max
+  display_name: Codex max
+  order: 9
+- harness: codex
+  id: o3
+  display_name: o3
+  order: 10
+- harness: codex
+  id: o4-mini
+  display_name: o4-mini
+  order: 11
+- harness: codex
+  id: o3-pro
+  display_name: o3 Pro
+  order: 12
 models:
 - harness: claude-code
   id: claude-3-7-sonnet-20250219
@@ -17,6 +86,8 @@ models:
   sources:
   - "https://www.anthropic.com/news/claude-3-7-sonnet"
   - "https://platform.claude.com/docs/en/docs/about-claude/model-deprecations"
+  lineage: sonnet
+  lineage_position: 1
 - harness: claude-code
   id: claude-sonnet-4-20250514
   family: sonnet
@@ -26,6 +97,8 @@ models:
   sources:
   - "https://www.anthropic.com/news/claude-4"
   - "https://platform.claude.com/docs/en/docs/about-claude/model-deprecations"
+  lineage: sonnet
+  lineage_position: 2
 - harness: claude-code
   id: claude-opus-4-20250514
   family: opus
@@ -35,6 +108,8 @@ models:
   sources:
   - "https://www.anthropic.com/news/claude-4"
   - "https://platform.claude.com/docs/en/docs/about-claude/model-deprecations"
+  lineage: opus
+  lineage_position: 1
 - harness: claude-code
   id: claude-opus-4-1-20250805
   family: opus
@@ -44,6 +119,8 @@ models:
   sources:
   - "https://x.com/AnthropicAI/status/1952768432027431127"
   - "https://platform.claude.com/docs/en/docs/about-claude/model-deprecations"
+  lineage: opus
+  lineage_position: 2
 - harness: claude-code
   id: claude-sonnet-4-5-20250929
   family: sonnet
@@ -53,6 +130,8 @@ models:
   sources:
   - "https://www.anthropic.com/news/claude-sonnet-4-5"
   - "https://platform.claude.com/docs/en/docs/about-claude/model-deprecations"
+  lineage: sonnet
+  lineage_position: 3
 - harness: claude-code
   id: claude-haiku-4-5-20251001
   family: haiku
@@ -62,6 +141,8 @@ models:
   sources:
   - "https://www.anthropic.com/news/claude-haiku-4-5"
   - "https://platform.claude.com/docs/en/docs/about-claude/model-deprecations"
+  lineage: haiku
+  lineage_position: 1
 - harness: claude-code
   id: claude-opus-4-5-20251101
   family: opus
@@ -71,6 +152,8 @@ models:
   sources:
   - "https://www.anthropic.com/news/claude-opus-4-5"
   - "https://platform.claude.com/docs/en/docs/about-claude/model-deprecations"
+  lineage: opus
+  lineage_position: 3
 - harness: claude-code
   id: claude-opus-4-6
   family: opus
@@ -81,6 +164,8 @@ models:
   - "https://www.anthropic.com/news/claude-opus-4-6"
   - "https://www.cnbc.com/2026/02/05/anthropic-claude-opus-4-6-vibe-working.html"
   - "https://platform.claude.com/docs/en/docs/about-claude/model-deprecations"
+  lineage: opus
+  lineage_position: 4
 - harness: claude-code
   id: claude-sonnet-4-6
   family: sonnet
@@ -90,6 +175,8 @@ models:
   sources:
   - "https://www.anthropic.com/news/claude-sonnet-4-6"
   - "https://platform.claude.com/docs/en/docs/about-claude/model-deprecations"
+  lineage: sonnet
+  lineage_position: 4
 - harness: claude-code
   id: claude-opus-4-7
   family: opus
@@ -99,6 +186,8 @@ models:
   sources:
   - "https://www.anthropic.com/news/claude-opus-4-7"
   - "https://platform.claude.com/docs/en/docs/about-claude/model-deprecations"
+  lineage: opus
+  lineage_position: 5
 - harness: claude-code
   id: claude-opus-4-8
   family: opus
@@ -109,6 +198,8 @@ models:
   - "https://www.anthropic.com/news/claude-opus-4-8"
   - "https://techcrunch.com/2026/05/28/anthropic-releases-opus-4-8-with-new-dynamic-workflow-tool/"
   - "https://platform.claude.com/docs/en/docs/about-claude/model-deprecations"
+  lineage: opus
+  lineage_position: 6
 - harness: claude-code
   id: claude-fable-5
   family: fable
@@ -120,6 +211,8 @@ models:
   - "https://techcrunch.com/2026/06/09/anthropics-claude-fable-5-is-a-version-of-mythos-the-public-can-access-today/"
   - "https://www.anthropic.com/news/redeploying-fable-5"
   - "https://platform.claude.com/docs/en/docs/about-claude/model-deprecations"
+  lineage: fable
+  lineage_position: 1
 - harness: claude-code
   id: claude-sonnet-5
   family: sonnet
@@ -129,6 +222,8 @@ models:
   sources:
   - "https://www.anthropic.com/news/claude-sonnet-5"
   - "https://platform.claude.com/docs/en/docs/about-claude/model-deprecations"
+  lineage: sonnet
+  lineage_position: 5
 - harness: claude-code
   id: claude-opus-5
   family: opus
@@ -138,6 +233,8 @@ models:
   sources:
   - "https://www.anthropic.com/news/claude-opus-5"
   - "https://platform.claude.com/docs/en/docs/about-claude/model-deprecations"
+  lineage: opus
+  lineage_position: 7
 - harness: claude-code
   id: claude-fable-5-1
   family: fable
@@ -147,6 +244,8 @@ models:
   sources:
   - "https://platform.claude.com/docs/en/models/fable-5-1/overview"
   - "https://platform.claude.com/docs/en/about-claude/model-deprecations"
+  lineage: fable
+  lineage_position: 2
 - harness: codex
   id: o3-2025-04-16
   family: o-series
@@ -156,6 +255,8 @@ models:
   sources:
   - "https://openai.com/index/introducing-o3-and-o4-mini/"
   - "https://developers.openai.com/api/docs/deprecations"
+  lineage: o3
+  lineage_position: 1
 - harness: codex
   id: o4-mini-2025-04-16
   family: o-series
@@ -165,6 +266,8 @@ models:
   sources:
   - "https://openai.com/index/introducing-o3-and-o4-mini/"
   - "https://developers.openai.com/api/docs/deprecations"
+  lineage: o4-mini
+  lineage_position: 1
 - harness: codex
   id: o3-pro
   family: o-series
@@ -174,6 +277,8 @@ models:
   sources:
   - "https://openai.com/index/introducing-o3-and-o4-mini/"
   - "https://www.techrepublic.com/article/news-openai-o3-pro/"
+  lineage: o3-pro
+  lineage_position: 1
 - harness: codex
   id: gpt-4.1
   family: gpt
@@ -183,6 +288,8 @@ models:
   sources:
   - "https://openai.com/index/gpt-4-1/"
   - "https://developers.openai.com/api/docs/deprecations"
+  lineage: gpt-standard
+  lineage_position: 1
 - harness: codex
   id: gpt-4.1-mini
   family: gpt
@@ -191,6 +298,8 @@ models:
   retired: null
   sources:
   - "https://openai.com/index/gpt-4-1/"
+  lineage: gpt-mini
+  lineage_position: 1
 - harness: codex
   id: gpt-4.1-nano
   family: gpt
@@ -200,6 +309,8 @@ models:
   sources:
   - "https://openai.com/index/gpt-4-1/"
   - "https://developers.openai.com/api/docs/deprecations"
+  lineage: gpt-nano
+  lineage_position: 1
 - harness: codex
   id: codex-mini-latest
   family: codex-tuned
@@ -209,6 +320,8 @@ models:
   sources:
   - "https://developers.openai.com/api/docs/models/codex-mini-latest"
   - "https://developers.openai.com/api/docs/deprecations"
+  lineage: codex-mini
+  lineage_position: 1
 - harness: codex
   id: gpt-5-2025-08-07
   family: gpt
@@ -218,6 +331,8 @@ models:
   sources:
   - "https://techcrunch.com/2025/08/07/openais-gpt-5-is-here/"
   - "https://developers.openai.com/api/docs/deprecations"
+  lineage: gpt-standard
+  lineage_position: 2
 - harness: codex
   id: gpt-5-mini-2025-08-07
   family: gpt
@@ -227,6 +342,8 @@ models:
   sources:
   - "https://techcrunch.com/2025/08/07/openais-gpt-5-is-here/"
   - "https://developers.openai.com/api/docs/deprecations"
+  lineage: gpt-mini
+  lineage_position: 2
 - harness: codex
   id: gpt-5-nano-2025-08-07
   family: gpt
@@ -236,6 +353,8 @@ models:
   sources:
   - "https://techcrunch.com/2025/08/07/openais-gpt-5-is-here/"
   - "https://developers.openai.com/api/docs/deprecations"
+  lineage: gpt-nano
+  lineage_position: 2
 - harness: codex
   id: gpt-5-pro-2025-10-06
   family: gpt
@@ -244,6 +363,8 @@ models:
   retired: null
   sources:
   - "https://developers.openai.com/api/docs/deprecations"
+  lineage: gpt-pro
+  lineage_position: 1
 - harness: codex
   id: gpt-5-codex
   family: codex-tuned
@@ -253,6 +374,8 @@ models:
   sources:
   - "https://openai.com/index/introducing-upgrades-to-codex/"
   - "https://developers.openai.com/api/docs/deprecations"
+  lineage: codex-standard
+  lineage_position: 1
 - harness: codex
   id: gpt-5.1
   family: gpt
@@ -261,6 +384,8 @@ models:
   retired: null
   sources:
   - "https://en.wikipedia.org/wiki/GPT-5.1"
+  lineage: gpt-standard
+  lineage_position: 3
 - harness: codex
   id: gpt-5.1-codex
   family: codex-tuned
@@ -270,6 +395,8 @@ models:
   sources:
   - "https://developers.openai.com/api/docs/deprecations"
   - "https://openai.com/index/gpt-5-1-codex-max/"
+  lineage: codex-standard
+  lineage_position: 2
 - harness: codex
   id: gpt-5.1-codex-mini
   family: codex-tuned
@@ -279,6 +406,8 @@ models:
   sources:
   - "https://en.wikipedia.org/wiki/GPT-5.1"
   - "https://developers.openai.com/api/docs/deprecations"
+  lineage: codex-mini
+  lineage_position: 2
 - harness: codex
   id: gpt-5.1-codex-max
   family: codex-tuned
@@ -288,6 +417,8 @@ models:
   sources:
   - "https://openai.com/index/gpt-5-1-codex-max/"
   - "https://developers.openai.com/api/docs/deprecations"
+  lineage: codex-max
+  lineage_position: 1
 - harness: codex
   id: gpt-5.2
   family: gpt
@@ -296,6 +427,8 @@ models:
   retired: null
   sources:
   - "https://en.wikipedia.org/wiki/GPT-5.2"
+  lineage: gpt-standard
+  lineage_position: 4
 - harness: codex
   id: gpt-5.2-codex
   family: codex-tuned
@@ -306,6 +439,8 @@ models:
   - "https://openai.com/index/gpt-5-2-codex-system-card/"
   - "https://openai.com/index/introducing-gpt-5-2-codex/"
   - "https://developers.openai.com/api/docs/deprecations"
+  lineage: codex-standard
+  lineage_position: 3
 - harness: codex
   id: gpt-5.3-codex
   family: codex-tuned
@@ -315,6 +450,8 @@ models:
   sources:
   - "https://en.wikipedia.org/wiki/GPT-5.3-Codex"
   - "https://cdn.openai.com/pdf/23eca107-a9b1-4d2c-b156-7deb4fbc697c/GPT-5-3-Codex-System-Card-02.pdf"
+  lineage: codex-standard
+  lineage_position: 4
 - harness: codex
   id: gpt-5.4
   family: gpt
@@ -323,6 +460,8 @@ models:
   retired: null
   sources:
   - "https://en.wikipedia.org/wiki/GPT-5.4"
+  lineage: gpt-standard
+  lineage_position: 5
 - harness: codex
   id: gpt-5.4-pro
   family: gpt
@@ -331,6 +470,8 @@ models:
   retired: null
   sources:
   - "https://en.wikipedia.org/wiki/GPT-5.4"
+  lineage: gpt-pro
+  lineage_position: 2
 - harness: codex
   id: gpt-5.4-mini
   family: gpt
@@ -339,6 +480,8 @@ models:
   retired: null
   sources:
   - "https://en.wikipedia.org/wiki/GPT-5.4"
+  lineage: gpt-mini
+  lineage_position: 3
 - harness: codex
   id: gpt-5.4-nano
   family: gpt
@@ -347,6 +490,8 @@ models:
   retired: null
   sources:
   - "https://en.wikipedia.org/wiki/GPT-5.4"
+  lineage: gpt-nano
+  lineage_position: 3
 - harness: codex
   id: gpt-5.5
   family: gpt
@@ -356,6 +501,8 @@ models:
   sources:
   - "https://en.wikipedia.org/wiki/GPT-5.5"
   - "https://openai.com/index/introducing-gpt-5-5/"
+  lineage: gpt-standard
+  lineage_position: 6
 - harness: codex
   id: gpt-5.5-pro
   family: gpt
@@ -364,6 +511,8 @@ models:
   retired: null
   sources:
   - "https://en.wikipedia.org/wiki/GPT-5.5"
+  lineage: gpt-pro
+  lineage_position: 3
 - harness: codex
   id: gpt-5.6-luna
   family: gpt
@@ -374,6 +523,8 @@ models:
   - "https://www.cnbc.com/2026/07/08/openai-expanding-gpt-5point6-ai-model-release-ending-government-limits.html"
   - "https://openai.com/index/previewing-gpt-5-6-sol/"
   - "https://developers.openai.com/api/docs/models/all"
+  lineage: gpt-luna
+  lineage_position: 1
 - harness: codex
   id: gpt-5.6-terra
   family: gpt
@@ -383,6 +534,8 @@ models:
   sources:
   - "https://www.cnbc.com/2026/07/08/openai-expanding-gpt-5point6-ai-model-release-ending-government-limits.html"
   - "https://developers.openai.com/api/docs/models/all"
+  lineage: gpt-terra
+  lineage_position: 1
 - harness: codex
   id: gpt-5.6-sol
   family: codex-tuned
@@ -392,6 +545,8 @@ models:
   sources:
   - "https://openai.com/index/previewing-gpt-5-6-sol/"
   - "https://www.cnbc.com/2026/07/08/openai-expanding-gpt-5point6-ai-model-release-ending-government-limits.html"
+  lineage: codex-standard
+  lineage_position: 5
 - harness: codex
   id: gpt-6-astra
   family: gpt
@@ -401,3 +556,5 @@ models:
   sources:
   - "https://learn.chatgpt.com/docs/changelog"
   - "https://learn.chatgpt.com/docs/enterprise/workspace-model-availability"
+  lineage: gpt-standard
+  lineage_position: 7

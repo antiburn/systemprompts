@@ -15,50 +15,6 @@ An automatically updated, versioned archive of the system prompts and built-in t
 
 Each `claude-code/<version>/` directory holds `metadata.yml` (capture provenance, token measurement, and the built-in tool surface) plus one subdirectory per captured model variant, each with `systemprompt.txt` (the raw captured payload) and `systemprompt.md` (a rendered, browsable view).
 
-### Model-family histories
-
-Each line is the combined system-prompt and built-in-tool token count measured with that exact API model. The horizontal axis uses CLI package release dates when recorded; it falls back to capture time only when package release metadata is unavailable. Missing, unavailable, and partial measurements break the line rather than implying a total.
-
-Historical CLI releases were often recaptured later. These lines show what a CLI version sent when tested with a model, not which model users ran when that CLI shipped; backfilled observations can therefore appear before the model's API release marker.
-
-Release markers use the model's recorded API availability date. The reviewed dates and their sources live in [`tools/model-families.yml`](tools/model-families.yml); an uncataloged model remains visible but is labeled with an unknown release date.
-
-#### Opus
-
-7 cataloged or observed models · 5 with complete native measurements
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/claude-code-opus-tokens-dark.svg">
-  <img alt="Claude Code Opus model-family history: combined native token counts by CLI release date, with model API releases marked" src="assets/claude-code-opus-tokens.svg">
-</picture>
-
-#### Sonnet
-
-5 cataloged or observed models · 3 with complete native measurements
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/claude-code-sonnet-tokens-dark.svg">
-  <img alt="Claude Code Sonnet model-family history: combined native token counts by CLI release date, with model API releases marked" src="assets/claude-code-sonnet-tokens.svg">
-</picture>
-
-#### Haiku
-
-1 cataloged or observed model · 1 with complete native measurements
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/claude-code-haiku-tokens-dark.svg">
-  <img alt="Claude Code Haiku model-family history: combined native token counts by CLI release date, with model API releases marked" src="assets/claude-code-haiku-tokens.svg">
-</picture>
-
-#### Fable
-
-2 cataloged or observed models · 2 with complete native measurements
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/claude-code-fable-tokens-dark.svg">
-  <img alt="Claude Code Fable model-family history: combined native token counts by CLI release date, with model API releases marked" src="assets/claude-code-fable-tokens.svg">
-</picture>
-
 ## Codex
 
 185 versions · Apr 2025 – Sep 2026 · 8,500 combined tokens (latest)
@@ -70,48 +26,164 @@ Release markers use the model's recorded API availability date. The reviewed dat
 
 Each `codex/<version>/` directory holds `metadata.yml` (capture provenance, token measurement, and the built-in tool surface) plus one subdirectory per captured model variant, each with `systemprompt.txt` (the raw captured payload) and `systemprompt.md` (a rendered, browsable view).
 
-### Model-family histories
+## Model-family histories
 
-Each line is the combined system-prompt and built-in-tool token count measured with that exact API model. The horizontal axis uses CLI package release dates when recorded; it falls back to capture time only when package release metadata is unavailable. Missing, unavailable, and partial measurements break the line rather than implying a total.
+Each chart uses the same stacked system-message and aggregate built-in-tool token format as the overviews. At every CLI package release, it selects the most recently API-released model in that successor lineage; a newer release immediately replaces its predecessor.
 
-Historical CLI releases were often recaptured later. These lines show what a CLI version sent when tested with a model, not which model users ran when that CLI shipped; backfilled observations can therefore appear before the model's API release marker.
+The horizontal timeline combines CLI package releases with dotted model API release markers. At a marker, an archived complete capture of the new model for the then-current CLI can anchor the new stack; otherwise the chart stays blank until a later CLI release has that measurement. Historical recaptures describe the tested CLI/model pair, not actual model usage when the CLI shipped.
 
-Release markers use the model's recorded API availability date. The reviewed dates and their sources live in [`tools/model-families.yml`](tools/model-families.yml); an uncataloged model remains visible but is labeled with an unknown release date.
+Missing, unavailable, and partial selected-model measurements remain blank; the older model is never substituted. Those outcomes record a capture result, not proof that the model could never be captured, and their reason is preserved in that version's `metadata.yml` under `token_measurement`.
 
-#### GPT 4.1–5.2
+Model availability dates, explicit successor order, and source links live in [`tools/model-families.yml`](tools/model-families.yml). Uncataloged models get their own clearly labeled chart without a guessed release date.
 
-9 cataloged or observed models · 9 with complete native measurements
+### Claude Code
+
+#### Opus
+
+7 model releases · 5 with complete measurements during their release period
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/codex-gpt-4-1-to-5-2-tokens-dark.svg">
-  <img alt="Codex GPT 4.1–5.2 model-family history: combined native token counts by CLI release date, with model API releases marked" src="assets/codex-gpt-4-1-to-5-2-tokens.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/claude-code-opus-tokens-dark.svg">
+  <img alt="Claude Code Opus lineage history: stacked system-message and built-in-tool native token counts by CLI and model release date" src="assets/claude-code-opus-tokens.svg">
 </picture>
 
-#### GPT 5.4 and later
+#### Sonnet
 
-9 cataloged or observed models · 9 with complete native measurements
+5 model releases · 3 with complete measurements during their release period
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/codex-gpt-5-4-to-6-tokens-dark.svg">
-  <img alt="Codex GPT 5.4 and later model-family history: combined native token counts by CLI release date, with model API releases marked" src="assets/codex-gpt-5-4-to-6-tokens.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/claude-code-sonnet-tokens-dark.svg">
+  <img alt="Claude Code Sonnet lineage history: stacked system-message and built-in-tool native token counts by CLI and model release date" src="assets/claude-code-sonnet-tokens.svg">
 </picture>
 
-#### Codex-tuned
+#### Haiku
 
-8 cataloged or observed models · 2 with complete native measurements
+1 model release · 1 with complete measurements during their release period
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/codex-codex-tuned-tokens-dark.svg">
-  <img alt="Codex Codex-tuned model-family history: combined native token counts by CLI release date, with model API releases marked" src="assets/codex-codex-tuned-tokens.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/claude-code-haiku-tokens-dark.svg">
+  <img alt="Claude Code Haiku lineage history: stacked system-message and built-in-tool native token counts by CLI and model release date" src="assets/claude-code-haiku-tokens.svg">
 </picture>
 
-#### o-series
+#### Fable
 
-3 cataloged or observed models · 3 with complete native measurements
+2 model releases · 2 with complete measurements during their release period
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/codex-o-series-tokens-dark.svg">
-  <img alt="Codex o-series model-family history: combined native token counts by CLI release date, with model API releases marked" src="assets/codex-o-series-tokens.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/claude-code-fable-tokens-dark.svg">
+  <img alt="Claude Code Fable lineage history: stacked system-message and built-in-tool native token counts by CLI and model release date" src="assets/claude-code-fable-tokens.svg">
+</picture>
+
+### Codex
+
+Parallel standard, mini, nano, Pro, Codex, and o-series tiers use separate charts so a same-day sibling release never appears to supersede another tier.
+
+#### GPT standard
+
+7 model releases · 7 with complete measurements during their release period
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/codex-gpt-standard-tokens-dark.svg">
+  <img alt="Codex GPT standard lineage history: stacked system-message and built-in-tool native token counts by CLI and model release date" src="assets/codex-gpt-standard-tokens.svg">
+</picture>
+
+#### GPT mini
+
+3 model releases · 3 with complete measurements during their release period
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/codex-gpt-mini-tokens-dark.svg">
+  <img alt="Codex GPT mini lineage history: stacked system-message and built-in-tool native token counts by CLI and model release date" src="assets/codex-gpt-mini-tokens.svg">
+</picture>
+
+#### GPT nano
+
+3 model releases · 3 with complete measurements during their release period
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/codex-gpt-nano-tokens-dark.svg">
+  <img alt="Codex GPT nano lineage history: stacked system-message and built-in-tool native token counts by CLI and model release date" src="assets/codex-gpt-nano-tokens.svg">
+</picture>
+
+#### GPT Pro
+
+3 model releases · 3 with complete measurements during their release period
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/codex-gpt-pro-tokens-dark.svg">
+  <img alt="Codex GPT Pro lineage history: stacked system-message and built-in-tool native token counts by CLI and model release date" src="assets/codex-gpt-pro-tokens.svg">
+</picture>
+
+#### GPT-5.6 Luna
+
+1 model release · 1 with complete measurements during their release period
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/codex-gpt-luna-tokens-dark.svg">
+  <img alt="Codex GPT-5.6 Luna lineage history: stacked system-message and built-in-tool native token counts by CLI and model release date" src="assets/codex-gpt-luna-tokens.svg">
+</picture>
+
+#### GPT-5.6 Terra
+
+1 model release · 1 with complete measurements during their release period
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/codex-gpt-terra-tokens-dark.svg">
+  <img alt="Codex GPT-5.6 Terra lineage history: stacked system-message and built-in-tool native token counts by CLI and model release date" src="assets/codex-gpt-terra-tokens.svg">
+</picture>
+
+#### Codex standard
+
+5 model releases · 2 with complete measurements during their release period
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/codex-codex-standard-tokens-dark.svg">
+  <img alt="Codex Codex standard lineage history: stacked system-message and built-in-tool native token counts by CLI and model release date" src="assets/codex-codex-standard-tokens.svg">
+</picture>
+
+#### Codex mini
+
+2 model releases · 0 with complete measurements during their release period
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/codex-codex-mini-tokens-dark.svg">
+  <img alt="Codex Codex mini lineage history: stacked system-message and built-in-tool native token counts by CLI and model release date" src="assets/codex-codex-mini-tokens.svg">
+</picture>
+
+#### Codex max
+
+1 model release · 0 with complete measurements during their release period
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/codex-codex-max-tokens-dark.svg">
+  <img alt="Codex Codex max lineage history: stacked system-message and built-in-tool native token counts by CLI and model release date" src="assets/codex-codex-max-tokens.svg">
+</picture>
+
+#### o3
+
+1 model release · 1 with complete measurements during their release period
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/codex-o3-tokens-dark.svg">
+  <img alt="Codex o3 lineage history: stacked system-message and built-in-tool native token counts by CLI and model release date" src="assets/codex-o3-tokens.svg">
+</picture>
+
+#### o4-mini
+
+1 model release · 1 with complete measurements during their release period
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/codex-o4-mini-tokens-dark.svg">
+  <img alt="Codex o4-mini lineage history: stacked system-message and built-in-tool native token counts by CLI and model release date" src="assets/codex-o4-mini-tokens.svg">
+</picture>
+
+#### o3 Pro
+
+1 model release · 1 with complete measurements during their release period
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/codex-o3-pro-tokens-dark.svg">
+  <img alt="Codex o3 Pro lineage history: stacked system-message and built-in-tool native token counts by CLI and model release date" src="assets/codex-o3-pro-tokens.svg">
 </picture>
 
 ---
