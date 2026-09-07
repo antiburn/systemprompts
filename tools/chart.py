@@ -23,6 +23,13 @@ PLOT_RIGHT = WIDTH - MARGIN_RIGHT
 PLOT_TOP = MARGIN_TOP
 PLOT_BOTTOM = HEIGHT - MARGIN_BOTTOM
 
+# Family charts appear below the full-width harness overview in README. A
+# narrower logical canvas keeps their labels legible when GitHub renders the
+# image at roughly 850–900 CSS pixels.
+FAMILY_WIDTH = 1100
+FAMILY_PLOT_LEFT = 80
+FAMILY_PLOT_RIGHT = FAMILY_WIDTH - 30
+
 PALETTE = {
     "light": {
         "surface": None,  # transparent — blends with the GitHub light page
@@ -54,7 +61,6 @@ FONT_STACK = "system-ui, -apple-system, 'Segoe UI', sans-serif"
 
 AREA_OPACITY = 0.13
 GAP_PX = 2  # surface-color gap between the two stacked layers
-
 
 def _esc(s: str) -> str:
     return (
@@ -128,7 +134,7 @@ def render_chart_svg(
     parts.append(
         "<desc id=\"chartDesc\">Stacked area chart of system message tokens and "
         "aggregate built-in tool definition tokens across captured "
-        f"{_esc(harness_label)} versions, by capture date.</desc>"
+        f"{_esc(harness_label)} versions, by CLI release date.</desc>"
     )
 
     if c["surface"]:
@@ -273,6 +279,293 @@ def render_chart_svg(
 
     parts.append("</svg>")
     return "\n".join(parts)
+
+
+def render_family_chart_svg(
+    harness_label: str,
+    family_label: str,
+    segments,
+    releases,
+    unknown_releases,
+    timeline_start=None,
+    timeline_end=None,
+    mode: str = "light",
+) -> str:
+    """Render the selected model lineage as stacked native token counts.
+
+    Each segment contains only complete measurements for the catalog-selected
+    model. Segments end at exact model release/retirement or missing-data
+    boundaries, so the chart never interpolates across a successor switch or
+    silently falls back to an older model.
+    """
+    assert mode in ("light", "dark")
+    c = PALETTE[mode]
+    releases = sorted(releases, key=lambda item: item["date"])
+
+    release_groups = []
+    for event in releases:
+        if release_groups and release_groups[-1]["date"] == event["date"]:
+            release_groups[-1]["models"].extend(event["models"])
+        else:
+            release_groups.append({"date": event["date"], "models": list(event["models"])})
+
+    all_dates = [event["date"] for event in releases]
+    if timeline_start is not None:
+        all_dates.append(timeline_start)
+    if timeline_end is not None:
+        all_dates.append(timeline_end)
+    all_values = []
+    for segment in segments:
+        all_dates.extend(point["date"] for point in segment)
+        all_values.extend(point["system"] + point["tools"] for point in segment)
+
+    has_timeline = bool(all_dates)
+    if has_timeline:
+        first_date = min(all_dates)
+        last_date = max(all_dates)
+    else:
+        # Internal deterministic sentinel only; no axis label is rendered.
+        first_date = datetime(1970, 1, 1, tzinfo=timezone.utc)
+        last_date = first_date
+    span = (last_date - first_date).total_seconds()
+
+    def xscale(dt: datetime) -> float:
+        if span <= 0:
+            return (FAMILY_PLOT_LEFT + FAMILY_PLOT_RIGHT) / 2
+        return FAMILY_PLOT_LEFT + ((dt - first_date).total_seconds() / span) * (
+            FAMILY_PLOT_RIGHT - FAMILY_PLOT_LEFT
+        )
+
+    # Place short model names beside their release lines. Close releases use
+    # separate rows, with enough top margin to keep the series legend clear.
+    labels = []
+    lane_ends = []
+    for group in release_groups:
+        label = " / ".join(
+            model["label"].lower().removeprefix("claude ")
+            .removeprefix("openai ").replace(" ", "-")
+            for model in group["models"]
+        )
+        width = len(label) * 8.0
+        px = xscale(group["date"])
+        center = max(FAMILY_PLOT_LEFT + width / 2,
+                     min(px, FAMILY_PLOT_RIGHT - width / 2))
+        left = center - width / 2
+        lane = next((i for i, end in enumerate(lane_ends) if left >= end + 16),
+                    len(lane_ends))
+        if lane == len(lane_ends):
+            lane_ends.append(center + width / 2)
+        else:
+            lane_ends[lane] = center + width / 2
+        labels.append((group, px, center, 61 + lane * 22, label))
+
+    plot_top = 70 + max(0, len(lane_ends) - 1) * 22
+    plot_bottom = plot_top + 495
+    height = plot_bottom + 60 + len(unknown_releases) * 24
+
+    y_max = _nice_y_max(max(all_values, default=0))
+
+    def yscale(value: float) -> float:
+        return plot_bottom - (value / y_max) * (plot_bottom - plot_top)
+
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {FAMILY_WIDTH} {height}" '
+        f'width="{FAMILY_WIDTH}" height="{height}" role="img" '
+        f'aria-labelledby="chartTitle chartDesc" font-family="{FONT_STACK}">',
+        f'<title id="chartTitle">{_esc(harness_label)} {_esc(family_label)} native token history</title>',
+        '<desc id="chartDesc">Stacked system message and built-in tool token counts for the '
+        "most recently released model in this lineage at each CLI release. "
+        "Lines break where its complete native measurement is unavailable. "
+        "Dotted markers show model API availability dates.</desc>",
+    ]
+    if c["surface"]:
+        parts.append(
+            f'<rect x="0" y="0" width="{FAMILY_WIDTH}" height="{height}" '
+            f'fill="{c["surface"]}"/>'
+        )
+
+    legend_y = 28
+    parts.append(
+        f'<line x1="{FAMILY_PLOT_LEFT}" y1="{legend_y}" '
+        f'x2="{FAMILY_PLOT_LEFT + 24}" y2="{legend_y}" '
+        f'stroke="{c["series_system"]}" stroke-width="3" stroke-linecap="round"/>'
+    )
+    parts.append(
+        f'<text x="{FAMILY_PLOT_LEFT + 32}" y="{legend_y + 5}" font-size="15" '
+        f'fill="{c["text_secondary"]}">System message</text>'
+    )
+    legend2_x = FAMILY_PLOT_LEFT + 220
+    parts.append(
+        f'<line x1="{legend2_x}" y1="{legend_y}" x2="{legend2_x + 24}" '
+        f'y2="{legend_y}" stroke="{c["series_tools"]}" stroke-width="3" '
+        'stroke-linecap="round"/>'
+    )
+    parts.append(
+        f'<text x="{legend2_x + 32}" y="{legend_y + 5}" font-size="15" '
+        f'fill="{c["text_secondary"]}">Built-in tools (aggregate)</text>'
+    )
+
+    # Gridlines and axes.
+    y = 0
+    while y <= y_max:
+        py = yscale(y)
+        parts.append(
+            f'<line x1="{FAMILY_PLOT_LEFT}" y1="{py:.1f}" '
+            f'x2="{FAMILY_PLOT_RIGHT}" y2="{py:.1f}" '
+            f'stroke="{c["gridline"]}" stroke-width="1"/>'
+        )
+        label = "0" if y == 0 else f"{y // 1000}k"
+        parts.append(
+            f'<text x="{FAMILY_PLOT_LEFT - 12}" y="{py + 4:.1f}" font-size="15" '
+            f'fill="{c["text_muted"]}" text-anchor="end">{label}</text>'
+        )
+        y += 10000
+    parts.append(
+        f'<text x="24" y="{(plot_top + plot_bottom) / 2:.1f}" font-size="14" '
+        f'fill="{c["text_muted"]}" text-anchor="middle" letter-spacing="1.5" '
+        f'transform="rotate(-90 24 {(plot_top + plot_bottom) / 2:.1f})">TOKENS</text>'
+    )
+    parts.append(
+        f'<line x1="{FAMILY_PLOT_LEFT}" y1="{plot_bottom}" '
+        f'x2="{FAMILY_PLOT_RIGHT}" y2="{plot_bottom}" '
+        f'stroke="{c["baseline"]}" stroke-width="1"/>'
+    )
+
+    n_ticks = 7 if span > 0 else (1 if has_timeline else 0)
+    for index in range(n_ticks):
+        fraction = index / (n_ticks - 1) if n_ticks > 1 else 0.5
+        date = first_date if span <= 0 else datetime.fromtimestamp(
+            first_date.timestamp() + fraction * span, tz=timezone.utc
+        )
+        px = (
+            (FAMILY_PLOT_LEFT + FAMILY_PLOT_RIGHT) / 2
+            if span <= 0
+            else FAMILY_PLOT_LEFT
+            + fraction * (FAMILY_PLOT_RIGHT - FAMILY_PLOT_LEFT)
+        )
+        anchor = "start" if index == 0 and n_ticks > 1 else (
+            "end" if index == n_ticks - 1 and n_ticks > 1 else "middle"
+        )
+        parts.append(
+            f'<text x="{px:.1f}" y="{plot_bottom + 27}" font-size="14" '
+            f'fill="{c["text_muted"]}" text-anchor="{anchor}">{date.strftime("%b %Y")}</text>'
+        )
+
+    # Model API releases are events, distinct from solid axis gridlines.
+    for group, px, label_x, label_y, label in labels:
+        parts.append(
+            f'<g data-release-date="{group["date"].date().isoformat()}"><line x1="{px:.1f}" '
+            f'y1="{plot_top}" x2="{px:.1f}" y2="{plot_bottom}" '
+            f'stroke="{c["boundary_line"]}" stroke-width="1" '
+            'stroke-dasharray="2,5" stroke-linecap="round" opacity="0.7"/>'
+        )
+        parts.append(
+            f'<text x="{label_x:.1f}" y="{label_y:.1f}" font-size="14" font-weight="600" '
+            f'fill="{c["text_secondary"]}" text-anchor="middle">{_esc(label)}</text></g>'
+        )
+
+    baseline_y = yscale(0)
+    half_gap = GAP_PX / 2.0
+    for segment in segments:
+        if not segment:
+            continue
+        models = ",".join(dict.fromkeys(point["model"] for point in segment))
+        xs = [xscale(point["date"]) for point in segment]
+        y_system = [yscale(point["system"]) for point in segment]
+        y_combined = [yscale(point["system"] + point["tools"]) for point in segment]
+        if len(segment) == 1:
+            x = xs[0]
+            parts.append(f'<g data-selected-models="{_esc(models)}">')
+            parts.append(
+                f'<line x1="{x:.1f}" y1="{y_system[0]:.1f}" x2="{x:.1f}" '
+                f'y2="{y_combined[0]:.1f}" stroke="{c["series_tools"]}" stroke-width="5"/>'
+            )
+            parts.append(
+                f'<circle cx="{x:.1f}" cy="{y_system[0]:.1f}" r="3.5" '
+                f'fill="{c["series_system"]}"/>'
+            )
+            parts.append("</g>")
+        else:
+            system_top = [value + half_gap for value in y_system]
+            tools_bottom = [value - half_gap for value in y_system]
+            parts.append(f'<g data-selected-models="{_esc(models)}">')
+            parts.append(
+                f'<path d="{_step_area_path(xs, system_top, baseline_y)}" '
+                f'fill="{c["series_system"]}" fill-opacity="{AREA_OPACITY}" stroke="none"/>'
+            )
+            parts.append(
+                f'<path d="{_step_band_path(xs, y_combined, tools_bottom)}" '
+                f'fill="{c["series_tools"]}" fill-opacity="{AREA_OPACITY}" stroke="none"/>'
+            )
+            parts.append(
+                f'<path d="{_step_line_path(xs, y_combined)}" fill="none" '
+                f'stroke="{c["series_tools"]}" stroke-width="2" stroke-linejoin="round"/>'
+            )
+            parts.append("</g>")
+
+        for point in segment:
+            if not point.get("model_release_boundary"):
+                continue
+            px = xscale(point["date"])
+            py = yscale(point["system"] + point["tools"])
+            parts.append(
+                f'<circle data-boundary-capture="true" '
+                f'data-source-version="{_esc(point["version"])}" '
+                f'data-source-model="{_esc(point["model"])}" cx="{px:.1f}" '
+                f'cy="{py:.1f}" r="3.5" fill="{c["series_tools"]}"/>'
+            )
+
+    if not segments:
+        parts.append(
+            f'<text x="{(FAMILY_PLOT_LEFT + FAMILY_PLOT_RIGHT) / 2:.1f}" '
+            f'y="{(plot_top + plot_bottom) / 2:.1f}" font-size="16" '
+            f'fill="{c["text_muted"]}" text-anchor="middle">'
+            "No complete native measurements for the selected model.</text>"
+        )
+
+    for index, label in enumerate(unknown_releases):
+        parts.append(
+            f'<text x="{FAMILY_PLOT_LEFT}" y="{plot_bottom + 58 + index * 24}" '
+            f'font-size="14" fill="{c["text_secondary"]}">'
+            f'Release date not cataloged · {_esc(label)}</text>'
+        )
+
+    parts.append("</svg>")
+    return "\n".join(parts)
+
+def _step_coords(xs, ys):
+    coords = [(xs[0], ys[0])]
+    for x, y in zip(xs[1:], ys[1:]):
+        coords.append((x, coords[-1][1]))
+        coords.append((x, y))
+    return coords
+
+
+def _step_line_path(xs, ys) -> str:
+    coords = _step_coords(xs, ys)
+    return " ".join(
+        [f"M {coords[0][0]:.1f} {coords[0][1]:.1f}"]
+        + [f"L {x:.1f} {y:.1f}" for x, y in coords[1:]]
+    )
+
+
+def _step_area_path(xs, ys_top, baseline_y) -> str:
+    coords = _step_coords(xs, ys_top)
+    parts = [f"M {xs[0]:.1f} {baseline_y:.1f}"]
+    parts.extend(f"L {x:.1f} {y:.1f}" for x, y in coords)
+    parts.append(f"L {xs[-1]:.1f} {baseline_y:.1f}")
+    parts.append("Z")
+    return " ".join(parts)
+
+
+def _step_band_path(xs, ys_top, ys_bottom) -> str:
+    top = _step_coords(xs, ys_top)
+    bottom = _step_coords(xs, ys_bottom)
+    parts = [f"M {bottom[0][0]:.1f} {bottom[0][1]:.1f}"]
+    parts.extend(f"L {x:.1f} {y:.1f}" for x, y in top)
+    parts.extend(f"L {x:.1f} {y:.1f}" for x, y in reversed(bottom))
+    parts.append("Z")
+    return " ".join(parts)
 
 
 def _area_path(xs, ys_top, baseline_y) -> str:

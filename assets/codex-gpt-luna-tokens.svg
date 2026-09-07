@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 625" width="1100" height="625" role="img" aria-labelledby="chartTitle chartDesc" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+<title id="chartTitle">Codex GPT-5.6 Luna native token history</title>
+<desc id="chartDesc">Stacked system message and built-in tool token counts for the most recently released model in this lineage at each CLI release. Lines break where its complete native measurement is unavailable. Dotted markers show model API availability dates.</desc>
+<line x1="80" y1="28" x2="104" y2="28" stroke="#2a78d6" stroke-width="3" stroke-linecap="round"/>
+<text x="112" y="33" font-size="15" fill="#52514e">System message</text>
+<line x1="300" y1="28" x2="324" y2="28" stroke="#eb6834" stroke-width="3" stroke-linecap="round"/>
+<text x="332" y="33" font-size="15" fill="#52514e">Built-in tools (aggregate)</text>
+<line x1="80" y1="565.0" x2="1070" y2="565.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="68" y="569.0" font-size="15" fill="#898781" text-anchor="end">0</text>
+<line x1="80" y1="70.0" x2="1070" y2="70.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="68" y="74.0" font-size="15" fill="#898781" text-anchor="end">10k</text>
+<text x="24" y="317.5" font-size="14" fill="#898781" text-anchor="middle" letter-spacing="1.5" transform="rotate(-90 24 317.5)">TOKENS</text>
+<line x1="80" y1="565" x2="1070" y2="565" stroke="#c3c2b7" stroke-width="1"/>
+<text x="80.0" y="592" font-size="14" fill="#898781" text-anchor="start">Apr 2025</text>
+<text x="245.0" y="592" font-size="14" fill="#898781" text-anchor="middle">Jul 2025</text>
+<text x="410.0" y="592" font-size="14" fill="#898781" text-anchor="middle">Oct 2025</text>
+<text x="575.0" y="592" font-size="14" fill="#898781" text-anchor="middle">Dec 2025</text>
+<text x="740.0" y="592" font-size="14" fill="#898781" text-anchor="middle">Mar 2026</text>
+<text x="905.0" y="592" font-size="14" fill="#898781" text-anchor="middle">Jun 2026</text>
+<text x="1070.0" y="592" font-size="14" fill="#898781" text-anchor="end">Sep 2026</text>
+<g data-release-date="2026-07-09"><line x1="956.6" y1="70" x2="956.6" y2="565" stroke="#898781" stroke-width="1" stroke-dasharray="2,5" stroke-linecap="round" opacity="0.7"/>
+<text x="956.6" y="61.0" font-size="14" font-weight="600" fill="#52514e" text-anchor="middle">gpt-5.6-luna</text></g>
+<g data-selected-models="gpt-5.6-luna">
+<path d="M 1039.2 565.0 L 1039.2 353.9 L 1040.6 353.9 L 1040.6 353.9 L 1046.7 353.9 L 1046.7 354.2 L 1052.2 354.2 L 1052.2 354.2 L 1052.8 354.2 L 1052.8 353.7 L 1057.2 353.7 L 1057.2 358.4 L 1062.4 358.4 L 1062.4 358.4 L 1064.1 358.4 L 1064.1 358.5 L 1066.3 358.5 L 1066.3 358.5 L 1067.9 358.5 L 1067.9 358.4 L 1068.2 358.4 L 1068.2 358.5 L 1069.7 358.5 L 1069.7 358.4 L 1070.0 358.4 L 1070.0 358.5 L 1070.0 565.0 Z" fill="#2a78d6" fill-opacity="0.13" stroke="none"/>
+<path d="M 1039.2 351.9 L 1039.2 234.4 L 1040.6 234.4 L 1040.6 234.4 L 1046.7 234.4 L 1046.7 234.7 L 1052.2 234.7 L 1052.2 234.7 L 1052.8 234.7 L 1052.8 234.2 L 1057.2 234.2 L 1057.2 238.9 L 1062.4 238.9 L 1062.4 244.9 L 1064.1 244.9 L 1064.1 245.0 L 1066.3 245.0 L 1066.3 245.0 L 1067.9 245.0 L 1067.9 244.9 L 1068.2 244.9 L 1068.2 245.0 L 1069.7 245.0 L 1069.7 244.9 L 1070.0 244.9 L 1070.0 245.0 L 1070.0 356.5 L 1070.0 356.4 L 1069.7 356.4 L 1069.7 356.5 L 1068.2 356.5 L 1068.2 356.4 L 1067.9 356.4 L 1067.9 356.5 L 1066.3 356.5 L 1066.3 356.5 L 1064.1 356.5 L 1064.1 356.4 L 1062.4 356.4 L 1062.4 356.4 L 1057.2 356.4 L 1057.2 351.7 L 1052.8 351.7 L 1052.8 352.2 L 1052.2 352.2 L 1052.2 352.2 L 1046.7 352.2 L 1046.7 351.9 L 1040.6 351.9 L 1040.6 351.9 L 1039.2 351.9 Z" fill="#eb6834" fill-opacity="0.13" stroke="none"/>
+<path d="M 1039.2 234.4 L 1040.6 234.4 L 1040.6 234.4 L 1046.7 234.4 L 1046.7 234.7 L 1052.2 234.7 L 1052.2 234.7 L 1052.8 234.7 L 1052.8 234.2 L 1057.2 234.2 L 1057.2 238.9 L 1062.4 238.9 L 1062.4 244.9 L 1064.1 244.9 L 1064.1 245.0 L 1066.3 245.0 L 1066.3 245.0 L 1067.9 245.0 L 1067.9 244.9 L 1068.2 244.9 L 1068.2 245.0 L 1069.7 245.0 L 1069.7 244.9 L 1070.0 244.9 L 1070.0 245.0" fill="none" stroke="#eb6834" stroke-width="2" stroke-linejoin="round"/>
+</g>
+</svg>

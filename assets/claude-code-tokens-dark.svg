@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1900 650" width="1900" height="650" role="img" aria-labelledby="chartTitle chartDesc" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
 <title id="chartTitle">Claude Code token history</title>
-<desc id="chartDesc">Stacked area chart of system message tokens and aggregate built-in tool definition tokens across captured Claude Code versions, by capture date.</desc>
+<desc id="chartDesc">Stacked area chart of system message tokens and aggregate built-in tool definition tokens across captured Claude Code versions, by CLI release date.</desc>
 <rect x="0" y="0" width="1900" height="650" fill="#1a1a19"/>
 <line x1="100" y1="580.0" x2="1860" y2="580.0" stroke="#2c2c2a" stroke-width="1"/>
 <text x="88" y="584.0" font-size="15" fill="#898781" text-anchor="end">0</text>
