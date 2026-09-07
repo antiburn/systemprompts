@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 711" width="1100" height="711" role="img" aria-labelledby="chartTitle chartDesc" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 625" width="1100" height="625" role="img" aria-labelledby="chartTitle chartDesc" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
 <title id="chartTitle">Codex Codex max native token history</title>
 <desc id="chartDesc">Stacked system message and built-in tool token counts for the most recently released model in this lineage at each CLI release. Lines break where its complete native measurement is unavailable. Dotted markers show model API availability dates.</desc>
 <line x1="80" y1="28" x2="104" y2="28" stroke="#2a78d6" stroke-width="3" stroke-linecap="round"/>
@@ -19,8 +19,6 @@
 <text x="905.0" y="592" font-size="14" fill="#898781" text-anchor="middle">Jun 2026</text>
 <text x="1070.0" y="592" font-size="14" fill="#898781" text-anchor="end">Sep 2026</text>
 <g data-release-date="2025-11-19"><line x1="502.9" y1="70" x2="502.9" y2="565" stroke="#898781" stroke-width="1" stroke-dasharray="2,5" stroke-linecap="round" opacity="0.7"/>
-<text x="502.9" y="61.0" font-size="14" font-weight="700" fill="#52514e" text-anchor="middle">R1</text></g>
+<text x="502.9" y="61.0" font-size="14" font-weight="600" fill="#52514e" text-anchor="middle">gpt-5.1-codex-max</text></g>
 <text x="575.0" y="317.5" font-size="16" fill="#898781" text-anchor="middle">No complete native measurements for the selected model.</text>
-<text x="80.0" y="637.0" font-size="14" fill="#52514e">R1  19 Nov 2025 · GPT-5.1-Codex-Max†</text>
-<text x="80" y="665.0" font-size="13" fill="#898781">† API release cataloged; no selected complete native measurement.</text>
 </svg>

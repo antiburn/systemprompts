@@ -309,29 +309,6 @@ def render_family_chart_svg(
         else:
             release_groups.append({"date": event["date"], "models": list(event["models"])})
 
-    has_release_without_data = any(
-        not model["has_data"] for group in release_groups for model in group["models"]
-    )
-    key_items = []
-    for release_index, group in enumerate(release_groups, start=1):
-        names = " / ".join(
-            model["label"] + ("†" if not model["has_data"] else "")
-            for model in group["models"]
-        )
-        key_items.append(f'R{release_index}  {group["date"].strftime("%d %b %Y")} · {names}')
-    key_items.extend(f"R?  Release date not cataloged · {label}" for label in unknown_releases)
-    key_positions, key_rows = _release_key_layout(
-        key_items, FAMILY_PLOT_LEFT, FAMILY_PLOT_RIGHT
-    )
-
-    plot_top = 70
-    plot_bottom = 565
-    key_top = plot_bottom + 72
-    height = max(
-        680,
-        key_top + max(1, key_rows) * 28 + (26 if has_release_without_data else 0) + 20,
-    )
-
     all_dates = [event["date"] for event in releases]
     if timeline_start is not None:
         all_dates.append(timeline_start)
@@ -358,6 +335,33 @@ def render_family_chart_svg(
         return FAMILY_PLOT_LEFT + ((dt - first_date).total_seconds() / span) * (
             FAMILY_PLOT_RIGHT - FAMILY_PLOT_LEFT
         )
+
+    # Place short model names beside their release lines. Close releases use
+    # separate rows, with enough top margin to keep the series legend clear.
+    labels = []
+    lane_ends = []
+    for group in release_groups:
+        label = " / ".join(
+            model["label"].lower().removeprefix("claude ")
+            .removeprefix("openai ").replace(" ", "-")
+            for model in group["models"]
+        )
+        width = len(label) * 8.0
+        px = xscale(group["date"])
+        center = max(FAMILY_PLOT_LEFT + width / 2,
+                     min(px, FAMILY_PLOT_RIGHT - width / 2))
+        left = center - width / 2
+        lane = next((i for i, end in enumerate(lane_ends) if left >= end + 16),
+                    len(lane_ends))
+        if lane == len(lane_ends):
+            lane_ends.append(center + width / 2)
+        else:
+            lane_ends[lane] = center + width / 2
+        labels.append((group, px, center, 61 + lane * 22, label))
+
+    plot_top = 70 + max(0, len(lane_ends) - 1) * 22
+    plot_bottom = plot_top + 495
+    height = plot_bottom + 60 + len(unknown_releases) * 24
 
     y_max = _nice_y_max(max(all_values, default=0))
 
@@ -448,22 +452,16 @@ def render_family_chart_svg(
         )
 
     # Model API releases are events, distinct from solid axis gridlines.
-    lanes_last_x = [-10_000.0, -10_000.0, -10_000.0]
-    for release_index, group in enumerate(release_groups, start=1):
-        px = xscale(group["date"])
-        lane = next((i for i, last_x in enumerate(lanes_last_x) if px - last_x >= 38), 2)
-        lanes_last_x[lane] = px
-        marker = f"R{release_index}"
+    for group, px, label_x, label_y, label in labels:
         parts.append(
             f'<g data-release-date="{group["date"].date().isoformat()}"><line x1="{px:.1f}" '
             f'y1="{plot_top}" x2="{px:.1f}" y2="{plot_bottom}" '
             f'stroke="{c["boundary_line"]}" stroke-width="1" '
             'stroke-dasharray="2,5" stroke-linecap="round" opacity="0.7"/>'
         )
-        label_y = plot_top - 9 - lane * 18
         parts.append(
-            f'<text x="{px:.1f}" y="{label_y:.1f}" font-size="14" font-weight="700" '
-            f'fill="{c["text_secondary"]}" text-anchor="middle">{marker}</text></g>'
+            f'<text x="{label_x:.1f}" y="{label_y:.1f}" font-size="14" font-weight="600" '
+            f'fill="{c["text_secondary"]}" text-anchor="middle">{_esc(label)}</text></g>'
         )
 
     baseline_y = yscale(0)
@@ -525,46 +523,15 @@ def render_family_chart_svg(
             "No complete native measurements for the selected model.</text>"
         )
 
-    for label, (x, row) in zip(key_items, key_positions):
+    for index, label in enumerate(unknown_releases):
         parts.append(
-            f'<text x="{x:.1f}" y="{key_top + row * 28:.1f}" '
-            f'font-size="14" fill="{c["text_secondary"]}">{_esc(label)}</text>'
-        )
-    if has_release_without_data:
-        footnote_y = key_top + key_rows * 28
-        parts.append(
-            f'<text x="{FAMILY_PLOT_LEFT}" y="{footnote_y:.1f}" font-size="13" '
-            f'fill="{c["text_muted"]}">† API release cataloged; no selected complete native measurement.</text>'
+            f'<text x="{FAMILY_PLOT_LEFT}" y="{plot_bottom + 58 + index * 24}" '
+            f'font-size="14" fill="{c["text_secondary"]}">'
+            f'Release date not cataloged · {_esc(label)}</text>'
         )
 
     parts.append("</svg>")
     return "\n".join(parts)
-
-def _release_key_layout(labels, left, right):
-    """Place short release entries two-up and long cohorts full-width."""
-    positions = []
-    half_width = (right - left) / 2
-    row = 0
-    column = 0
-    for label in labels:
-        estimated_width = len(label) * 7.3
-        if estimated_width > half_width - 20:
-            if column:
-                row += 1
-                column = 0
-            positions.append((left, row))
-            row += 1
-            continue
-        positions.append((left + column * half_width, row))
-        if column == 0:
-            column = 1
-        else:
-            row += 1
-            column = 0
-    if column:
-        row += 1
-    return positions, row
-
 
 def _step_coords(xs, ys):
     coords = [(xs[0], ys[0])]
