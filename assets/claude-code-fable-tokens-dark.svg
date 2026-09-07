@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 685" width="1100" height="685" role="img" aria-labelledby="chartTitle chartDesc" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+<title id="chartTitle">Claude Code Fable native token history</title>
+<desc id="chartDesc">Combined system prompt and built-in tool token counts by CLI release date. Lines break where a complete native measurement is unavailable. Vertical markers show model API availability dates.</desc>
+<rect x="0" y="0" width="1100" height="685" fill="#1a1a19"/>
+<g data-model="claude-fable-5"><line x1="80.0" y1="28.0" x2="105.0" y2="28.0" stroke="#60a5fa" stroke-width="3"/><text x="113.0" y="33.0" font-size="14" fill="#c3c2b7">Claude Fable 5</text></g>
+<g data-model="claude-fable-5-1"><line x1="263.0" y1="28.0" x2="288.0" y2="28.0" stroke="#f87171" stroke-width="3" stroke-dasharray="10,4"/><text x="296.0" y="33.0" font-size="14" fill="#c3c2b7">Claude Fable 5.1</text></g>
+<line x1="80" y1="565.0" x2="1070" y2="565.0" stroke="#2c2c2a" stroke-width="1"/>
+<text x="68" y="569.0" font-size="15" fill="#898781" text-anchor="end">0</text>
+<line x1="80" y1="443.2" x2="1070" y2="443.2" stroke="#2c2c2a" stroke-width="1"/>
+<text x="68" y="447.2" font-size="15" fill="#898781" text-anchor="end">10k</text>
+<line x1="80" y1="321.5" x2="1070" y2="321.5" stroke="#2c2c2a" stroke-width="1"/>
+<text x="68" y="325.5" font-size="15" fill="#898781" text-anchor="end">20k</text>
+<line x1="80" y1="199.8" x2="1070" y2="199.8" stroke="#2c2c2a" stroke-width="1"/>
+<text x="68" y="203.8" font-size="15" fill="#898781" text-anchor="end">30k</text>
+<line x1="80" y1="78.0" x2="1070" y2="78.0" stroke="#2c2c2a" stroke-width="1"/>
+<text x="68" y="82.0" font-size="15" fill="#898781" text-anchor="end">40k</text>
+<text x="24" y="321.5" font-size="14" fill="#898781" text-anchor="middle" letter-spacing="1.5" transform="rotate(-90 24 321.5)">COMBINED NATIVE TOKENS</text>
+<line x1="80" y1="565" x2="1070" y2="565" stroke="#383835" stroke-width="1"/>
+<text x="80.0" y="592" font-size="14" fill="#898781" text-anchor="middle">Jun 2026</text>
+<text x="245.0" y="592" font-size="14" fill="#898781" text-anchor="middle">Jun 2026</text>
+<text x="410.0" y="592" font-size="14" fill="#898781" text-anchor="middle">Jul 2026</text>
+<text x="575.0" y="592" font-size="14" fill="#898781" text-anchor="middle">Jul 2026</text>
+<text x="740.0" y="592" font-size="14" fill="#898781" text-anchor="middle">Aug 2026</text>
+<text x="905.0" y="592" font-size="14" fill="#898781" text-anchor="middle">Aug 2026</text>
+<text x="1070.0" y="592" font-size="14" fill="#898781" text-anchor="middle">Sep 2026</text>
+<g data-release-date="2026-06-09"><line x1="80.0" y1="78" x2="80.0" y2="565" stroke="#898781" stroke-width="1" stroke-dasharray="5,4" opacity="0.6"/>
+<text x="80.0" y="69.0" font-size="14" font-weight="700" fill="#c3c2b7" text-anchor="middle">R1</text></g>
+<g data-release-date="2026-09-01"><line x1="1013.4" y1="78" x2="1013.4" y2="565" stroke="#898781" stroke-width="1" stroke-dasharray="5,4" opacity="0.6"/>
+<text x="1013.4" y="69.0" font-size="14" font-weight="700" fill="#c3c2b7" text-anchor="middle">R2</text></g>
+<g data-series-model="claude-fable-5">
+<path d="M 87.5 203.6 L 99.4 200.8 L 103.2 200.8 L 112.6 200.8 L 114.3 200.8 L 122.5 200.5 L 124.9 200.5 L 155.5 203.3 L 166.1 203.2 L 177.5 203.4 L 190.3 203.3 L 191.1 203.3 L 210.1 203.4 L 232.8 197.9 L 243.9 246.3 L 253.5 246.3 L 255.4 246.3 L 266.6 246.3 L 277.4 246.4 L 311.6 238.1 L 319.6 238.1 L 332.3 234.9 L 343.7 233.7 L 348.8 233.7 L 356.4 233.7 L 389.6 232.4 L 399.3 231.1 L 402.3 231.2 L 411.3 231.1 L 421.7 231.1 L 434.9 230.9 L 467.8 229.5 L 471.1 229.5 L 478.0 229.5 L 489.0 229.1 L 500.1 228.3 L 512.7 228.3 L 513.5 228.3 L 524.9 228.3 L 545.0 230.4 L 556.0 230.3 L 567.1 229.7 L 587.6 228.7 L 590.8 228.7 L 701.5 228.8 L 711.8 228.1 L 724.0 228.1 L 736.4 227.8 L 746.4 227.8 L 747.6 227.8 L 778.7 227.1 L 788.3 227.2 L 800.2 227.1 L 806.2 227.3 L 812.3 227.3 L 822.2 266.5 L 855.2 266.1 L 866.4 266.1 L 877.7 266.1 L 880.1 266.1 L 888.4 266.1 L 899.2 266.2 L 908.4 266.2 L 913.4 266.1 L 933.5 262.6 L 935.3 262.6 L 937.9 262.6 L 944.6 262.6 L 955.1 262.5 L 967.4 315.6 L 968.3 315.6 L 976.2 315.4 L 1010.3 315.4 L 1021.4 315.8 L 1023.8 315.7 L 1034.5 315.7 L 1046.1 315.7 L 1055.0 315.7 L 1070.0 315.7" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g data-series-model="claude-fable-5-1">
+<path d="M 1021.4 306.7 L 1023.8 306.7 L 1034.5 306.7 L 1046.1 306.7 L 1055.0 306.7 L 1070.0 306.8" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="10,4"/>
+</g>
+<text x="80.0" y="637.0" font-size="14" fill="#c3c2b7">R1  09 Jun 2026 · Claude Fable 5</text>
+<text x="575.0" y="637.0" font-size="14" fill="#c3c2b7">R2  01 Sep 2026 · Claude Fable 5.1</text>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 795" width="1100" height="795" role="img" aria-labelledby="chartTitle chartDesc" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+<title id="chartTitle">Codex Codex-tuned native token history</title>
+<desc id="chartDesc">Combined system prompt and built-in tool token counts by CLI release date. Lines break where a complete native measurement is unavailable. Vertical markers show model API availability dates.</desc>
+<g data-model="gpt-5.3-codex"><line x1="80.0" y1="28.0" x2="105.0" y2="28.0" stroke="#2563eb" stroke-width="3"/><text x="113.0" y="33.0" font-size="14" fill="#52514e">GPT-5.3-Codex</text></g>
+<g data-model="gpt-5.6-sol"><line x1="255.0" y1="28.0" x2="280.0" y2="28.0" stroke="#dc2626" stroke-width="3" stroke-dasharray="10,4"/><text x="288.0" y="33.0" font-size="14" fill="#52514e">GPT-5.6 Sol</text></g>
+<line x1="80" y1="565.0" x2="1070" y2="565.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="68" y="569.0" font-size="15" fill="#898781" text-anchor="end">0</text>
+<line x1="80" y1="78.0" x2="1070" y2="78.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="68" y="82.0" font-size="15" fill="#898781" text-anchor="end">10k</text>
+<text x="24" y="321.5" font-size="14" fill="#898781" text-anchor="middle" letter-spacing="1.5" transform="rotate(-90 24 321.5)">COMBINED NATIVE TOKENS</text>
+<line x1="80" y1="565" x2="1070" y2="565" stroke="#c3c2b7" stroke-width="1"/>
+<text x="80.0" y="592" font-size="14" fill="#898781" text-anchor="middle">May 2025</text>
+<text x="245.0" y="592" font-size="14" fill="#898781" text-anchor="middle">Aug 2025</text>
+<text x="410.0" y="592" font-size="14" fill="#898781" text-anchor="middle">Oct 2025</text>
+<text x="575.0" y="592" font-size="14" fill="#898781" text-anchor="middle">Jan 2026</text>
+<text x="740.0" y="592" font-size="14" fill="#898781" text-anchor="middle">Mar 2026</text>
+<text x="905.0" y="592" font-size="14" fill="#898781" text-anchor="middle">Jun 2026</text>
+<text x="1070.0" y="592" font-size="14" fill="#898781" text-anchor="middle">Sep 2026</text>
+<g data-release-date="2025-05-16"><line x1="80.0" y1="78" x2="80.0" y2="565" stroke="#898781" stroke-width="1" stroke-dasharray="5,4" opacity="0.6"/>
+<text x="80.0" y="69.0" font-size="14" font-weight="700" fill="#52514e" text-anchor="middle">R1</text></g>
+<g data-release-date="2025-09-23"><line x1="349.8" y1="78" x2="349.8" y2="565" stroke="#898781" stroke-width="1" stroke-dasharray="5,4" opacity="0.6"/>
+<text x="349.8" y="69.0" font-size="14" font-weight="700" fill="#52514e" text-anchor="middle">R2</text></g>
+<g data-release-date="2025-11-12"><line x1="453.6" y1="78" x2="453.6" y2="565" stroke="#898781" stroke-width="1" stroke-dasharray="5,4" opacity="0.6"/>
+<text x="453.6" y="69.0" font-size="14" font-weight="700" fill="#52514e" text-anchor="middle">R3</text></g>
+<g data-release-date="2025-11-19"><line x1="468.1" y1="78" x2="468.1" y2="565" stroke="#898781" stroke-width="1" stroke-dasharray="5,4" opacity="0.6"/>
+<text x="468.1" y="51.0" font-size="14" font-weight="700" fill="#52514e" text-anchor="middle">R4</text></g>
+<g data-release-date="2025-12-18"><line x1="528.3" y1="78" x2="528.3" y2="565" stroke="#898781" stroke-width="1" stroke-dasharray="5,4" opacity="0.6"/>
+<text x="528.3" y="69.0" font-size="14" font-weight="700" fill="#52514e" text-anchor="middle">R5</text></g>
+<g data-release-date="2026-02-05"><line x1="630.0" y1="78" x2="630.0" y2="565" stroke="#898781" stroke-width="1" stroke-dasharray="5,4" opacity="0.6"/>
+<text x="630.0" y="69.0" font-size="14" font-weight="700" fill="#52514e" text-anchor="middle">R6</text></g>
+<g data-release-date="2026-07-09"><line x1="949.6" y1="78" x2="949.6" y2="565" stroke="#898781" stroke-width="1" stroke-dasharray="5,4" opacity="0.6"/>
+<text x="949.6" y="69.0" font-size="14" font-weight="700" fill="#52514e" text-anchor="middle">R7</text></g>
+<g data-series-model="gpt-5.3-codex">
+<path d="M 630.5 129.9 L 631.5 129.9 L 644.3 166.5 L 646.1 166.5 L 646.3 166.5 L 656.7 179.8 L 656.9 256.6 L 657.6 256.6 L 673.0 255.8 L 675.6 255.8 L 683.5 255.8 L 688.3 255.8 L 689.8 255.8 L 696.2 255.4 L 699.0 255.4 L 700.6 255.4 L 712.7 140.1 L 718.7 140.0 L 733.7 139.9 L 743.6 139.9 L 764.8 139.9 L 765.2 139.9 L 775.0 136.9" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 1037.3 95.1 L 1038.8 95.1 L 1045.3 95.1 L 1051.1 94.9 L 1051.7 94.9 L 1056.5 95.3 L 1061.9 141.9 L 1063.7 141.9 L 1066.0 141.9 L 1067.7 141.9 L 1068.1 141.9 L 1069.7 141.9 L 1070.0 141.5" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g data-series-model="gpt-5.6-sol">
+<path d="M 1037.3 167.8 L 1038.8 167.8 L 1045.3 167.8 L 1051.1 167.8 L 1051.7 167.8 L 1056.5 171.9 L 1061.9 177.9 L 1063.7 177.9 L 1066.0 177.9 L 1067.7 177.9 L 1068.1 177.9 L 1069.7 177.9 L 1070.0 177.4" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="10,4"/>
+</g>
+<text x="80.0" y="637.0" font-size="14" fill="#52514e">R1  16 May 2025 · Codex Mini†</text>
+<text x="575.0" y="637.0" font-size="14" fill="#52514e">R2  23 Sep 2025 · GPT-5-Codex†</text>
+<text x="80.0" y="665.0" font-size="14" fill="#52514e">R3  12 Nov 2025 · GPT-5.1-Codex† / GPT-5.1-Codex-Mini†</text>
+<text x="575.0" y="665.0" font-size="14" fill="#52514e">R4  19 Nov 2025 · GPT-5.1-Codex-Max†</text>
+<text x="80.0" y="693.0" font-size="14" fill="#52514e">R5  18 Dec 2025 · GPT-5.2-Codex†</text>
+<text x="575.0" y="693.0" font-size="14" fill="#52514e">R6  05 Feb 2026 · GPT-5.3-Codex</text>
+<text x="80.0" y="721.0" font-size="14" fill="#52514e">R7  09 Jul 2026 · GPT-5.6 Sol</text>
+<text x="80" y="749.0" font-size="13" fill="#898781">† API release cataloged; no complete native measurement in this archive.</text>
+</svg>

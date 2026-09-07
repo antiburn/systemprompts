@@ -1,0 +1,403 @@
+# Model-family and lifecycle catalog used by the README chart generator.
+#
+# `released` is the model's recorded API availability date, never a model-ID
+# snapshot date or a prompt capture timestamp. Update a model here when adding
+# it to the archive, and cite reviewed availability evidence in `sources`.
+# Unknown archive models still appear in an inferred family chart,
+# but do not receive a guessed release marker.
+#
+# Copied from Cadence's reviewed scripts/systemprompts/model-era-map.yml.
+models:
+- harness: claude-code
+  id: claude-3-7-sonnet-20250219
+  family: sonnet
+  display_name: Claude Sonnet 3.7
+  released: '2025-02-24'
+  retired: '2026-02-19'
+  sources:
+  - "https://www.anthropic.com/news/claude-3-7-sonnet"
+  - "https://platform.claude.com/docs/en/docs/about-claude/model-deprecations"
+- harness: claude-code
+  id: claude-sonnet-4-20250514
+  family: sonnet
+  display_name: Claude Sonnet 4
+  released: '2025-05-22'
+  retired: '2026-06-15'
+  sources:
+  - "https://www.anthropic.com/news/claude-4"
+  - "https://platform.claude.com/docs/en/docs/about-claude/model-deprecations"
+- harness: claude-code
+  id: claude-opus-4-20250514
+  family: opus
+  display_name: Claude Opus 4
+  released: '2025-05-22'
+  retired: '2026-06-15'
+  sources:
+  - "https://www.anthropic.com/news/claude-4"
+  - "https://platform.claude.com/docs/en/docs/about-claude/model-deprecations"
+- harness: claude-code
+  id: claude-opus-4-1-20250805
+  family: opus
+  display_name: Claude Opus 4.1
+  released: '2025-08-05'
+  retired: '2026-08-05'
+  sources:
+  - "https://x.com/AnthropicAI/status/1952768432027431127"
+  - "https://platform.claude.com/docs/en/docs/about-claude/model-deprecations"
+- harness: claude-code
+  id: claude-sonnet-4-5-20250929
+  family: sonnet
+  display_name: Claude Sonnet 4.5
+  released: '2025-09-29'
+  retired: null
+  sources:
+  - "https://www.anthropic.com/news/claude-sonnet-4-5"
+  - "https://platform.claude.com/docs/en/docs/about-claude/model-deprecations"
+- harness: claude-code
+  id: claude-haiku-4-5-20251001
+  family: haiku
+  display_name: Claude Haiku 4.5
+  released: '2025-10-15'
+  retired: null
+  sources:
+  - "https://www.anthropic.com/news/claude-haiku-4-5"
+  - "https://platform.claude.com/docs/en/docs/about-claude/model-deprecations"
+- harness: claude-code
+  id: claude-opus-4-5-20251101
+  family: opus
+  display_name: Claude Opus 4.5
+  released: '2025-11-24'
+  retired: null
+  sources:
+  - "https://www.anthropic.com/news/claude-opus-4-5"
+  - "https://platform.claude.com/docs/en/docs/about-claude/model-deprecations"
+- harness: claude-code
+  id: claude-opus-4-6
+  family: opus
+  display_name: Claude Opus 4.6
+  released: '2026-02-05'
+  retired: null
+  sources:
+  - "https://www.anthropic.com/news/claude-opus-4-6"
+  - "https://www.cnbc.com/2026/02/05/anthropic-claude-opus-4-6-vibe-working.html"
+  - "https://platform.claude.com/docs/en/docs/about-claude/model-deprecations"
+- harness: claude-code
+  id: claude-sonnet-4-6
+  family: sonnet
+  display_name: Claude Sonnet 4.6
+  released: '2026-02-17'
+  retired: null
+  sources:
+  - "https://www.anthropic.com/news/claude-sonnet-4-6"
+  - "https://platform.claude.com/docs/en/docs/about-claude/model-deprecations"
+- harness: claude-code
+  id: claude-opus-4-7
+  family: opus
+  display_name: Claude Opus 4.7
+  released: '2026-04-16'
+  retired: null
+  sources:
+  - "https://www.anthropic.com/news/claude-opus-4-7"
+  - "https://platform.claude.com/docs/en/docs/about-claude/model-deprecations"
+- harness: claude-code
+  id: claude-opus-4-8
+  family: opus
+  display_name: Claude Opus 4.8
+  released: '2026-05-28'
+  retired: null
+  sources:
+  - "https://www.anthropic.com/news/claude-opus-4-8"
+  - "https://techcrunch.com/2026/05/28/anthropic-releases-opus-4-8-with-new-dynamic-workflow-tool/"
+  - "https://platform.claude.com/docs/en/docs/about-claude/model-deprecations"
+- harness: claude-code
+  id: claude-fable-5
+  family: fable
+  display_name: Claude Fable 5
+  released: '2026-06-09'
+  retired: null
+  sources:
+  - "https://www.anthropic.com/news/claude-fable-5-mythos-5"
+  - "https://techcrunch.com/2026/06/09/anthropics-claude-fable-5-is-a-version-of-mythos-the-public-can-access-today/"
+  - "https://www.anthropic.com/news/redeploying-fable-5"
+  - "https://platform.claude.com/docs/en/docs/about-claude/model-deprecations"
+- harness: claude-code
+  id: claude-sonnet-5
+  family: sonnet
+  display_name: Claude Sonnet 5
+  released: '2026-06-30'
+  retired: null
+  sources:
+  - "https://www.anthropic.com/news/claude-sonnet-5"
+  - "https://platform.claude.com/docs/en/docs/about-claude/model-deprecations"
+- harness: claude-code
+  id: claude-opus-5
+  family: opus
+  display_name: Claude Opus 5
+  released: '2026-07-24'
+  retired: null
+  sources:
+  - "https://www.anthropic.com/news/claude-opus-5"
+  - "https://platform.claude.com/docs/en/docs/about-claude/model-deprecations"
+- harness: claude-code
+  id: claude-fable-5-1
+  family: fable
+  display_name: Claude Fable 5.1
+  released: '2026-09-01'
+  retired: null
+  sources:
+  - "https://platform.claude.com/docs/en/models/fable-5-1/overview"
+  - "https://platform.claude.com/docs/en/about-claude/model-deprecations"
+- harness: codex
+  id: o3-2025-04-16
+  family: o-series
+  display_name: OpenAI o3
+  released: '2025-04-16'
+  retired: null
+  sources:
+  - "https://openai.com/index/introducing-o3-and-o4-mini/"
+  - "https://developers.openai.com/api/docs/deprecations"
+- harness: codex
+  id: o4-mini-2025-04-16
+  family: o-series
+  display_name: OpenAI o4-mini
+  released: '2025-04-16'
+  retired: null
+  sources:
+  - "https://openai.com/index/introducing-o3-and-o4-mini/"
+  - "https://developers.openai.com/api/docs/deprecations"
+- harness: codex
+  id: o3-pro
+  family: o-series
+  display_name: OpenAI o3-pro
+  released: '2025-06-10'
+  retired: null
+  sources:
+  - "https://openai.com/index/introducing-o3-and-o4-mini/"
+  - "https://www.techrepublic.com/article/news-openai-o3-pro/"
+- harness: codex
+  id: gpt-4.1
+  family: gpt
+  display_name: GPT-4.1
+  released: '2025-04-14'
+  retired: null
+  sources:
+  - "https://openai.com/index/gpt-4-1/"
+  - "https://developers.openai.com/api/docs/deprecations"
+- harness: codex
+  id: gpt-4.1-mini
+  family: gpt
+  display_name: GPT-4.1 mini
+  released: '2025-04-14'
+  retired: null
+  sources:
+  - "https://openai.com/index/gpt-4-1/"
+- harness: codex
+  id: gpt-4.1-nano
+  family: gpt
+  display_name: GPT-4.1 nano
+  released: '2025-04-14'
+  retired: null
+  sources:
+  - "https://openai.com/index/gpt-4-1/"
+  - "https://developers.openai.com/api/docs/deprecations"
+- harness: codex
+  id: codex-mini-latest
+  family: codex-tuned
+  display_name: Codex Mini
+  released: '2025-05-16'
+  retired: '2026-02-12'
+  sources:
+  - "https://developers.openai.com/api/docs/models/codex-mini-latest"
+  - "https://developers.openai.com/api/docs/deprecations"
+- harness: codex
+  id: gpt-5-2025-08-07
+  family: gpt
+  display_name: GPT-5
+  released: '2025-08-07'
+  retired: null
+  sources:
+  - "https://techcrunch.com/2025/08/07/openais-gpt-5-is-here/"
+  - "https://developers.openai.com/api/docs/deprecations"
+- harness: codex
+  id: gpt-5-mini-2025-08-07
+  family: gpt
+  display_name: GPT-5 mini
+  released: '2025-08-07'
+  retired: null
+  sources:
+  - "https://techcrunch.com/2025/08/07/openais-gpt-5-is-here/"
+  - "https://developers.openai.com/api/docs/deprecations"
+- harness: codex
+  id: gpt-5-nano-2025-08-07
+  family: gpt
+  display_name: GPT-5 nano
+  released: '2025-08-07'
+  retired: null
+  sources:
+  - "https://techcrunch.com/2025/08/07/openais-gpt-5-is-here/"
+  - "https://developers.openai.com/api/docs/deprecations"
+- harness: codex
+  id: gpt-5-pro-2025-10-06
+  family: gpt
+  display_name: GPT-5 Pro
+  released: '2025-10-06'
+  retired: null
+  sources:
+  - "https://developers.openai.com/api/docs/deprecations"
+- harness: codex
+  id: gpt-5-codex
+  family: codex-tuned
+  display_name: GPT-5-Codex
+  released: '2025-09-23'
+  retired: '2026-07-23'
+  sources:
+  - "https://openai.com/index/introducing-upgrades-to-codex/"
+  - "https://developers.openai.com/api/docs/deprecations"
+- harness: codex
+  id: gpt-5.1
+  family: gpt
+  display_name: GPT-5.1
+  released: '2025-11-12'
+  retired: null
+  sources:
+  - "https://en.wikipedia.org/wiki/GPT-5.1"
+- harness: codex
+  id: gpt-5.1-codex
+  family: codex-tuned
+  display_name: GPT-5.1-Codex
+  released: '2025-11-12'
+  retired: '2026-07-23'
+  sources:
+  - "https://developers.openai.com/api/docs/deprecations"
+  - "https://openai.com/index/gpt-5-1-codex-max/"
+- harness: codex
+  id: gpt-5.1-codex-mini
+  family: codex-tuned
+  display_name: GPT-5.1-Codex-Mini
+  released: '2025-11-12'
+  retired: '2026-07-23'
+  sources:
+  - "https://en.wikipedia.org/wiki/GPT-5.1"
+  - "https://developers.openai.com/api/docs/deprecations"
+- harness: codex
+  id: gpt-5.1-codex-max
+  family: codex-tuned
+  display_name: GPT-5.1-Codex-Max
+  released: '2025-11-19'
+  retired: '2026-07-23'
+  sources:
+  - "https://openai.com/index/gpt-5-1-codex-max/"
+  - "https://developers.openai.com/api/docs/deprecations"
+- harness: codex
+  id: gpt-5.2
+  family: gpt
+  display_name: GPT-5.2
+  released: '2025-12-11'
+  retired: null
+  sources:
+  - "https://en.wikipedia.org/wiki/GPT-5.2"
+- harness: codex
+  id: gpt-5.2-codex
+  family: codex-tuned
+  display_name: GPT-5.2-Codex
+  released: '2025-12-18'
+  retired: '2026-07-23'
+  sources:
+  - "https://openai.com/index/gpt-5-2-codex-system-card/"
+  - "https://openai.com/index/introducing-gpt-5-2-codex/"
+  - "https://developers.openai.com/api/docs/deprecations"
+- harness: codex
+  id: gpt-5.3-codex
+  family: codex-tuned
+  display_name: GPT-5.3-Codex
+  released: '2026-02-05'
+  retired: null
+  sources:
+  - "https://en.wikipedia.org/wiki/GPT-5.3-Codex"
+  - "https://cdn.openai.com/pdf/23eca107-a9b1-4d2c-b156-7deb4fbc697c/GPT-5-3-Codex-System-Card-02.pdf"
+- harness: codex
+  id: gpt-5.4
+  family: gpt
+  display_name: GPT-5.4
+  released: '2026-03-05'
+  retired: null
+  sources:
+  - "https://en.wikipedia.org/wiki/GPT-5.4"
+- harness: codex
+  id: gpt-5.4-pro
+  family: gpt
+  display_name: GPT-5.4 Pro
+  released: '2026-03-05'
+  retired: null
+  sources:
+  - "https://en.wikipedia.org/wiki/GPT-5.4"
+- harness: codex
+  id: gpt-5.4-mini
+  family: gpt
+  display_name: GPT-5.4 mini
+  released: '2026-03-17'
+  retired: null
+  sources:
+  - "https://en.wikipedia.org/wiki/GPT-5.4"
+- harness: codex
+  id: gpt-5.4-nano
+  family: gpt
+  display_name: GPT-5.4 nano
+  released: '2026-03-17'
+  retired: null
+  sources:
+  - "https://en.wikipedia.org/wiki/GPT-5.4"
+- harness: codex
+  id: gpt-5.5
+  family: gpt
+  display_name: GPT-5.5
+  released: '2026-04-24'
+  retired: null
+  sources:
+  - "https://en.wikipedia.org/wiki/GPT-5.5"
+  - "https://openai.com/index/introducing-gpt-5-5/"
+- harness: codex
+  id: gpt-5.5-pro
+  family: gpt
+  display_name: GPT-5.5 Pro
+  released: '2026-04-24'
+  retired: null
+  sources:
+  - "https://en.wikipedia.org/wiki/GPT-5.5"
+- harness: codex
+  id: gpt-5.6-luna
+  family: gpt
+  display_name: GPT-5.6 Luna
+  released: '2026-07-09'
+  retired: null
+  sources:
+  - "https://www.cnbc.com/2026/07/08/openai-expanding-gpt-5point6-ai-model-release-ending-government-limits.html"
+  - "https://openai.com/index/previewing-gpt-5-6-sol/"
+  - "https://developers.openai.com/api/docs/models/all"
+- harness: codex
+  id: gpt-5.6-terra
+  family: gpt
+  display_name: GPT-5.6 Terra
+  released: '2026-07-09'
+  retired: null
+  sources:
+  - "https://www.cnbc.com/2026/07/08/openai-expanding-gpt-5point6-ai-model-release-ending-government-limits.html"
+  - "https://developers.openai.com/api/docs/models/all"
+- harness: codex
+  id: gpt-5.6-sol
+  family: codex-tuned
+  display_name: GPT-5.6 Sol
+  released: '2026-07-09'
+  retired: null
+  sources:
+  - "https://openai.com/index/previewing-gpt-5-6-sol/"
+  - "https://www.cnbc.com/2026/07/08/openai-expanding-gpt-5point6-ai-model-release-ending-government-limits.html"
+- harness: codex
+  id: gpt-6-astra
+  family: gpt
+  display_name: GPT-6 Astra
+  released: '2026-09-03'
+  retired: null
+  sources:
+  - "https://learn.chatgpt.com/docs/changelog"
+  - "https://learn.chatgpt.com/docs/enterprise/workspace-model-availability"

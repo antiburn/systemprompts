@@ -23,6 +23,13 @@ PLOT_RIGHT = WIDTH - MARGIN_RIGHT
 PLOT_TOP = MARGIN_TOP
 PLOT_BOTTOM = HEIGHT - MARGIN_BOTTOM
 
+# Family charts appear below the full-width harness overview in README. A
+# narrower logical canvas keeps their labels legible when GitHub renders the
+# image at roughly 850–900 CSS pixels.
+FAMILY_WIDTH = 1100
+FAMILY_PLOT_LEFT = 80
+FAMILY_PLOT_RIGHT = FAMILY_WIDTH - 30
+
 PALETTE = {
     "light": {
         "surface": None,  # transparent — blends with the GitHub light page
@@ -54,6 +61,34 @@ FONT_STACK = "system-ui, -apple-system, 'Segoe UI', sans-serif"
 
 AREA_OPACITY = 0.13
 GAP_PX = 2  # surface-color gap between the two stacked layers
+
+FAMILY_SERIES_COLORS = {
+    "light": [
+        "#2563eb",
+        "#dc2626",
+        "#15803d",
+        "#9333ea",
+        "#ea580c",
+        "#087f8c",
+        "#be123c",
+        "#4f46e5",
+        "#4d7c0f",
+        "#a16207",
+    ],
+    "dark": [
+        "#60a5fa",
+        "#f87171",
+        "#4ade80",
+        "#c084fc",
+        "#fb923c",
+        "#22d3ee",
+        "#fb7185",
+        "#818cf8",
+        "#a3e635",
+        "#facc15",
+    ],
+}
+FAMILY_DASH_PATTERNS = [None, "10,4", "3,4", "12,4,3,4", "2,3"]
 
 
 def _esc(s: str) -> str:
@@ -128,7 +163,7 @@ def render_chart_svg(
     parts.append(
         "<desc id=\"chartDesc\">Stacked area chart of system message tokens and "
         "aggregate built-in tool definition tokens across captured "
-        f"{_esc(harness_label)} versions, by capture date.</desc>"
+        f"{_esc(harness_label)} versions, by CLI release date.</desc>"
     )
 
     if c["surface"]:
@@ -273,6 +308,286 @@ def render_chart_svg(
 
     parts.append("</svg>")
     return "\n".join(parts)
+
+
+def render_family_chart_svg(
+    harness_label: str,
+    family_label: str,
+    series,
+    releases,
+    unknown_releases,
+    mode: str = "light",
+) -> str:
+    """Render native combined-token histories for one model family.
+
+    ``series`` contains one entry per measured model, with discontinuous
+    ``segments`` so absent, unavailable, and partial observations never look
+    like measured interpolation. ``releases`` contains API availability
+    events and may include models with no complete measurement. Events on the
+    same day are grouped into one marker and one release-key row.
+    """
+    assert mode in ("light", "dark")
+    c = PALETTE[mode]
+    colors = FAMILY_SERIES_COLORS[mode]
+
+    series = sorted(
+        series,
+        key=lambda item: (
+            item.get("released") or datetime.max.replace(tzinfo=timezone.utc),
+            item["label"],
+        ),
+    )
+    releases = sorted(releases, key=lambda item: item["date"])
+
+    legend_items = []
+    for index, item in enumerate(series):
+        legend_items.append(
+            {
+                "label": item["label"],
+                "color": colors[index % len(colors)],
+                "dash": FAMILY_DASH_PATTERNS[index % len(FAMILY_DASH_PATTERNS)],
+                "model": item["model"],
+            }
+        )
+    legend_positions, legend_rows = _flow_layout(
+        [item["label"] for item in legend_items],
+        FAMILY_PLOT_LEFT,
+        FAMILY_PLOT_RIGHT,
+        28,
+        26,
+        38,
+    )
+
+    release_groups = []
+    for event in releases:
+        if release_groups and release_groups[-1]["date"] == event["date"]:
+            release_groups[-1]["models"].extend(event["models"])
+        else:
+            release_groups.append({"date": event["date"], "models": list(event["models"])})
+
+    has_release_without_data = any(
+        not model["has_data"] for group in release_groups for model in group["models"]
+    )
+
+    key_items = []
+    for release_index, group in enumerate(release_groups, start=1):
+        names = " / ".join(
+            model["label"] + ("†" if not model["has_data"] else "")
+            for model in group["models"]
+        )
+        key_items.append(f'R{release_index}  {group["date"].strftime("%d %b %Y")} · {names}')
+    key_items.extend(f"R?  Release date not cataloged · {label}" for label in unknown_releases)
+    key_positions, key_rows = _release_key_layout(
+        key_items, FAMILY_PLOT_LEFT, FAMILY_PLOT_RIGHT
+    )
+    plot_top = 78 + max(0, legend_rows - 1) * 26
+    plot_bottom = 565
+    key_top = plot_bottom + 72
+    height = max(
+        680,
+        key_top + max(1, key_rows) * 28 + (26 if has_release_without_data else 0) + 20,
+    )
+
+    all_dates = [event["date"] for event in releases]
+    all_values = []
+    for item in series:
+        for segment in item["segments"]:
+            all_dates.extend(point["date"] for point in segment)
+            all_values.extend(point["value"] for point in segment)
+
+    has_timeline = bool(all_dates)
+    if has_timeline:
+        first_date = min(all_dates)
+        last_date = max(all_dates)
+    else:
+        # Keep release-unknown, measurement-empty charts reproducible.
+        first_date = datetime(1970, 1, 1, tzinfo=timezone.utc)
+        last_date = first_date
+    span = (last_date - first_date).total_seconds()
+
+    def xscale(dt: datetime) -> float:
+        if span <= 0:
+            return (FAMILY_PLOT_LEFT + FAMILY_PLOT_RIGHT) / 2
+        return FAMILY_PLOT_LEFT + ((dt - first_date).total_seconds() / span) * (
+            FAMILY_PLOT_RIGHT - FAMILY_PLOT_LEFT
+        )
+
+    y_max = _nice_y_max(max(all_values, default=0))
+
+    def yscale(value: float) -> float:
+        return plot_bottom - (value / y_max) * (plot_bottom - plot_top)
+
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {FAMILY_WIDTH} {height}" '
+        f'width="{FAMILY_WIDTH}" height="{height}" role="img" '
+        f'aria-labelledby="chartTitle chartDesc" font-family="{FONT_STACK}">',
+        f'<title id="chartTitle">{_esc(harness_label)} {_esc(family_label)} native token history</title>',
+        '<desc id="chartDesc">Combined system prompt and built-in tool token counts by CLI release date. '
+        "Lines break where a complete native measurement is unavailable. "
+        "Vertical markers show model API availability dates.</desc>",
+    ]
+    if c["surface"]:
+        parts.append(
+            f'<rect x="0" y="0" width="{FAMILY_WIDTH}" height="{height}" '
+            f'fill="{c["surface"]}"/>'
+        )
+
+    if not legend_items:
+        parts.append(
+            f'<text x="{FAMILY_PLOT_LEFT}" y="32" font-size="15" '
+            f'fill="{c["text_secondary"]}">'
+            "No complete native token measurements</text>"
+        )
+    else:
+        for item, (x, y) in zip(legend_items, legend_positions):
+            dash = f' stroke-dasharray="{item["dash"]}"' if item["dash"] else ""
+            parts.append(
+                f'<g data-model="{_esc(item["model"])}"><line x1="{x:.1f}" y1="{y:.1f}" '
+                f'x2="{x + 25:.1f}" y2="{y:.1f}" stroke="{item["color"]}" '
+                f'stroke-width="3"{dash}/>'
+                f'<text x="{x + 33:.1f}" y="{y + 5:.1f}" font-size="14" '
+                f'fill="{c["text_secondary"]}">{_esc(item["label"])}</text></g>'
+            )
+
+    # Gridlines and axes.
+    y = 0
+    while y <= y_max:
+        py = yscale(y)
+        parts.append(
+            f'<line x1="{FAMILY_PLOT_LEFT}" y1="{py:.1f}" '
+            f'x2="{FAMILY_PLOT_RIGHT}" y2="{py:.1f}" '
+            f'stroke="{c["gridline"]}" stroke-width="1"/>'
+        )
+        label = "0" if y == 0 else f"{y // 1000}k"
+        parts.append(
+            f'<text x="{FAMILY_PLOT_LEFT - 12}" y="{py + 4:.1f}" font-size="15" '
+            f'fill="{c["text_muted"]}" text-anchor="end">{label}</text>'
+        )
+        y += 10000
+    parts.append(
+        f'<text x="24" y="{(plot_top + plot_bottom) / 2:.1f}" font-size="14" '
+        f'fill="{c["text_muted"]}" text-anchor="middle" letter-spacing="1.5" '
+        f'transform="rotate(-90 24 {(plot_top + plot_bottom) / 2:.1f})">COMBINED NATIVE TOKENS</text>'
+    )
+    parts.append(
+        f'<line x1="{FAMILY_PLOT_LEFT}" y1="{plot_bottom}" '
+        f'x2="{FAMILY_PLOT_RIGHT}" y2="{plot_bottom}" '
+        f'stroke="{c["baseline"]}" stroke-width="1"/>'
+    )
+
+    n_ticks = 7 if span > 0 else (1 if has_timeline else 0)
+    for index in range(n_ticks):
+        fraction = index / (n_ticks - 1) if n_ticks > 1 else 0.5
+        date = first_date if span <= 0 else datetime.fromtimestamp(
+            first_date.timestamp() + fraction * span, tz=timezone.utc
+        )
+        px = (
+            (FAMILY_PLOT_LEFT + FAMILY_PLOT_RIGHT) / 2
+            if span <= 0
+            else FAMILY_PLOT_LEFT
+            + fraction * (FAMILY_PLOT_RIGHT - FAMILY_PLOT_LEFT)
+        )
+        parts.append(
+            f'<text x="{px:.1f}" y="{plot_bottom + 27}" font-size="14" '
+            f'fill="{c["text_muted"]}" text-anchor="middle">{date.strftime("%b %Y")}</text>'
+        )
+
+    # API release events. Labels use collision lanes; releases sharing a date
+    # have already been collapsed into a single R marker.
+    lanes_last_x = [-10_000.0, -10_000.0, -10_000.0]
+    for release_index, group in enumerate(release_groups, start=1):
+        px = xscale(group["date"])
+        lane = next((i for i, last_x in enumerate(lanes_last_x) if px - last_x >= 38), 2)
+        lanes_last_x[lane] = px
+        marker = f"R{release_index}"
+        parts.append(
+            f'<g data-release-date="{group["date"].date().isoformat()}"><line x1="{px:.1f}" '
+            f'y1="{plot_top}" x2="{px:.1f}" y2="{plot_bottom}" '
+            f'stroke="{c["boundary_line"]}" '
+            'stroke-width="1" stroke-dasharray="5,4" opacity="0.6"/>'
+        )
+        label_y = plot_top - 9 - lane * 18
+        parts.append(
+            f'<text x="{px:.1f}" y="{label_y:.1f}" font-size="14" font-weight="700" '
+            f'fill="{c["text_secondary"]}" text-anchor="middle">{marker}</text></g>'
+        )
+
+    for index, item in enumerate(series):
+        color = colors[index % len(colors)]
+        dash = FAMILY_DASH_PATTERNS[index % len(FAMILY_DASH_PATTERNS)]
+        dash_attr = f' stroke-dasharray="{dash}"' if dash else ""
+        parts.append(f'<g data-series-model="{_esc(item["model"])}">')
+        for segment in item["segments"]:
+            coords = [(xscale(point["date"]), yscale(point["value"])) for point in segment]
+            if len(coords) == 1:
+                x, y_value = coords[0]
+                parts.append(f'<circle cx="{x:.1f}" cy="{y_value:.1f}" r="4" fill="{color}"/>')
+            elif coords:
+                parts.append(
+                    f'<path d="{_line_path([p[0] for p in coords], [p[1] for p in coords])}" '
+                    f'fill="none" stroke="{color}" stroke-width="2.5" stroke-linejoin="round" '
+                    f'stroke-linecap="round"{dash_attr}/>'
+                )
+        parts.append("</g>")
+
+    # Short release entries share a row; long same-day cohorts get the full
+    # width so their friendly variant names remain intact.
+    for label, (x, row) in zip(key_items, key_positions):
+        parts.append(
+            f'<text x="{x:.1f}" y="{key_top + row * 28:.1f}" '
+            f'font-size="14" fill="{c["text_secondary"]}">{_esc(label)}</text>'
+        )
+    if has_release_without_data:
+        footnote_y = key_top + key_rows * 28
+        parts.append(
+            f'<text x="{FAMILY_PLOT_LEFT}" y="{footnote_y:.1f}" font-size="13" '
+            f'fill="{c["text_muted"]}">† API release cataloged; no complete native measurement in this archive.</text>'
+        )
+
+    parts.append("</svg>")
+    return "\n".join(parts)
+
+
+def _flow_layout(labels, left, right, first_y, row_height, item_padding):
+    positions = []
+    x = left
+    y = first_y
+    rows = 1
+    for label in labels:
+        width = 33 + len(label) * 8 + item_padding
+        if x > left and x + width > right:
+            rows += 1
+            x = left
+            y += row_height
+        positions.append((x, y))
+        x += width
+    return positions, rows
+
+
+def _release_key_layout(labels, left, right):
+    """Place short release entries two-up and long cohorts full-width."""
+    positions = []
+    half_width = (right - left) / 2
+    row = 0
+    column = 0
+    for label in labels:
+        estimated_width = len(label) * 7.3
+        if estimated_width > half_width - 20:
+            if column:
+                row += 1
+                column = 0
+            positions.append((left, row))
+            row += 1
+            continue
+        positions.append((left + column * half_width, row))
+        if column == 0:
+            column = 1
+        else:
+            row += 1
+            column = 0
+    if column:
+        row += 1
+    return positions, row
 
 
 def _area_path(xs, ys_top, baseline_y) -> str:

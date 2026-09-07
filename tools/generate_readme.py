@@ -43,6 +43,22 @@ DISPLAY_NAMES = {
     "codex": "Codex",
 }
 
+FAMILY_LABELS = {
+    "opus": "Opus",
+    "sonnet": "Sonnet",
+    "haiku": "Haiku",
+    "fable": "Fable",
+    "gpt": "GPT",
+    "codex-tuned": "Codex-tuned",
+    "o-series": "o-series",
+    "other": "Other models",
+}
+
+FAMILY_ORDER = {
+    "claude-code": {"opus": 0, "sonnet": 1, "haiku": 2, "fable": 3, "other": 99},
+    "codex": {"gpt": 0, "codex-tuned": 1, "o-series": 2, "other": 99},
+}
+
 SKIP_DIRS = {"tools", ".github", "assets", ".git", "node_modules", ".venv", "__pycache__"}
 
 
@@ -140,6 +156,28 @@ def load_versions(harness_dir: str):
                 )
 
         system_prompts = meta.get("system_prompts") or []
+        variants = {}
+        for system_prompt in system_prompts:
+            model = system_prompt.get("model")
+            if not isinstance(model, str) or not model or model == "unrecorded":
+                continue
+            measurement = system_prompt.get("token_measurement") or {}
+            tools_for_model = system_prompt.get("tools") or []
+            system_count = system_prompt.get("token_count")
+            tool_counts = [tool.get("definition_token_count") for tool in tools_for_model]
+            is_complete = (
+                measurement.get("status") == "measured"
+                and measurement.get("model") == model
+                and isinstance(system_count, int)
+                and not isinstance(system_count, bool)
+                and all(isinstance(count, int) and not isinstance(count, bool) for count in tool_counts)
+            )
+            variants[model] = {
+                "status": measurement.get("status") or "legacy",
+                "has_chart_data": is_complete,
+                "combined": system_count + sum(tool_counts) if is_complete else None,
+            }
+
         primary = None
         for sp in system_prompts:
             measurement = sp.get("token_measurement") or {}
@@ -188,6 +226,7 @@ def load_versions(harness_dir: str):
                 "system_tokens": system_tokens,
                 "has_chart_data": has_chart_data,
                 "combined": (system_tokens + tools_token_sum) if has_chart_data else None,
+                "variants": variants,
             }
         )
 
@@ -220,7 +259,189 @@ def load_annotations(harness_dir: str):
     return data.get("callouts") or []
 
 
-def build_harness_section(root: str, harness_dirname: str, assets_dir: str):
+def load_model_catalog(path: str):
+    """Load and validate the small, reviewed release catalog used by charts."""
+    data = load_yaml_file(path) or {}
+    models = data.get("models")
+    if not isinstance(models, list):
+        raise ValueError(f"{path}: expected a models list")
+
+    result = []
+    seen = set()
+    for index, model in enumerate(models):
+        if not isinstance(model, dict):
+            raise ValueError(f"{path}: models[{index}] must be a mapping")
+        required = ("harness", "id", "family", "display_name", "released", "sources")
+        missing = [key for key in required if not model.get(key)]
+        if missing:
+            raise ValueError(f"{path}: models[{index}] is missing {', '.join(missing)}")
+        identity = (model["harness"], model["id"])
+        if identity in seen:
+            raise ValueError(f"{path}: duplicate model {identity[0]}/{identity[1]}")
+        seen.add(identity)
+        if not isinstance(model["sources"], list) or not all(
+            isinstance(source, str) and source.startswith(("https://", "http://"))
+            for source in model["sources"]
+        ):
+            raise ValueError(f"{path}: {model['id']} sources must be a non-empty URL list")
+        try:
+            released = parse_iso(str(model["released"]))
+            retired = parse_iso(str(model["retired"])) if model.get("retired") else None
+        except ValueError as error:
+            raise ValueError(f"{path}: invalid lifecycle date for {model['id']}: {error}") from error
+        if retired is not None and retired <= released:
+            raise ValueError(f"{path}: {model['id']} must retire after it is released")
+        result.append({**model, "released_at": released, "retired_at": retired})
+    return result
+
+
+def infer_family(model: str) -> str:
+    """Keep uncataloged archive models visible without guessing a release."""
+    lowered = model.lower()
+    for family in ("opus", "sonnet", "haiku", "fable"):
+        if family in lowered:
+            return family
+    if lowered.startswith("o") and re.match(r"^o\d", lowered):
+        return "o-series"
+    if "codex" in lowered:
+        return "codex-tuned"
+    if lowered.startswith("gpt-"):
+        return "gpt"
+    return "other"
+
+
+def _gpt_panel(model: str) -> str:
+    match = re.match(r"^gpt-(\d+)(?:\.(\d+))?", model.lower())
+    if not match:
+        return "current"
+    generation = (int(match.group(1)), int(match.group(2) or 0))
+    return "earlier" if generation < (5, 4) else "current"
+
+
+def build_family_panels(harness: str, records, catalog):
+    """Return chart-ready model panels for a harness.
+
+    Every recorded complete native measurement is retained, including a
+    historical CLI release tested later with a newer model. Once a line has
+    started, an unavailable, partial, or missing observation closes its
+    current segment instead of drawing an interpolated total.
+    """
+    known = {entry["id"]: entry for entry in catalog if entry["harness"] == harness}
+    observed = {
+        model
+        for record in records
+        for model in record["variants"]
+        if model != "unrecorded"
+    }
+    models = []
+    for model in sorted(set(known) | observed):
+        entry = known.get(model)
+        models.append(
+            {
+                "model": model,
+                "family": entry["family"] if entry else infer_family(model),
+                "label": entry["display_name"] if entry else model,
+                "released": entry["released_at"] if entry else None,
+                "retired": entry["retired_at"] if entry else None,
+                "cataloged": entry is not None,
+            }
+        )
+
+    grouped = {}
+    for model in models:
+        family = model["family"]
+        panel = _gpt_panel(model["model"]) if family == "gpt" else family
+        grouped.setdefault((family, panel), []).append(model)
+
+    panels = []
+    for (family, panel), family_models in grouped.items():
+        series = []
+        releases = []
+        unknown_releases = []
+        for model in sorted(
+            family_models,
+            key=lambda item: (
+                item["released"] or datetime.max.replace(tzinfo=timezone.utc),
+                item["label"],
+            ),
+        ):
+            segments = []
+            current_segment = []
+            for record in records:
+                observation = record["variants"].get(model["model"])
+                if observation and observation["has_chart_data"]:
+                    current_segment.append(
+                        {
+                            "date": record["date"],
+                            "version": record["version"],
+                            "value": observation["combined"],
+                        }
+                    )
+                elif current_segment:
+                    segments.append(current_segment)
+                    current_segment = []
+            if current_segment:
+                segments.append(current_segment)
+
+            has_data = bool(segments)
+            if has_data:
+                series.append(
+                    {
+                        "model": model["model"],
+                        "label": model["label"],
+                        "released": model["released"],
+                        "segments": segments,
+                    }
+                )
+            if model["released"] is not None:
+                releases.append(
+                    {
+                        "date": model["released"],
+                        "models": [
+                            {
+                                "model": model["model"],
+                                "label": model["label"],
+                                "has_data": has_data,
+                            }
+                        ],
+                    }
+                )
+            else:
+                unknown_releases.append(model["label"])
+
+        if family == "gpt" and panel == "earlier":
+            label = "GPT 4.1–5.2"
+            slug = "gpt-4-1-to-5-2"
+        elif family == "gpt":
+            label = "GPT 5.4 and later"
+            slug = "gpt-5-4-to-6"
+        else:
+            label = FAMILY_LABELS.get(family, display_name(family))
+            slug = family
+        panels.append(
+            {
+                "family": family,
+                "label": label,
+                "slug": slug,
+                "models": family_models,
+                "series": series,
+                "releases": releases,
+                "unknown_releases": unknown_releases,
+            }
+        )
+
+    order = FAMILY_ORDER.get(harness, {})
+    panels.sort(
+        key=lambda item: (
+            order.get(item["family"], 98),
+            0 if item["slug"].endswith("5-2") else 1,
+            item["label"],
+        )
+    )
+    return panels
+
+
+def build_harness_section(root: str, harness_dirname: str, assets_dir: str, catalog):
     harness_dir = os.path.join(root, harness_dirname)
     records = load_versions(harness_dir)
     callouts_raw = load_annotations(harness_dir)
@@ -285,7 +506,11 @@ def build_harness_section(root: str, harness_dirname: str, assets_dir: str):
         stats_line = "_No versions captured yet._"
     else:
         date_range = f"{first_date.strftime('%b %Y')} – {last_date.strftime('%b %Y')}"
-        combined_str = f"{latest_combined:,} combined tokens (latest)" if latest_combined is not None else "combined tokens: n/a"
+        combined_str = (
+            f"{latest_combined:,} combined tokens (latest)"
+            if latest_combined is not None
+            else "combined tokens: n/a"
+        )
         version_word = "version" if n_versions == 1 else "versions"
         stats_line = f"{n_versions} {version_word} · {date_range} · {combined_str}"
 
@@ -298,8 +523,13 @@ def build_harness_section(root: str, harness_dirname: str, assets_dir: str):
     section.append(stats_line)
     section.append("")
     section.append("<picture>")
-    section.append(f'  <source media="(prefers-color-scheme: dark)" srcset="{asset_rel_dark}">')
-    section.append(f'  <img alt="{label} token history: system message and built-in tool token counts by capture date" src="{asset_rel_light}">')
+    section.append(
+        f'  <source media="(prefers-color-scheme: dark)" srcset="{asset_rel_dark}">'
+    )
+    section.append(
+        f'  <img alt="{label} token history: system message and built-in tool '
+        f'token counts by CLI release date" src="{asset_rel_light}">'
+    )
     section.append("</picture>")
     section.append("")
     section.append(
@@ -310,11 +540,84 @@ def build_harness_section(root: str, harness_dirname: str, assets_dir: str):
         "`systemprompt.md` (a rendered, browsable view)."
     )
     section.append("")
+
+    section.append("### Model-family histories")
+    section.append("")
+    section.append(
+        "Each line is the combined system-prompt and built-in-tool token count "
+        "measured with that exact API model. The horizontal axis uses CLI "
+        "package release dates when recorded; it falls back to capture time "
+        "only when package release metadata is unavailable. Missing, unavailable, "
+        "and partial measurements break the line rather than implying a total."
+    )
+    section.append("")
+    section.append(
+        "Historical CLI releases were often recaptured later. These lines show "
+        "what a CLI version sent when tested with a model, not which model users "
+        "ran when that CLI shipped; backfilled observations can therefore appear "
+        "before the model's API release marker."
+    )
+    section.append("")
+    section.append(
+        "Release markers use the model's recorded API availability date. "
+        "The reviewed dates and their sources live in "
+        "[`tools/model-families.yml`](tools/model-families.yml); an uncataloged "
+        "model remains visible but is labeled with an unknown release date."
+    )
+    section.append("")
+
+    for panel in build_family_panels(harness_dirname, records, catalog):
+        asset_base = f"{harness_dirname}-{panel['slug']}-tokens"
+        light_family_path = os.path.join(assets_dir, f"{asset_base}.svg")
+        dark_family_path = os.path.join(assets_dir, f"{asset_base}-dark.svg")
+        light_family_svg = chart.render_family_chart_svg(
+            label,
+            panel["label"],
+            panel["series"],
+            panel["releases"],
+            panel["unknown_releases"],
+            mode="light",
+        )
+        dark_family_svg = chart.render_family_chart_svg(
+            label,
+            panel["label"],
+            panel["series"],
+            panel["releases"],
+            panel["unknown_releases"],
+            mode="dark",
+        )
+        with open(light_family_path, "w", encoding="utf-8") as f:
+            f.write(light_family_svg + "\n")
+        with open(dark_family_path, "w", encoding="utf-8") as f:
+            f.write(dark_family_svg + "\n")
+
+        measured_models = len(panel["series"])
+        model_count = len(panel["models"])
+        section.append(f"#### {panel['label']}")
+        section.append("")
+        section.append(
+            f"{model_count} cataloged or observed model{'s' if model_count != 1 else ''} · "
+            f"{measured_models} with complete native measurements"
+        )
+        section.append("")
+        section.append("<picture>")
+        section.append(
+            f'  <source media="(prefers-color-scheme: dark)" '
+            f'srcset="assets/{asset_base}-dark.svg">'
+        )
+        section.append(
+            f'  <img alt="{label} {panel["label"]} model-family history: combined native token counts '
+            f'by CLI release date, with model API releases marked" src="assets/{asset_base}.svg">'
+        )
+        section.append("</picture>")
+        section.append("")
     return "\n".join(section)
 
 
-def build_readme(root: str, assets_dir: str) -> str:
+def build_readme(root: str, assets_dir: str, catalog=None) -> str:
     harnesses = discover_harnesses(root)
+    if catalog is None:
+        catalog = load_model_catalog(os.path.join(root, "tools", "model-families.yml"))
     lines = []
     lines.append("# AI Coding Harness System Prompts")
     lines.append("")
@@ -336,13 +639,13 @@ def build_readme(root: str, assets_dir: str) -> str:
         lines.append("")
     else:
         for h in harnesses:
-            lines.append(build_harness_section(root, h, assets_dir))
+            lines.append(build_harness_section(root, h, assets_dir, catalog))
 
     lines.append("---")
     lines.append("")
     lines.append(
         "README and charts are regenerated automatically from the checked-in "
-        "`metadata.yml` and `annotations.yml` files by "
+        "`metadata.yml`, `annotations.yml`, and `tools/model-families.yml` files by "
         "`.github/workflows/generate-readme.yml`; edit those, not this file."
     )
     lines.append("")
@@ -355,13 +658,20 @@ def main():
     ap.add_argument("--root", default=default_root, help="repo/data root (default: repo root)")
     ap.add_argument("--readme", default=None, help="output README path (default: <root>/README.md)")
     ap.add_argument("--assets", default=None, help="output assets dir (default: <root>/assets)")
+    ap.add_argument(
+        "--catalog",
+        default=None,
+        help="model release catalog (default: <root>/tools/model-families.yml)",
+    )
     args = ap.parse_args()
 
     root = os.path.abspath(args.root)
     readme_path = args.readme or os.path.join(root, "README.md")
     assets_dir = args.assets or os.path.join(root, "assets")
+    catalog_path = args.catalog or os.path.join(root, "tools", "model-families.yml")
 
-    readme = build_readme(root, assets_dir)
+    catalog = load_model_catalog(catalog_path)
+    readme = build_readme(root, assets_dir, catalog)
     os.makedirs(os.path.dirname(os.path.abspath(readme_path)) or ".", exist_ok=True)
     with open(readme_path, "w", encoding="utf-8") as f:
         f.write(readme)
