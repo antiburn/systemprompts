@@ -163,15 +163,17 @@ system_prompts:
   directory: "gpt-5.6-luna"
   representation: "provider-native instructions payload characters"
   character_count: 21078
-  token_count: 4193
-  content_sha256: "12077040ebb602419d47897a825b6a8db7ffa1740a5378ad6398084beaf6b098"
+  token_count: 4194
+  content_sha256: "cadc49903f451371028247981e0a9c03475fab0c50fa4a5dcffcaf321022ba8f"
   capture: "original"
+  profile: "canonical empty-project-v2"
+  recaptured_at: "2026-09-01T06:30:00Z"
   token_measurement:
     provider: "openai"
     status: "measured"
     model: "gpt-5.6-luna"
     method: "OpenAI responses.input_tokens with native model gpt-5.6-luna; marginal full request minus component-removed request"
-    measured_at: "2026-09-01T02:14:42.665506188Z"
+    measured_at: "2026-09-01T06:34:30.486729081Z"
   tools:
   - canonical_name: "functions_exec"
     observed_raw_aliases:
@@ -192,15 +194,17 @@ system_prompts:
   directory: "gpt-5.6-sol"
   representation: "provider-native instructions payload characters"
   character_count: 23908
-  token_count: 4750
-  content_sha256: "5130ddd36fd9a1afad160b95c56eaaffb960e4738657a763636bb5f33ef4ecc4"
+  token_count: 4751
+  content_sha256: "b5810ea1212b8fbbf42094eb81c8287d379c8c2dff5af8ca301245c36761ccf9"
   capture: "original"
+  profile: "canonical empty-project-v2"
+  recaptured_at: "2026-09-01T06:30:00Z"
   token_measurement:
     provider: "openai"
     status: "measured"
     model: "gpt-5.6-sol"
     method: "OpenAI responses.input_tokens with native model gpt-5.6-sol; marginal full request minus component-removed request"
-    measured_at: "2026-09-01T02:12:04.850255383Z"
+    measured_at: "2026-09-01T06:32:02.878390680Z"
   tools:
   - canonical_name: "collaboration_followup_task"
     observed_raw_aliases:
@@ -252,14 +256,16 @@ system_prompts:
   representation: "provider-native instructions payload characters"
   character_count: 23908
   token_count: 4751
-  content_sha256: "98d13415b2498841af0dab4e40b00ad3ae0719fc1b52e3dacbd686412c95cfbe"
+  content_sha256: "dbc5121ff8b4e5f3ece8ce25937cc13938e6f9f7ee82d52aaca1995feb19a948"
   capture: "original"
+  profile: "canonical empty-project-v2"
+  recaptured_at: "2026-09-01T06:30:00Z"
   token_measurement:
     provider: "openai"
     status: "measured"
     model: "gpt-5.6-terra"
     method: "OpenAI responses.input_tokens with native model gpt-5.6-terra; marginal full request minus component-removed request"
-    measured_at: "2026-09-01T02:13:25.674439802Z"
+    measured_at: "2026-09-01T06:33:16.709955878Z"
   tools:
   - canonical_name: "collaboration_followup_task"
     observed_raw_aliases:
