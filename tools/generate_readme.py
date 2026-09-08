@@ -162,22 +162,36 @@ def load_versions(harness_dir: str):
             if not isinstance(model, str) or not model or model == "unrecorded":
                 continue
             measurement = system_prompt.get("token_measurement") or {}
-            tools_for_model = system_prompt.get("tools") or []
+            tools_for_model = system_prompt.get("tools")
             system_count = system_prompt.get("token_count")
-            tool_counts = [tool.get("definition_token_count") for tool in tools_for_model]
-            is_complete = (
-                measurement.get("status") == "measured"
+            has_exact_native_prompt = (
+                measurement.get("status") in {"measured", "partial"}
                 and measurement.get("model") == model
                 and isinstance(system_count, int)
                 and not isinstance(system_count, bool)
-                and all(isinstance(count, int) and not isinstance(count, bool) for count in tool_counts)
+                and system_count > 0
             )
+            has_complete_tools = isinstance(tools_for_model, list) and bool(tools_for_model) and all(
+                isinstance(tool, dict)
+                and isinstance(tool.get("definition_token_count"), int)
+                and not isinstance(tool.get("definition_token_count"), bool)
+                and tool["definition_token_count"] > 0
+                for tool in tools_for_model
+            )
+            tools_tokens = (
+                sum(tool["definition_token_count"] for tool in tools_for_model)
+                if has_complete_tools
+                else None
+            )
+            is_complete = has_exact_native_prompt and has_complete_tools
             variants[model] = {
                 "status": measurement.get("status") or "legacy",
+                "has_system_chart_data": has_exact_native_prompt,
+                "has_tools_chart_data": is_complete,
                 "has_chart_data": is_complete,
-                "system_tokens": system_count if is_complete else None,
-                "tools_tokens": sum(tool_counts) if is_complete else None,
-                "combined": system_count + sum(tool_counts) if is_complete else None,
+                "system_tokens": system_count if has_exact_native_prompt else None,
+                "tools_tokens": tools_tokens if is_complete else None,
+                "combined": system_count + tools_tokens if is_complete else None,
             }
 
         primary = None
@@ -194,9 +208,9 @@ def load_versions(harness_dir: str):
         has_native_schema = any(sp.get("token_measurement") for sp in system_prompts)
 
         # Compatibility only for metadata that has not yet migrated from the
-        # old version-level fixed-tokenizer layout. A native `partial` entry
-        # deliberately is not charted: its system count is valid, but stacking
-        # only the supported tools would understate the combined total.
+        # old version-level fixed-tokenizer layout. Native partial entries are
+        # handled independently by model-family chart series above; overview
+        # selection remains limited to complete native measurements.
         if primary is None and not has_native_schema:
             for sp in system_prompts:
                 if isinstance(sp.get("token_count"), (int, float)):
@@ -398,10 +412,10 @@ def build_family_panels(harness: str, records, catalog):
     """Return stacked histories for explicit successor lineages.
 
     Release, retirement, and CLI package dates form one event timeline. A
-    successor immediately replaces its predecessor. The successor can start
-    exactly at its API release marker only when the archive has a complete
-    capture for the then-current CLI/model pair; otherwise the chart stays
-    blank until a later CLI release has a complete selected-model capture.
+    successor immediately replaces its predecessor. At its API release marker,
+    a selected model can contribute an exact native system-message count from
+    the then-current CLI/model pair. Its aggregate tool area starts only when
+    every built-in tool count is available.
     """
     records = sorted(
         records,
@@ -445,8 +459,10 @@ def build_family_panels(harness: str, records, catalog):
         models = sorted(lineage_models, key=lambda model: model["lineage_position"])
         is_cataloged = models[0]["released_at"] is not None
         has_data_by_model = {model["id"]: False for model in models}
-        segments = []
-        current_segment = []
+        system_segments = []
+        tool_segments = []
+        current_system_segment = []
+        current_tool_segment = []
         selected_model = None
 
         events = [(record["date"], 2, "cli", record) for record in records]
@@ -461,10 +477,14 @@ def build_family_panels(harness: str, records, catalog):
 
         for event_date, _, event_kind, payload in events:
             if event_kind == "release":
-                if current_segment:
-                    _append_boundary(current_segment, event_date)
-                    segments.append(current_segment)
-                    current_segment = []
+                if current_system_segment:
+                    _append_boundary(current_system_segment, event_date)
+                    system_segments.append(current_system_segment)
+                    current_system_segment = []
+                if current_tool_segment:
+                    _append_boundary(current_tool_segment, event_date)
+                    tool_segments.append(current_tool_segment)
+                    current_tool_segment = []
                 selected_model = payload
                 source_record = _then_current_cli(records, event_date)
                 point = _measurement_point(
@@ -474,16 +494,22 @@ def build_family_panels(harness: str, records, catalog):
                     model_release_boundary=True,
                 )
                 if point is not None:
-                    _append_measurement(current_segment, point)
+                    _append_measurement(current_system_segment, point)
                     has_data_by_model[selected_model["id"]] = True
+                    if point["has_tools_chart_data"]:
+                        _append_measurement(current_tool_segment, point)
                 continue
 
             if event_kind == "retire":
                 if selected_model is not None and selected_model["id"] == payload["id"]:
-                    if current_segment:
-                        _append_boundary(current_segment, event_date)
-                        segments.append(current_segment)
-                        current_segment = []
+                    if current_system_segment:
+                        _append_boundary(current_system_segment, event_date)
+                        system_segments.append(current_system_segment)
+                        current_system_segment = []
+                    if current_tool_segment:
+                        _append_boundary(current_tool_segment, event_date)
+                        tool_segments.append(current_tool_segment)
+                        current_tool_segment = []
                     selected_model = None
                 continue
 
@@ -492,24 +518,42 @@ def build_family_panels(harness: str, records, catalog):
             selected_id = selected["id"] if selected is not None else None
             prior_id = selected_model["id"] if selected_model is not None else None
             if selected_id != prior_id:
-                if current_segment:
+                if current_system_segment:
                     boundary = _model_transition_date(models, selected_model, record["date"])
-                    _append_boundary(current_segment, boundary)
-                    segments.append(current_segment)
-                    current_segment = []
+                    _append_boundary(current_system_segment, boundary)
+                    system_segments.append(current_system_segment)
+                    current_system_segment = []
+                if current_tool_segment:
+                    boundary = _model_transition_date(models, selected_model, record["date"])
+                    _append_boundary(current_tool_segment, boundary)
+                    tool_segments.append(current_tool_segment)
+                    current_tool_segment = []
                 selected_model = selected
 
             point = _measurement_point(record, selected_model)
             if point is not None:
-                _append_measurement(current_segment, point)
+                _append_measurement(current_system_segment, point)
                 has_data_by_model[selected_model["id"]] = True
-            elif current_segment:
-                _append_boundary(current_segment, record["date"])
-                segments.append(current_segment)
-                current_segment = []
+                if point["has_tools_chart_data"]:
+                    _append_measurement(current_tool_segment, point)
+                elif current_tool_segment:
+                    _append_boundary(current_tool_segment, record["date"])
+                    tool_segments.append(current_tool_segment)
+                    current_tool_segment = []
+            else:
+                if current_system_segment:
+                    _append_boundary(current_system_segment, record["date"])
+                    system_segments.append(current_system_segment)
+                    current_system_segment = []
+                if current_tool_segment:
+                    _append_boundary(current_tool_segment, record["date"])
+                    tool_segments.append(current_tool_segment)
+                    current_tool_segment = []
 
-        if current_segment:
-            segments.append(current_segment)
+        if current_system_segment:
+            system_segments.append(current_system_segment)
+        if current_tool_segment:
+            tool_segments.append(current_tool_segment)
 
         releases = []
         unknown_releases = []
@@ -539,7 +583,12 @@ def build_family_panels(harness: str, records, catalog):
                 "order": models[0]["lineage_order"],
                 "models": models,
                 "selected_models_with_data": sum(has_data_by_model.values()),
-                "segments": segments,
+                # Keep the former complete-measurement shape for callers that
+                # only render the tool aggregate. System counts have their own
+                # availability and may continue through those tool gaps.
+                "segments": tool_segments,
+                "system_segments": system_segments,
+                "tool_segments": tool_segments,
                 "releases": releases,
                 "unknown_releases": unknown_releases,
                 "timeline_start": timeline_start,
@@ -591,7 +640,9 @@ def _measurement_point(
     if record is None or selected_model is None:
         return None
     observation = record["variants"].get(selected_model["id"])
-    if not observation or not observation["has_chart_data"]:
+    if not observation or not observation.get(
+        "has_system_chart_data", observation.get("has_chart_data", False)
+    ):
         return None
     return {
         "date": date or record["date"],
@@ -599,6 +650,9 @@ def _measurement_point(
         "model": selected_model["id"],
         "system": observation["system_tokens"],
         "tools": observation["tools_tokens"],
+        "has_tools_chart_data": observation.get(
+            "has_tools_chart_data", observation.get("has_chart_data", False)
+        ),
         "model_release_boundary": model_release_boundary,
     }
 
@@ -758,6 +812,8 @@ def build_family_sections(harness_dirname, records, assets_dir, catalog):
                 timeline_start=panel["timeline_start"],
                 timeline_end=panel["timeline_end"],
                 mode=mode,
+                system_segments=panel["system_segments"],
+                tool_segments=panel["tool_segments"],
             )
             with open(
                 os.path.join(assets_dir, f"{asset_base}{suffix}.svg"),
@@ -772,12 +828,12 @@ def build_family_sections(harness_dirname, records, assets_dir, catalog):
         if panel["unknown_releases"]:
             section.append(
                 f"{release_count} uncataloged model{'s' if release_count != 1 else ''} observed · "
-                f"{selected_count} with complete measurements in the archive"
+                f"{selected_count} with native system-message measurements in the archive"
             )
         else:
             section.append(
                 f"{release_count} model release{'s' if release_count != 1 else ''} · "
-                f"{selected_count} with complete measurements during their release period"
+                f"{selected_count} with native system-message measurements during their release period"
             )
         section.extend(["", "<picture>"])
         section.append(
@@ -785,8 +841,9 @@ def build_family_sections(harness_dirname, records, assets_dir, catalog):
             f'srcset="assets/{asset_base}-dark.svg">'
         )
         section.append(
-            f'  <img alt="{label} {panel["label"]} lineage history: stacked system-message '
-            f'and built-in-tool native token counts by CLI and model release date" '
+            f'  <img alt="{label} {panel["label"]} lineage history: system-message and '
+            f'aggregate built-in-tool native token counts by CLI and model release date; '
+            f'tool totals are omitted where unavailable" '
             f'src="assets/{asset_base}.svg">'
         )
         section.extend(["</picture>", ""])
@@ -836,15 +893,17 @@ def build_readme(root: str, assets_dir: str, catalog=None) -> str:
                 "",
                 (
                     "The horizontal timeline combines CLI package releases with dotted model API "
-                    "release markers. At a marker, an archived complete capture of the new model "
-                    "for the then-current CLI can anchor the new stack; otherwise the chart stays "
-                    "blank until a later CLI release has that measurement. Historical recaptures "
+                    "release markers. At a marker, an archived exact native system-message count "
+                    "for the new model and then-current CLI can anchor the blue series; the orange "
+                    "aggregate starts only when every built-in tool count is available. Historical recaptures "
                     "describe the tested CLI/model pair, not actual model usage when the CLI shipped."
                 ),
                 "",
                 (
-                    "Missing, unavailable, and partial selected-model measurements remain blank; "
-                    "the older model is never substituted. Those outcomes record a capture result, "
+                    "Missing or unavailable selected-model prompt measurements remain blank; exact "
+                    "native prompt counts remain visible when a partial measurement lacks one or more "
+                    "tool totals. The aggregate tool area breaks for those gaps, and the older model "
+                    "is never substituted. Those outcomes record a capture result, "
                     "not proof that the model could never be captured, and their reason is preserved "
                     "in that version's `metadata.yml` under `token_measurement`."
                 ),

@@ -35,6 +35,18 @@ def unavailable(status="unavailable"):
     }
 
 
+def partial(system):
+    return {
+        "status": "partial",
+        "has_system_chart_data": True,
+        "has_tools_chart_data": False,
+        "has_chart_data": False,
+        "system_tokens": system,
+        "tools_tokens": None,
+        "combined": None,
+    }
+
+
 def catalog_model(
     model_id,
     released,
@@ -242,11 +254,11 @@ class ModelFamilyChartTests(unittest.TestCase):
         )
         self.assertEqual(dt("2026-01-20"), panel["timeline_end"])
 
-    def test_partial_measurement_breaks_series_and_preserves_archive_horizon(self):
+    def test_partial_measurement_keeps_system_series_and_breaks_tool_series(self):
         model = catalog_model("model", "2026-01-01")
         records = [
             self._record("1", "2026-01-01", {"model": measured(100, 10)}),
-            self._record("2", "2026-01-02", {"model": unavailable("partial")}),
+            self._record("2", "2026-01-02", {"model": partial(110)}),
             self._record("3", "2026-01-03", {"model": measured(120, 12)}),
             self._record("4", "2026-01-10", {"model": unavailable()}),
         ]
@@ -257,9 +269,37 @@ class ModelFamilyChartTests(unittest.TestCase):
             [[100, 100], [120, 120]],
             [[point["system"] for point in segment] for segment in panel["segments"]],
         )
+        self.assertEqual(
+            [[100, 110, 120, 120]],
+            [
+                [point["system"] for point in segment]
+                for segment in panel["system_segments"]
+            ],
+        )
         self.assertEqual(dt("2026-01-10"), panel["timeline_end"])
 
-    def test_only_complete_exact_model_native_measurements_are_chartable(self):
+    def test_partial_only_native_prompt_is_chartable_without_tool_total(self):
+        model = catalog_model("model", "2026-01-01")
+        records = [self._record("1", "2026-01-01", {"model": partial(100)})]
+        panel = generate_readme.build_family_panels("claude-code", records, [model])[0]
+
+        self.assertEqual([[100]], [[point["system"] for point in segment] for segment in panel["system_segments"]])
+        self.assertEqual([], panel["tool_segments"])
+        svg = chart.render_family_chart_svg(
+            "Claude Code",
+            panel["label"],
+            panel["segments"],
+            panel["releases"],
+            panel["unknown_releases"],
+            timeline_start=panel["timeline_start"],
+            timeline_end=panel["timeline_end"],
+            system_segments=panel["system_segments"],
+            tool_segments=panel["tool_segments"],
+        )
+        self.assertIn('fill="#2a78d6"', svg)
+        self.assertNotIn('stroke-width="5"', svg)
+
+    def test_only_exact_native_prompt_measurements_are_chartable(self):
         with tempfile.TemporaryDirectory() as directory:
             version_dir = os.path.join(directory, "1.0.0")
             os.makedirs(version_dir)
@@ -287,7 +327,23 @@ class ModelFamilyChartTests(unittest.TestCase):
                             model: partial-model
                           tools:
                           - canonical_name: tool
-                            definition_token_count: 50
+                            definition_token_count: null
+                        - model: missing-prompt-model
+                          token_measurement:
+                            status: measured
+                            model: missing-prompt-model
+                          tools: []
+                        - model: missing-tools-list-model
+                          token_count: 100
+                          token_measurement:
+                            status: measured
+                            model: missing-tools-list-model
+                        - model: empty-tools-list-model
+                          token_count: 100
+                          token_measurement:
+                            status: measured
+                            model: empty-tools-list-model
+                          tools: []
                         - model: mismatched-model
                           token_count: 100
                           token_measurement:
@@ -317,9 +373,40 @@ class ModelFamilyChartTests(unittest.TestCase):
             ),
         )
         self.assertTrue(variants["good-model"]["has_chart_data"])
+        self.assertTrue(variants["partial-model"]["has_system_chart_data"])
+        self.assertFalse(variants["partial-model"]["has_tools_chart_data"])
         self.assertFalse(variants["partial-model"]["has_chart_data"])
+        self.assertFalse(variants["mismatched-model"]["has_system_chart_data"])
         self.assertFalse(variants["mismatched-model"]["has_chart_data"])
         self.assertFalse(variants["incomplete-tools-model"]["has_chart_data"])
+        self.assertFalse(variants["missing-prompt-model"]["has_system_chart_data"])
+        self.assertTrue(variants["missing-tools-list-model"]["has_system_chart_data"])
+        self.assertFalse(variants["missing-tools-list-model"]["has_tools_chart_data"])
+        self.assertTrue(variants["empty-tools-list-model"]["has_system_chart_data"])
+        self.assertFalse(variants["empty-tools-list-model"]["has_tools_chart_data"])
+
+    def test_successor_partial_prompt_starts_new_system_series_without_old_tool_fallback(self):
+        old = catalog_model("old", "2026-01-01", position=1)
+        new = catalog_model("new", "2026-01-15", position=2)
+        records = [
+            self._record("1", "2026-01-01", {"old": measured(100, 20)}),
+            self._record(
+                "2",
+                "2026-01-10",
+                {"old": measured(110, 20), "new": partial(210)},
+            ),
+        ]
+        panel = generate_readme.build_family_panels("claude-code", records, [old, new])[0]
+
+        self.assertEqual(
+            ["old", "new"],
+            [segment[0]["model"] for segment in panel["system_segments"]],
+        )
+        self.assertEqual(dt("2026-01-15"), panel["system_segments"][1][0]["date"])
+        self.assertEqual(
+            {"old"},
+            {point["model"] for segment in panel["tool_segments"] for point in segment},
+        )
 
     def test_parallel_same_day_releases_get_separate_lineage_panels(self):
         catalog = [
@@ -356,7 +443,7 @@ class ModelFamilyChartTests(unittest.TestCase):
         )
         self.assertEqual([], panel["segments"])
         self.assertIn("Release date not cataloged · gpt-unknown", svg)
-        self.assertIn("No complete native measurements", svg)
+        self.assertIn("No exact native system-message measurements", svg)
         self.assertNotIn("1970", svg)
 
     def test_family_svg_is_stacked_and_model_markers_are_dotted(self):

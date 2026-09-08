@@ -290,16 +290,22 @@ def render_family_chart_svg(
     timeline_start=None,
     timeline_end=None,
     mode: str = "light",
+    system_segments=None,
+    tool_segments=None,
 ) -> str:
     """Render the selected model lineage as stacked native token counts.
 
-    Each segment contains only complete measurements for the catalog-selected
-    model. Segments end at exact model release/retirement or missing-data
-    boundaries, so the chart never interpolates across a successor switch or
+    System-message and aggregate-tool measurements are independently
+    available. Both series end at exact model release/retirement or missing
+    data boundaries, so neither interpolates across a successor switch or
     silently falls back to an older model.
     """
     assert mode in ("light", "dark")
     c = PALETTE[mode]
+    if system_segments is None:
+        system_segments = segments
+    if tool_segments is None:
+        tool_segments = segments
     releases = sorted(releases, key=lambda item: item["date"])
 
     release_groups = []
@@ -315,7 +321,10 @@ def render_family_chart_svg(
     if timeline_end is not None:
         all_dates.append(timeline_end)
     all_values = []
-    for segment in segments:
+    for segment in system_segments:
+        all_dates.extend(point["date"] for point in segment)
+        all_values.extend(point["system"] for point in segment)
+    for segment in tool_segments:
         all_dates.extend(point["date"] for point in segment)
         all_values.extend(point["system"] + point["tools"] for point in segment)
 
@@ -373,9 +382,10 @@ def render_family_chart_svg(
         f'width="{FAMILY_WIDTH}" height="{height}" role="img" '
         f'aria-labelledby="chartTitle chartDesc" font-family="{FONT_STACK}">',
         f'<title id="chartTitle">{_esc(harness_label)} {_esc(family_label)} native token history</title>',
-        '<desc id="chartDesc">Stacked system message and built-in tool token counts for the '
+        '<desc id="chartDesc">System message and built-in tool token counts for the '
         "most recently released model in this lineage at each CLI release. "
-        "Lines break where its complete native measurement is unavailable. "
+        "System-message counts remain visible when exact native prompt measurement is available; "
+        "the aggregate tool area breaks when any tool count is unavailable. "
         "Dotted markers show model API availability dates.</desc>",
     ]
     if c["surface"]:
@@ -466,7 +476,30 @@ def render_family_chart_svg(
 
     baseline_y = yscale(0)
     half_gap = GAP_PX / 2.0
-    for segment in segments:
+    for segment in system_segments:
+        if not segment:
+            continue
+        models = ",".join(dict.fromkeys(point["model"] for point in segment))
+        xs = [xscale(point["date"]) for point in segment]
+        y_system = [yscale(point["system"]) for point in segment]
+        if len(segment) == 1:
+            x = xs[0]
+            parts.append(f'<g data-selected-models="{_esc(models)}">')
+            parts.append(
+                f'<circle cx="{x:.1f}" cy="{y_system[0]:.1f}" r="3.5" '
+                f'fill="{c["series_system"]}"/>'
+            )
+            parts.append("</g>")
+        else:
+            system_top = [value + half_gap for value in y_system]
+            parts.append(f'<g data-selected-models="{_esc(models)}">')
+            parts.append(
+                f'<path d="{_step_area_path(xs, system_top, baseline_y)}" '
+                f'fill="{c["series_system"]}" fill-opacity="{AREA_OPACITY}" stroke="none"/>'
+            )
+            parts.append("</g>")
+
+    for segment in tool_segments:
         if not segment:
             continue
         models = ",".join(dict.fromkeys(point["model"] for point in segment))
@@ -480,19 +513,10 @@ def render_family_chart_svg(
                 f'<line x1="{x:.1f}" y1="{y_system[0]:.1f}" x2="{x:.1f}" '
                 f'y2="{y_combined[0]:.1f}" stroke="{c["series_tools"]}" stroke-width="5"/>'
             )
-            parts.append(
-                f'<circle cx="{x:.1f}" cy="{y_system[0]:.1f}" r="3.5" '
-                f'fill="{c["series_system"]}"/>'
-            )
             parts.append("</g>")
         else:
-            system_top = [value + half_gap for value in y_system]
             tools_bottom = [value - half_gap for value in y_system]
             parts.append(f'<g data-selected-models="{_esc(models)}">')
-            parts.append(
-                f'<path d="{_step_area_path(xs, system_top, baseline_y)}" '
-                f'fill="{c["series_system"]}" fill-opacity="{AREA_OPACITY}" stroke="none"/>'
-            )
             parts.append(
                 f'<path d="{_step_band_path(xs, y_combined, tools_bottom)}" '
                 f'fill="{c["series_tools"]}" fill-opacity="{AREA_OPACITY}" stroke="none"/>'
@@ -503,24 +527,27 @@ def render_family_chart_svg(
             )
             parts.append("</g>")
 
+    for segment in system_segments:
         for point in segment:
             if not point.get("model_release_boundary"):
                 continue
             px = xscale(point["date"])
-            py = yscale(point["system"] + point["tools"])
+            has_tools = point.get("has_tools_chart_data", point["tools"] is not None)
+            value = point["system"] + point["tools"] if has_tools else point["system"]
+            color = c["series_tools"] if has_tools else c["series_system"]
             parts.append(
                 f'<circle data-boundary-capture="true" '
                 f'data-source-version="{_esc(point["version"])}" '
                 f'data-source-model="{_esc(point["model"])}" cx="{px:.1f}" '
-                f'cy="{py:.1f}" r="3.5" fill="{c["series_tools"]}"/>'
+                f'cy="{yscale(value):.1f}" r="3.5" fill="{color}"/>'
             )
 
-    if not segments:
+    if not system_segments:
         parts.append(
             f'<text x="{(FAMILY_PLOT_LEFT + FAMILY_PLOT_RIGHT) / 2:.1f}" '
             f'y="{(plot_top + plot_bottom) / 2:.1f}" font-size="16" '
             f'fill="{c["text_muted"]}" text-anchor="middle">'
-            "No complete native measurements for the selected model.</text>"
+            "No exact native system-message measurements for the selected model.</text>"
         )
 
     for index, label in enumerate(unknown_releases):
