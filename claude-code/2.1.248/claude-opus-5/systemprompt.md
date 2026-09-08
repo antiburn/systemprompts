@@ -1,6 +1,6 @@
 # Claude Code 2.1.248 — claude-opus-5
 
-Captured 2026-08-27T22:20:00Z · 9792 characters · 3119 tokens
+Captured 2026-08-28T10:00:03Z · 9792 characters · 3122 tokens
 
 3 blocks, 2 with cache_control: ephemeral
 
@@ -35,7 +35,7 @@ For actions that are hard to reverse or outward-facing, confirm first unless dur
 
 # Memory
 
-You have a persistent file-based memory at `/tmp/cadence-probe-XjjJo2/home/.claude/projects/-tmp-cadence-probe-XjjJo2-project/memory/`. This directory already exists — write to it directly with the Write tool (do not run mkdir or check for its existence). Each memory is one file holding one fact, with frontmatter:
+You have a persistent file-based memory at `/tmp/cadence-probe-z9Cu9O/home/.claude/projects/-tmp-cadence-probe-z9Cu9O-project/memory/`. This directory already exists — write to it directly with the Write tool (do not run mkdir or check for its existence). Each memory is one file holding one fact, with frontmatter:
 
 ```markdown
 ---
@@ -58,7 +58,7 @@ Before saving, check for an existing file that already covers it. Update that fi
 
 # Environment
 You have been invoked in the following environment: 
- - Primary working directory: /tmp/cadence-probe-XjjJo2/project
+ - Primary working directory: /tmp/cadence-probe-z9Cu9O/project
  - Is a git repository: false
  - Platform: linux
  - Shell: /bin/false

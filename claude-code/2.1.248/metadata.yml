@@ -156,15 +156,17 @@ system_prompts:
   directory: "claude-fable-5"
   representation: "canonical serialized system JSON characters"
   character_count: 10946
-  token_count: 3465
-  content_sha256: "2ee84b6d1f5b2c5e6b2ff9715659ab36f0d0ed91dc2615ebd9479351500a6ba6"
+  token_count: 3462
+  content_sha256: "48e34de7e96c2613ae6e1cc6ce61260d5b93efda968037d1abe4923bb9c36c80"
   capture: "original"
+  profile: "canonical empty-project-v1"
+  recaptured_at: "2026-08-28T10:00:03Z"
   token_measurement:
     provider: "anthropic"
     status: "measured"
     model: "claude-fable-5"
     method: "Anthropic count_tokens with native model claude-fable-5; marginal full request minus component-removed request; unsupported cache_control.scope metadata omitted"
-    measured_at: "2026-08-27T22:25:54.533092217Z"
+    measured_at: "2026-08-28T10:06:01.711958193Z"
   tools:
   - canonical_name: "agent"
     observed_raw_aliases:
@@ -275,15 +277,17 @@ system_prompts:
   directory: "claude-haiku-4-5-20251001"
   representation: "canonical serialized system JSON characters"
   character_count: 28172
-  token_count: 6336
-  content_sha256: "fc1d69ab309fcbab88f1c4d1f726d9ceea1bc119b840b33268e4843564f1d6d3"
+  token_count: 6330
+  content_sha256: "e1d5799dacc3ea823f1feecd80870581047009bdd9a028766cfbb33cd319c973"
   capture: "original"
+  profile: "canonical empty-project-v1"
+  recaptured_at: "2026-08-28T10:00:03Z"
   token_measurement:
     provider: "anthropic"
     status: "measured"
     model: "claude-haiku-4-5-20251001"
     method: "Anthropic count_tokens with native model claude-haiku-4-5-20251001; marginal full request minus component-removed request; unsupported cache_control.scope metadata omitted"
-    measured_at: "2026-08-27T22:22:09.466571275Z"
+    measured_at: "2026-08-28T10:02:05.233317589Z"
   tools:
   - canonical_name: "agent"
     observed_raw_aliases:
@@ -414,15 +418,17 @@ system_prompts:
   directory: "claude-opus-5"
   representation: "canonical serialized system JSON characters"
   character_count: 9792
-  token_count: 3119
-  content_sha256: "650856fb35eaab91c08be5ac77748e6ea2324046cee8fa546029669d21ae5972"
+  token_count: 3122
+  content_sha256: "98908a1759a557a0b8970a584c0517f5d94a409d2b472b21bc064a09e404da1d"
   capture: "original"
+  profile: "canonical empty-project-v1"
+  recaptured_at: "2026-08-28T10:00:03Z"
   token_measurement:
     provider: "anthropic"
     status: "measured"
     model: "claude-opus-5"
     method: "Anthropic count_tokens with native model claude-opus-5; marginal full request minus component-removed request; unsupported cache_control.scope metadata omitted"
-    measured_at: "2026-08-27T22:24:43.029099108Z"
+    measured_at: "2026-08-28T10:04:44.228366368Z"
   tools:
   - canonical_name: "agent"
     observed_raw_aliases:
@@ -533,15 +539,17 @@ system_prompts:
   directory: "claude-sonnet-5"
   representation: "canonical serialized system JSON characters"
   character_count: 28057
-  token_count: 8664
-  content_sha256: "59a21e09eec6405522d6f59df28e44cbca1801c041b1a4e6b8ecb734ac6c0c01"
+  token_count: 8667
+  content_sha256: "46b6dbb10f3b866f4cfc0c8c30ae3b9e48e7ff4ebd68a178cae48780485d64f8"
   capture: "original"
+  profile: "canonical empty-project-v1"
+  recaptured_at: "2026-08-28T10:00:03Z"
   token_measurement:
     provider: "anthropic"
     status: "measured"
     model: "claude-sonnet-5"
     method: "Anthropic count_tokens with native model claude-sonnet-5; marginal full request minus component-removed request; unsupported cache_control.scope metadata omitted"
-    measured_at: "2026-08-27T22:23:20.392153207Z"
+    measured_at: "2026-08-28T10:03:23.579649409Z"
   tools:
   - canonical_name: "agent"
     observed_raw_aliases:

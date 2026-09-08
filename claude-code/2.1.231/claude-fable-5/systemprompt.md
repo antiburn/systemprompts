@@ -1,6 +1,6 @@
 # Claude Code 2.1.231 — claude-fable-5
 
-Captured 2026-08-15T06:15:46.560Z · 10893 characters · 3442 tokens
+Captured 2026-08-15T12:30:00Z · 10893 characters · 3442 tokens
 
 3 blocks, 2 with cache_control: ephemeral
 
@@ -50,7 +50,7 @@ This iteration of Claude is Claude Fable 5, the first model in Anthropic's new C
 
 # Memory
 
-You have a persistent file-based memory at `/tmp/cadence-probe-I9OC4I/home/.claude/projects/-tmp-cadence-probe-I9OC4I-project/memory/`. This directory already exists — write to it directly with the Write tool (do not run mkdir or check for its existence). Each memory is one file holding one fact, with frontmatter:
+You have a persistent file-based memory at `/tmp/cadence-probe-XdfiKS/home/.claude/projects/-tmp-cadence-probe-XdfiKS-project/memory/`. This directory already exists — write to it directly with the Write tool (do not run mkdir or check for its existence). Each memory is one file holding one fact, with frontmatter:
 
 ```markdown
 ---
@@ -73,7 +73,7 @@ Before saving, check for an existing file that already covers it. Update that fi
 
 # Environment
 You have been invoked in the following environment: 
- - Primary working directory: /tmp/cadence-probe-I9OC4I/project
+ - Primary working directory: /tmp/cadence-probe-XdfiKS/project
  - Is a git repository: false
  - Platform: linux
  - Shell: /bin/false

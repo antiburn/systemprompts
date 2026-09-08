@@ -1,6 +1,6 @@
 # Claude Code 2.1.248 — claude-sonnet-5
 
-Captured 2026-08-27T22:20:00Z · 28057 characters · 8664 tokens
+Captured 2026-08-28T10:00:03Z · 28057 characters · 8667 tokens
 
 3 blocks, 2 with cache_control: ephemeral
 
@@ -86,7 +86,7 @@ When you use a pronoun for someone — the user or anyone else you mention — a
 
 # auto memory
 
-You have a persistent, file-based memory system at `/tmp/cadence-probe-t4TfgT/home/.claude/projects/-tmp-cadence-probe-t4TfgT-project/memory/`. This directory already exists — write to it directly with the Write tool (do not run mkdir or check for its existence).
+You have a persistent, file-based memory system at `/tmp/cadence-probe-y6uE6Z/home/.claude/projects/-tmp-cadence-probe-y6uE6Z-project/memory/`. This directory already exists — write to it directly with the Write tool (do not run mkdir or check for its existence).
 
 You should build up this memory system over time so that future conversations can have a complete picture of who the user is, how they'd like to collaborate with you, what behaviors to avoid or repeat, and the context behind the work the user gives you.
 
@@ -220,7 +220,7 @@ Memory is one of several persistence mechanisms available to you as you assist t
 
 # Environment
 You have been invoked in the following environment: 
- - Primary working directory: /tmp/cadence-probe-t4TfgT/project
+ - Primary working directory: /tmp/cadence-probe-y6uE6Z/project
  - Is a git repository: false
  - Platform: linux
  - Shell: /bin/false

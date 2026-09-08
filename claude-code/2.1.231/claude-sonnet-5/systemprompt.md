@@ -1,6 +1,6 @@
 # Claude Code 2.1.231 — claude-sonnet-5
 
-Captured 2026-08-15T06:16:59.802Z · 28122 characters · 8690 tokens
+Captured 2026-08-15T12:30:00Z · 28107 characters · 8676 tokens
 
 3 blocks, 2 with cache_control: ephemeral
 
@@ -87,7 +87,7 @@ When you use a pronoun for someone — the user or anyone else you mention — a
 
 # auto memory
 
-You have a persistent, file-based memory system at `/tmp/cadence-probe-EX3TOy/home/.claude/projects/-tmp-cadence-probe-EX3TOy-project/memory/`. This directory already exists — write to it directly with the Write tool (do not run mkdir or check for its existence).
+You have a persistent, file-based memory system at `/tmp/cadence-probe-AVt43M/home/.claude/projects/-tmp-cadence-probe-AVt43M-project/memory/`. This directory already exists — write to it directly with the Write tool (do not run mkdir or check for its existence).
 
 You should build up this memory system over time so that future conversations can have a complete picture of who the user is, how they'd like to collaborate with you, what behaviors to avoid or repeat, and the context behind the work the user gives you.
 
@@ -221,11 +221,11 @@ Memory is one of several persistence mechanisms available to you as you assist t
 
 # Environment
 You have been invoked in the following environment: 
- - Primary working directory: /tmp/cadence-probe-EX3TOy/project
+ - Primary working directory: /tmp/cadence-probe-AVt43M/project
  - Is a git repository: false
  - Platform: linux
  - Shell: /bin/false
- - OS Version: Linux 7.1.3-200.fc44.aarch64
+ - OS Version: Linux 6.1.176
  - You are powered by the model named Sonnet 5. The exact model ID is claude-sonnet-5.
  - Assistant knowledge cutoff is January 2026.
  - The most recent Claude models are the Claude 5 family and Haiku 4.5. Model IDs — Fable 5: 'claude-fable-5', Opus 5: 'claude-opus-5', Sonnet 5: 'claude-sonnet-5', Haiku 4.5: 'claude-haiku-4-5-20251001'. When building AI applications, default to the latest and most capable Claude models.
