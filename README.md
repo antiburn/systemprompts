@@ -6,7 +6,7 @@ An automatically updated, versioned archive of the system prompts and built-in t
 
 ## Claude Code
 
-527 versions · Feb 2025 – Sep 2026 · 26,005 combined tokens (latest)
+528 versions · Feb 2025 – Sep 2026 · 26,003 combined tokens (latest)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/claude-code-tokens-dark.svg">
